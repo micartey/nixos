@@ -1,22 +1,22 @@
 default:
     @just --list
 
-vega-vm-clean:
+home-vm-clean:
     rm -rf ./nixos.qcow2
 
-vega-vm-build:
-    nixos-rebuild build-vm --flake .#vega
+home-vm-build:
+    nixos-rebuild build-vm --flake .#home
 
-vega-vm-run:
-    ./result/bin/run-vega-vm
+home-vm-run:
+    ./result/bin/run-home-vm
 
-vega-vm: vega-vm-clean vega-vm-build vega-vm-run
+home-vm: home-vm-clean home-vm-build home-vm-run
 
-vega-iso:
-    nix build .#nixosConfigurations.vega.config.system.build.isoImage
+home-iso:
+    nix build .#nixosConfigurations.home.config.system.build.isoImage
 
-vega-switch:
-    nixos-rebuild switch --flake .#vega
+home-switch:
+    nixos-rebuild switch --flake .#home
 
 sirius-vm-clean:
     rm -rf ./nixos.qcow2

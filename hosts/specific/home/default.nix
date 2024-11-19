@@ -32,7 +32,7 @@
     ../../../modules/uxplay.nix
   ];
 
-  networking.hostName = "vega";
+  networking.hostName = "home";
 
   boot = {
     kernelModules = [
