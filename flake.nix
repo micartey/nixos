@@ -61,18 +61,6 @@
             # nixos-cli.nixosModules.nixos-cli
           ];
         };
-
-        sirius = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit inputs pkgs-unstable;
-          };
-          modules = [
-            ./hosts/specific/sirius
-
-            nix-ld.nixosModules.nix-ld
-          ];
-        };
       };
     };
 }

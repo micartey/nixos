@@ -12,7 +12,6 @@
 
     ../../../modules/bluetooth.nix
     ../../../modules/cloudflare_dns.nix
-    ../../../modules/onepassword.nix
     ../../../modules/localsend.nix
     ../../../modules/udiskie.nix
     ../../../modules/nvidia-containers.nix
@@ -50,7 +49,7 @@
   };
 
   home-manager.users = {
-    lukas = import ../../../home/lukas {
+    daniel = import ../../../home/daniel {
       inherit inputs pkgs pkgs-unstable;
 
       host = {

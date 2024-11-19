@@ -5,19 +5,19 @@
     defaultUserShell = pkgs.zsh;
     users = {
       root = {
-        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
+        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_rsa.pub) ];
       };
 
-      lukas = {
+      daniel = {
         isNormalUser = true;
-        description = "Lukas Leeb";
-        initialPassword = "lukas";
+        description = "Daniel";
+        initialPassword = "daniel";
         extraGroups = [
           "networkmanager"
           "wheel"
           "docker"
         ];
-        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
+        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_rsa.pub) ];
       };
     };
   };
