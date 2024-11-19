@@ -2,6 +2,7 @@
 
 let
   mainMod = "SUPER";
+  subMod = "L_ALT SHIFT";
 in
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -48,67 +49,77 @@ in
       ];
 
       bind = [
-        # TODO: Change to SUPER + .
-        "${mainMod}, Space, exec, rofi -show drun -show-icons"
-        "${mainMod}, Backspace, exec, rofi -show drun -show-icons"
+        # Application Launcher
+        "${mainMod}, SPACE, exec, rofi -show drun -show-icons"
+        # Emoji
+        "${mainMod}, ., exec, bemoji"
+        # Clipboard History
+        "${mainMod}, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "${mainMod}, E, exec, bemoji"
-        "${mainMod}, C, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        # "${mainMod}, p, exec, swaync-client -t"
 
-        "${mainMod}, p, exec, swaync-client -t"
+        "F7, exec, hyprshot -m region --clipboard-only"
 
-        "${mainMod}, S, exec, hyprshot -m region --clipboard-only"
+        "${mainMod}, T, exec, kitty"
 
-        ''${mainMod}, T, exec, kitty --hold zsh -c "tmux attach-session || tmux new-session"''
-
+        # Start applications
+        "${mainMod}, 1, exec, vesktop"
         "${mainMod}, 2, exec, brave"
+        "${mainMod}, 3, exec, idea"
 
-        "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        # "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
-        "${mainMod}, Q, togglespecialworkspace,"
-        "${mainMod} SHIFT, Q, movetoworkspace, special"
+        # Overlay workspace
+        "${subMain}, Q, togglespecialworkspace,"
+        "${subMain} SHIFT, Q, movetoworkspace, special"
 
+        # Float window
         "${mainMod}, V, togglefloating,"
         "${mainMod}, V, centerwindow,"
 
-        "${mainMod}, N, swapnext,"
-        "${mainMod}, W, killactive,"
+        # "${mainMod}, N, swapnext,"
+        "CTRL, W, killactive,"
 
-        "${mainMod}, M, fullscreen, 1"
-        "${mainMod} SHIFT, M, fullscreen,"
+        # Fullscreen window
+        "${mainMod}, up, fullscreen, 1"
+        "F11, fullscreen,"
 
-        "${mainMod}, h, movefocus, l"
-        "${mainMod}, l, movefocus, r"
-        "${mainMod}, k, movefocus, u"
-        "${mainMod}, j, movefocus, d"
+        # Window controls (left ritgh up down)
+        "${mainMod}, w, movefocus, u"
+        "${mainMod}, a, movefocus, l"
+        "${mainMod}, s, movefocus, d"
+        "${mainMod}, d, movefocus, r"
 
-        "${mainMod}, 1, workspace, 1"
-        "${mainMod}, 2, workspace, 2"
-        "${mainMod}, 3, workspace, 3"
-        "${mainMod}, 4, workspace, 4"
-        "${mainMod}, 5, workspace, 5"
-        "${mainMod}, 6, workspace, 6"
-        "${mainMod}, 7, workspace, 7"
-        "${mainMod}, 8, workspace, 8"
-        "${mainMod}, 9, workspace, 9"
-        "${mainMod}, 0, workspace, 10"
+        # Jump to workspace
+        "${subMain}, 1, workspace, 1"
+        "${subMain}, 2, workspace, 2"
+        "${subMain}, 3, workspace, 3"
+        "${subMain}, 4, workspace, 4"
+        "${subMain}, 5, workspace, 5"
+        "${subMain}, 6, workspace, 6"
+        "${subMain}, 7, workspace, 7"
+        "${subMain}, 8, workspace, 8"
+        "${subMain}, 9, workspace, 9"
+        "${subMain}, 0, workspace, 10"
 
-        "${mainMod} SHIFT, 1, movetoworkspace, 1"
-        "${mainMod} SHIFT, 2, movetoworkspace, 2"
-        "${mainMod} SHIFT, 3, movetoworkspace, 3"
-        "${mainMod} SHIFT, 4, movetoworkspace, 4"
-        "${mainMod} SHIFT, 5, movetoworkspace, 5"
-        "${mainMod} SHIFT, 6, movetoworkspace, 6"
-        "${mainMod} SHIFT, 7, movetoworkspace, 7"
-        "${mainMod} SHIFT, 8, movetoworkspace, 8"
-        "${mainMod} SHIFT, 9, movetoworkspace, 9"
-        "${mainMod} SHIFT, 0, movetoworkspace, 10"
+        "${subMain} CTRL, 1, movetoworkspace, 1"
+        "${subMain} CTRL, 2, movetoworkspace, 2"
+        "${subMain} CTRL, 3, movetoworkspace, 3"
+        "${subMain} CTRL, 4, movetoworkspace, 4"
+        "${subMain} CTRL, 5, movetoworkspace, 5"
+        "${subMain} CTRL, 6, movetoworkspace, 6"
+        "${subMain} CTRL, 7, movetoworkspace, 7"
+        "${subMain} CTRL, 8, movetoworkspace, 8"
+        "${subMain} CTRL, 9, movetoworkspace, 9"
+        "${subMain} CTRL, 0, movetoworkspace, 10"
 
+        # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
       ];
 
+      # Window drag
       bindm = [
         "${mainMod}, mouse:272, movewindow"
         "${mainMod}, mouse:273, resizewindow"
@@ -138,7 +149,6 @@ in
       input = {
         kb_layout = "de";
         kb_variant = ",qwertz";
-        # TODO: Was ist das?
         follow_mouse = 1;
         touchpad = {
           natural_scroll = "no";
@@ -351,7 +361,7 @@ in
         };
 
         clock = {
-          timezone = "Europe/Vienna";
+          timezone = "Europe/Berlin";
           format = " {:%d/%m/%Y %H:%M}";
         };
       };

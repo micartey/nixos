@@ -54,6 +54,10 @@
     pkgs-unstable.obsidian
     pkgs-unstable.zoom
     pkgs-unstable.anki
+
+    # Bambulab
+    pkgs.bambu-studio
+    pkgs.openscad-unstable
   ];
 
   home.file.".config/nyxt" = {

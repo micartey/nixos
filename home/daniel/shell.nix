@@ -54,16 +54,16 @@ in
   programs.git = {
     enable = true;
 
-    userEmail = "git@lukasl.dev";
-    userName = "lukasl-dev";
+    userEmail = "me@micartey.dev";
+    userName = "micartey";
 
     # fancier git diff
     delta.enable = true;
 
     extraConfig = {
       color.ui = true;
-      core.editor = "nvim";
-      github.user = "lukasl-dev";
+      core.editor = "code";
+      github.user = "micartey";
       push.autoSetupRemote = true;
       pull.rebase = true;
     };

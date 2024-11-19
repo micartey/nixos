@@ -8,7 +8,7 @@
     ];
     trusted-users = [
       "root"
-      "lukas"
+      "daniel"
     ];
   };
 
