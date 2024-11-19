@@ -71,8 +71,8 @@ in
         # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         # Overlay workspace
-        "${subMain}, Q, togglespecialworkspace,"
-        "${subMain} SHIFT, Q, movetoworkspace, special"
+        "${subMod}, Q, togglespecialworkspace,"
+        "${subMod} SHIFT, Q, movetoworkspace, special"
 
         # Float window
         "${mainMod}, V, togglefloating,"
@@ -92,27 +92,27 @@ in
         "${mainMod}, d, movefocus, r"
 
         # Jump to workspace
-        "${subMain}, 1, workspace, 1"
-        "${subMain}, 2, workspace, 2"
-        "${subMain}, 3, workspace, 3"
-        "${subMain}, 4, workspace, 4"
-        "${subMain}, 5, workspace, 5"
-        "${subMain}, 6, workspace, 6"
-        "${subMain}, 7, workspace, 7"
-        "${subMain}, 8, workspace, 8"
-        "${subMain}, 9, workspace, 9"
-        "${subMain}, 0, workspace, 10"
+        "${subMod}, 1, workspace, 1"
+        "${subMod}, 2, workspace, 2"
+        "${subMod}, 3, workspace, 3"
+        "${subMod}, 4, workspace, 4"
+        "${subMod}, 5, workspace, 5"
+        "${subMod}, 6, workspace, 6"
+        "${subMod}, 7, workspace, 7"
+        "${subMod}, 8, workspace, 8"
+        "${subMod}, 9, workspace, 9"
+        "${subMod}, 0, workspace, 10"
 
-        "${subMain} CTRL, 1, movetoworkspace, 1"
-        "${subMain} CTRL, 2, movetoworkspace, 2"
-        "${subMain} CTRL, 3, movetoworkspace, 3"
-        "${subMain} CTRL, 4, movetoworkspace, 4"
-        "${subMain} CTRL, 5, movetoworkspace, 5"
-        "${subMain} CTRL, 6, movetoworkspace, 6"
-        "${subMain} CTRL, 7, movetoworkspace, 7"
-        "${subMain} CTRL, 8, movetoworkspace, 8"
-        "${subMain} CTRL, 9, movetoworkspace, 9"
-        "${subMain} CTRL, 0, movetoworkspace, 10"
+        "${subMod} CTRL, 1, movetoworkspace, 1"
+        "${subMod} CTRL, 2, movetoworkspace, 2"
+        "${subMod} CTRL, 3, movetoworkspace, 3"
+        "${subMod} CTRL, 4, movetoworkspace, 4"
+        "${subMod} CTRL, 5, movetoworkspace, 5"
+        "${subMod} CTRL, 6, movetoworkspace, 6"
+        "${subMod} CTRL, 7, movetoworkspace, 7"
+        "${subMod} CTRL, 8, movetoworkspace, 8"
+        "${subMod} CTRL, 9, movetoworkspace, 9"
+        "${subMod} CTRL, 0, movetoworkspace, 10"
 
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"

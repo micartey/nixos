@@ -52,30 +52,14 @@
             inherit inputs pkgs-unstable;
           };
           modules = [
-            (
-              { modulesPath, ... }:
-              {
-                imports = [
-                  (modulesPath + "/installer/cd-dvd/installation-cd-minimal.nix")
-                  ./hosts/specific/home
+            ./hosts/specific/home
 
-                  home-manager.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
 
-                  catppuccin.nixosModules.catppuccin
-                  nix-ld.nixosModules.nix-ld
-                ];
-              }
-            )
+            catppuccin.nixosModules.catppuccin
+            nix-ld.nixosModules.nix-ld
+            # nixos-cli.nixosModules.nixos-cli
           ];
-          # modules = [
-          #   ./hosts/specific/home
-
-          #   home-manager.nixosModules.home-manager
-
-          #   catppuccin.nixosModules.catppuccin
-          #   nix-ld.nixosModules.nix-ld
-          #   # nixos-cli.nixosModules.nixos-cli
-          # ];
         };
       };
     };

@@ -40,7 +40,6 @@
   };
 
   home.packages = [
-    pkgs.nyxt
     pkgs.zapzap
 
     # discord
@@ -59,10 +58,4 @@
     pkgs.bambu-studio
     pkgs.openscad-unstable
   ];
-
-  home.file.".config/nyxt" = {
-    enable = true;
-    source = ../../dots/nyxt;
-    target = ".config/nyxt";
-  };
 }
