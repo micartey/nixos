@@ -3,6 +3,7 @@
 let
   mainMod = "SUPER";
   subMod = "L_ALT SHIFT";
+  ctrlMod = "CTRL";
 in
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
@@ -68,56 +69,56 @@ in
         "${mainMod}, T, exec, kitty"
 
         # Start applications
-        "${mainMod}, 1, exec, vesktop"
-        "${mainMod}, 2, exec, brave"
-        "${mainMod}, 3, exec, idea"
+        # "${mainMod}, 1, exec, vesktop"
+        # "${mainMod}, 2, exec, brave"
+        # "${mainMod}, 3, exec, idea"
 
         # "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         # Overlay workspace
-        "${subMod}, Q, togglespecialworkspace,"
-        "${subMod} SHIFT, Q, movetoworkspace, special"
+        # "${subMod}, Q, togglespecialworkspace,"
+        # "${subMod} SHIFT, Q, movetoworkspace, special"
 
         # Float window
         "${mainMod}, V, togglefloating,"
         "${mainMod}, V, centerwindow,"
 
         # "${mainMod}, N, swapnext,"
-        "CTRL, W, killactive,"
+        "CTRL, Q, killactive,"
 
         # Fullscreen window
         "${mainMod}, up, fullscreen, 1"
         ", F11, fullscreen,"
 
         # Window controls (left ritgh up down)
-        "${mainMod}, w, movefocus, u"
-        "${mainMod}, a, movefocus, l"
-        "${mainMod}, s, movefocus, d"
-        "${mainMod}, d, movefocus, r"
+        # "${mainMod}, w, movefocus, u"
+        # "${mainMod}, a, movefocus, l"
+        # "${mainMod}, s, movefocus, d"
+        # "${mainMod}, d, movefocus, r"
 
         # Jump to workspace
-        "${subMod}, 1, workspace, 1"
-        "${subMod}, 2, workspace, 2"
-        "${subMod}, 3, workspace, 3"
-        "${subMod}, 4, workspace, 4"
-        "${subMod}, 5, workspace, 5"
-        "${subMod}, 6, workspace, 6"
-        "${subMod}, 7, workspace, 7"
-        "${subMod}, 8, workspace, 8"
-        "${subMod}, 9, workspace, 9"
-        "${subMod}, 0, workspace, 10"
+        "${ctrlMod}, 1, workspace, 1"
+        "${ctrlMod}, 2, workspace, 2"
+        "${ctrlMod}, 3, workspace, 3"
+        "${ctrlMod}, 4, workspace, 4"
+        "${ctrlMod}, 5, workspace, 5"
+        # "${subMod}, 6, workspace, 6"
+        # "${subMod}, 7, workspace, 7"
+        # "${subMod}, 8, workspace, 8"
+        # "${subMod}, 9, workspace, 9"
+        # "${subMod}, 0, workspace, 10"
 
-        "${subMod} CTRL, 1, movetoworkspace, 1"
-        "${subMod} CTRL, 2, movetoworkspace, 2"
-        "${subMod} CTRL, 3, movetoworkspace, 3"
-        "${subMod} CTRL, 4, movetoworkspace, 4"
-        "${subMod} CTRL, 5, movetoworkspace, 5"
-        "${subMod} CTRL, 6, movetoworkspace, 6"
-        "${subMod} CTRL, 7, movetoworkspace, 7"
-        "${subMod} CTRL, 8, movetoworkspace, 8"
-        "${subMod} CTRL, 9, movetoworkspace, 9"
-        "${subMod} CTRL, 0, movetoworkspace, 10"
+        "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
+        "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
+        "${ctrlMod} SHIFT, 3, movetoworkspace, 3"
+        "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
+        "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
+        # "${subMod} CTRL, 6, movetoworkspace, 6"
+        # "${subMod} CTRL, 7, movetoworkspace, 7"
+        # "${subMod} CTRL, 8, movetoworkspace, 8"
+        # "${subMod} CTRL, 9, movetoworkspace, 9"
+        # "${subMod} CTRL, 0, movetoworkspace, 10"
 
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
@@ -159,6 +160,11 @@ in
         "float,title:(Welcome to IntelliJ IDEA)"
         "size 1358 682,title:(Welcome to IntelliJ IDEA)"
         "center,title:(Welcome to IntelliJ IDEA)"
+
+        # Folders
+        "float,class:(org.gnome.Nautilus)"
+        "size 1531 886,class:(org.gnome.Nautilus)"
+        "center,class:(org.gnome.Nautilus)"
       ];
 
       input = {

@@ -48,11 +48,7 @@
     pkgs-unstable.legcord
     pkgs-unstable.discordo
 
-    pkgs.signal-desktop
-    pkgs.slack
-    pkgs-unstable.obsidian
-    pkgs-unstable.zoom
-    pkgs-unstable.anki
+    pkgs.mullvad-vpn
 
     # Bambulab
     pkgs.bambu-studio
