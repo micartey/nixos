@@ -51,7 +51,7 @@
     pkgs.mullvad-vpn
 
     # Bambulab
-    pkgs.bambu-studio
+    pkgs-unstable.bambu-studio
     pkgs.openscad-unstable
   ];
 }
