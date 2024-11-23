@@ -8,6 +8,7 @@
 
     prismlauncher
     glfw-wayland-minecraft
+    lunar-client
 
     gamemode
     gamescope

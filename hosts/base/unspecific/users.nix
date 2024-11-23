@@ -16,6 +16,7 @@
           "networkmanager"
           "wheel"
           "docker"
+          "daniel"
         ];
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_rsa.pub) ];
       };

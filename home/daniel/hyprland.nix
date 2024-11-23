@@ -24,6 +24,11 @@ in
       # monitor = [
       # ];
 
+      monitor = [
+        "HDMI-A-2,3440x1440@99.98200,0x0,1"
+        "Unknown-1,disable"
+      ];
+
       # TODO: is all of that necessary?
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -54,11 +59,11 @@ in
         # Emoji
         "${mainMod}, ., exec, bemoji"
         # Clipboard History
-        "${mainMod}, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "CTRL SHIFT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # "${mainMod}, p, exec, swaync-client -t"
 
-        "F7, exec, hyprshot -m region --clipboard-only"
+        ", F7, exec, hyprshot -m region --clipboard-only"
 
         "${mainMod}, T, exec, kitty"
 
@@ -83,7 +88,7 @@ in
 
         # Fullscreen window
         "${mainMod}, up, fullscreen, 1"
-        "F11, fullscreen,"
+        ", F11, fullscreen,"
 
         # Window controls (left ritgh up down)
         "${mainMod}, w, movefocus, u"
@@ -135,7 +140,6 @@ in
         "float,title:(Open File)"
         "float,initialTitle:(discord popout)"
 
-        "workspace 1,initialClass:(vesktop)"
 
         "workspace 1,initialTitle:(YouTube Music)"
         "noanim,initialClass:^(Minecraft\*\s1\.20\.6)$"
@@ -144,6 +148,17 @@ in
         "pin,title:(.*)is sharing your screen(.*)"
         "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
         "bordersize 0,title:(.*)is sharing your screen(.*)"
+
+        # Vesktop (Discord)
+        "float,initialClass:(vesktop)"
+        "size 2549 1123,initialClass:(vesktop)"
+        "center, initialClass:(vesktop)"
+        "workspace 2,initialClass:(vesktop)"
+
+        # IntelliJ
+        "float,title:(Welcome to IntelliJ IDEA)"
+        "size 1358 682,title:(Welcome to IntelliJ IDEA)"
+        "center,title:(Welcome to IntelliJ IDEA)"
       ];
 
       input = {
@@ -176,10 +191,10 @@ in
           passes = 1;
         };
 
-        "drop_shadow" = "yes";
-        shadow_range = 4;
-        shadow_render_power = 3;
-        "col.shadow" = "$crust";
+        #"drop_shadow" = "yes";
+        #shadow_range = 4;
+        #shadow_render_power = 3;
+        #"col.shadow" = "$crust";
       };
 
       animations = {
@@ -207,8 +222,9 @@ in
       };
 
       misc = {
-        force_default_wallpaper = 0;
-        vrr = 2;
+	      force_default_wallpaper = 0;
+        mouse_move_enables_dpms = false;
+        vrr = 1;
       };
     };
   };
