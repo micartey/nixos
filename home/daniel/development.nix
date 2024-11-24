@@ -35,7 +35,8 @@
     pkgs.gleam
 
     # java-related
-    pkgs.zulu21
+    # pkgs.zulu21
+    pkgs.zulu17
 
     # scala-related
     pkgs-unstable.scala

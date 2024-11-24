@@ -77,15 +77,15 @@ in
         # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
         # Overlay workspace
-        # "${subMod}, Q, togglespecialworkspace,"
-        # "${subMod} SHIFT, Q, movetoworkspace, special"
+        "${ctrlMod}, 0, togglespecialworkspace,"
+        "${ctrlMod} SHIFT, 0, movetoworkspace, special"
 
         # Float window
         "${mainMod}, V, togglefloating,"
         "${mainMod}, V, centerwindow,"
 
         # "${mainMod}, N, swapnext,"
-        "CTRL, Q, killactive,"
+        "${ctrlMod} SHIFT, Q, killactive,"
 
         # Fullscreen window
         "${mainMod}, up, fullscreen, 1"
@@ -103,7 +103,7 @@ in
         "${ctrlMod}, 3, workspace, 3"
         "${ctrlMod}, 4, workspace, 4"
         "${ctrlMod}, 5, workspace, 5"
-        # "${subMod}, 6, workspace, 6"
+        "${ctrlMod}, 6, workspace, 6"
         # "${subMod}, 7, workspace, 7"
         # "${subMod}, 8, workspace, 8"
         # "${subMod}, 9, workspace, 9"
@@ -114,7 +114,7 @@ in
         "${ctrlMod} SHIFT, 3, movetoworkspace, 3"
         "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
         "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
-        # "${subMod} CTRL, 6, movetoworkspace, 6"
+        "${ctrlMod} SHIFT, 6, movetoworkspace, 6"
         # "${subMod} CTRL, 7, movetoworkspace, 7"
         # "${subMod} CTRL, 8, movetoworkspace, 8"
         # "${subMod} CTRL, 9, movetoworkspace, 9"
