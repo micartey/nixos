@@ -49,11 +49,7 @@
     pkgs-unstable.discordo
 
     pkgs.mullvad-vpn
-
     pkgs.spotify
-
-    # Bambulab
-    pkgs-unstable.bambu-studio
     pkgs.openscad-unstable
   ];
 }

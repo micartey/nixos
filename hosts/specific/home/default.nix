@@ -31,33 +31,20 @@
     ../../../modules/xserver.nix
     ../../../modules/sddm.nix
     ../../../modules/uxplay.nix
+    ../../../modules/bambulab.nix
   ];
 
   networking.hostName = "home";
 
   boot = {
-#    initrd = {
-#      luks.devices."luks-d07e99fc-f149-430e-ac1f-405ffd12603c".keyFile = "/boot/crypto_keyfile.bin";
-#      secrets = {
-#        "/boot/crypto_keyfile.bin" = null;
-#      };
-#    };
     kernelModules = [
       "nct6775"
       "coretemp"
     ];
     loader = {
-      # systemd-boot.enable = true;
-#      efi.canTouchEfiVariables = true;
-
-#      grub.enable = lib.mkDefault true;
-#      grub.useOSProber = true;
-#      grub.device = "/dev/nvme0n1p1";
-#      grub.enableCryptodisk = true;
       systemd-boot.enable = true;
+
       efi.canTouchEfiVariables = true;
-#	grub.devices = [ "/dev/nvme0n1p1" ];
-#	grub.efiSupport = true;
     };
     supportedFilesystems = {
       ntfs = true;
@@ -96,5 +83,13 @@
   #   config = '''';
   # };
 
-  environment.systemPackages = with pkgs; [ lm_sensors ];
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+    libthai
+  ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 }
