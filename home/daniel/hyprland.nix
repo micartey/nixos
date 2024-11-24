@@ -39,6 +39,8 @@ in
         "XDG_CURRENT_DESKTOP,Hyprland"
         "XDG_SESSION_TYPE,wayland"
 
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+
         # hyprcursor
         "HYPRCURSOR_SIZE,26"
         "HYPRCURSOR_THEME,Catppuccin-Mocha-Light-Cursors"
@@ -53,6 +55,10 @@ in
 
         "waybar"
       ];
+
+      cursor = {
+        no_hardware_cursors = true;
+      };
 
       bind = [
         # Application Launcher
@@ -307,7 +313,7 @@ in
           interval = 1;
           tooltip = false;
           exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
-          on-click = "kitty -e btop";
+          on-click = "kitty -e nvtop";
           max-length = 50;
         };
 
