@@ -6,33 +6,34 @@
   ...
 }:
 
+with lib;
+let
+  # Recursively constructs an attrset of a given folder, recursing on directories, value of attrs is the filetype
+  getDir = dir: mapAttrs
+    (file: type:
+      if type == "directory" then getDir "${dir}/${file}" else type
+    )
+    (builtins.readDir dir);
+
+  # Collects all files of a directory as a list of strings of paths
+  files = dir: collect isString (mapAttrsRecursive (path: type: concatStringsSep "/" path) (getDir dir));
+
+  # Filters out directories that don't end with .nix or are this file, also makes the strings absolute
+  validFiles = dir: map
+    (file: ./. + "/${file}")
+    (filter
+      (file: hasSuffix ".nix" file && file != "default.nix" &&
+        ! lib.hasPrefix "x/taffybar/" file &&
+        ! lib.hasSuffix "-hm.nix" file)
+      (files dir));
+
+in
+
 {
   imports = [
     ./hardware-configuration.nix
     ../../base/desktop
-
-    ../../../modules/bluetooth.nix
-    ../../../modules/cloudflare_dns.nix
-    ../../../modules/localsend.nix
-    ../../../modules/udiskie.nix
-    ../../../modules/nvidia-containers.nix
-    ../../../modules/gnome-keyring.nix
-    ../../../modules/seahorse.nix
-    ../../../modules/nautilus.nix
-    ../../../modules/hyprland.nix
-    ../../../modules/nvidia.nix
-    ../../../modules/opengl.nix
-    ../../../modules/ollama.nix
-    ../../../modules/pipewire.nix
-    ../../../modules/polkit.nix
-    ../../../modules/qt.nix
-    ../../../modules/steam.nix
-    ../../../modules/looking-glass.nix
-    ../../../modules/xserver.nix
-    ../../../modules/sddm.nix
-    ../../../modules/uxplay.nix
-    ../../../modules/bambulab.nix
-  ];
+  ] ++ validFiles ../../../modules;
 
   networking.hostName = "home";
 

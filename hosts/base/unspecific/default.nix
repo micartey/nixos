@@ -7,7 +7,7 @@
     ./users.nix
     ./shell.nix
 
-    ../../../modules/docker.nix
+    ../../../modules/services/docker.nix
   ];
 
   system.stateVersion = "24.05";
