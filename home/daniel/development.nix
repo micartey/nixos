@@ -36,7 +36,7 @@
 
     # java-related
     # pkgs.zulu21
-    pkgs.zulu17
+    pkgs.zulu11
 
     # scala-related
     pkgs-unstable.scala

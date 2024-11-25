@@ -31,7 +31,7 @@
     ../../../modules/xserver.nix
     ../../../modules/sddm.nix
     ../../../modules/uxplay.nix
-    # ../../../modules/bambulab.nix
+    ../../../modules/bambulab.nix
   ];
 
   networking.hostName = "home";

@@ -7,8 +7,8 @@ bambulab = pkgs.appimageTools.wrapType2 rec {
     version = "01.10.01.50";
 
     src = pkgs.fetchurl {
-        url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_linux_ubuntu_24.04_v${version}.AppImage ";
-        sha256 = "sha256-NH7SwQzg5Dmbn+5E2ov7EuVp4+kxgTebBRBM71ntxD8=";
+        url = "https://github.com/bambulab/BambuStudio/releases/download/v${version}/Bambu_Studio_linux_ubuntu_20.04_v${version}.AppImage ";
+        sha256 = "sha256-i3WRPosApSm4bGezOcCgw+aqB4i5adhOfPShdDSPaXo=";
     };
 
     profile = ''
