@@ -51,5 +51,9 @@
     pkgs.mullvad-vpn
     pkgs.spotify
     pkgs.openscad-unstable
+
+    pkgs-unstable.orca-slicer
+
+    pkgs.obs-studio
   ];
 }
