@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ../../base/desktop
 
-    ../../modules
+    ../../../modules
   ];
 
   networking.hostName = "home";
