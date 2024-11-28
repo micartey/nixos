@@ -32,6 +32,9 @@ in
 
       # TODO: is all of that necessary?
       env = [
+        # Multi GPU
+        # "AQ_DRM_DEVICES,/dev/dri/card1"
+
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland"
         "NVD_BACKEND,direct"
