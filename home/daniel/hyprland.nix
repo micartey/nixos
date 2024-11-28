@@ -21,10 +21,6 @@ in
     sourceFirst = true;
 
     settings = {
-      # # In case of multiple monitors
-      # monitor = [
-      # ];
-
       monitor = [
         "HDMI-A-2,3440x1440@99.98200,0x0,1"
         "Unknown-1,disable"
@@ -32,8 +28,10 @@ in
 
       # TODO: is all of that necessary?
       env = [
-        # Multi GPU
-        # "AQ_DRM_DEVICES,/dev/dri/card1"
+        # Multi GPU Configuration - Do not use the 2nd NVIDIA GPU
+        # card1: NVIDIA 4090 Super
+        # card0: AMD iGPU
+        # "AQ_DRM_DEVICES,/dev/dri/card1:/dev/dri/card0"
 
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland"
