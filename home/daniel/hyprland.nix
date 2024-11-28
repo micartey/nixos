@@ -30,7 +30,6 @@ in
         "Unknown-1,disable"
       ];
 
-      # TODO: is all of that necessary?
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland"

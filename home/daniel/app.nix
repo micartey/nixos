@@ -55,5 +55,10 @@
     pkgs.orca-slicer
 
     pkgs.obs-studio
+
+    # tex-related
+    pkgs.texliveFull
+    pkgs.graphviz
+    pkgs.inkscape
   ];
 }
