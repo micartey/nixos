@@ -16,7 +16,7 @@
           "networkmanager"
           "wheel"
           "docker"
-          "daniel",
+          "daniel"
           "wireshark"
         ];
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
