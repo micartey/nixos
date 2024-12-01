@@ -28,7 +28,12 @@ in
     if [ "$(tty)" = "/dev/tty1" ]; then
       exec Hyprland &> /dev/null
     fi
+
+    bindkey "^[[1;5C" forward-word
+    bindkey "^[[1;5D" backward-word
     '';
+    
+
     # initExtra = ''
     #   source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     #   bindkey "''${key[Up]}" up-line-or-search

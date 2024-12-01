@@ -19,5 +19,8 @@
     pkgs.vscode-extensions.elixir-lsp.vscode-elixir-ls
     pkgs.vscode-extensions.yzhang.markdown-all-in-one
     pkgs.vscode-extensions.redhat.vscode-yaml
+
+    # text-editors
+    pkgs.vim
   ];
 }
