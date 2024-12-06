@@ -18,19 +18,11 @@ home-iso:
 home-switch:
     nixos-rebuild switch --flake .#home
 
-sirius-vm-clean:
-    rm -rf ./nixos.qcow2
+generate-key:
+    nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/private > ~/.config/sops/age/keys.txt
 
-sirius-vm-build:
-    nixos-rebuild build-vm --flake .#sirius
+get-public-key:
+    nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
 
-sirius-vm-run:
-    ./result/bin/run-sirius-vm
-
-sirius-vm: sirius-vm-clean sirius-vm-build sirius-vm-run
-
-sirius-iso:
-    nix build .#nixosConfigurations.sirius.config.system.build.isoImage
-
-sirius-switch:
-    nixos-rebuild switch --flake .#sirius
+sobs:
+    sops ./secrets/secrets.yml
