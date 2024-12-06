@@ -8,13 +8,12 @@
 
 {
   imports = [
+    ../default.nix
     ./hardware-configuration.nix
-    ../../base/desktop
-
-    ../../../modules
   ];
 
   networking.hostName = "home";
+
 
   boot = {
     kernelModules = [
@@ -28,16 +27,6 @@
     };
     supportedFilesystems = {
       ntfs = true;
-    };
-  };
-
-  home-manager.users = {
-    daniel = import ../../../home/daniel {
-      inherit inputs pkgs pkgs-unstable;
-
-      host = {
-        # TODO: add config options for home manager modules
-      };
     };
   };
 
@@ -68,8 +57,4 @@
     libthai
   ];
 
-  programs.appimage = {
-    enable = true;
-    binfmt = true;
-  };
 }

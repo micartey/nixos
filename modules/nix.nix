@@ -1,4 +1,8 @@
+{ inputs, pkgs, ... }:
+
 {
+  imports = [ inputs.nix-ld.nixosModules.nix-ld ];
+
   system.stateVersion = "24.05";
 
   nix.settings = {
@@ -12,5 +16,15 @@
     ];
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
+  programs.nix-ld.dev.enable = true;
+  
+  environment.systemPackages = with pkgs; [
+    # nix language server
+    nixd
+    nixfmt-rfc-style
+  ];
 }

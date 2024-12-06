@@ -1,7 +1,7 @@
 { inputs, pkgs-unstable, ... }:
 
 {
-  imports = [ ../unspecific ];
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   home-manager = {
     extraSpecialArgs = {
@@ -9,11 +9,5 @@
     };
     useGlobalPkgs = true;
     useUserPackages = true;
-  };
-
-  catppuccin = {
-    enable = true;
-
-    flavor = "mocha";
   };
 }

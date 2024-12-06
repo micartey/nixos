@@ -34,7 +34,6 @@
       home-manager,
       nix-ld,
       catppuccin,
-      # nixos-cli,
       ...
     }@inputs:
     let
@@ -51,16 +50,8 @@
           specialArgs = {
             inherit inputs pkgs-unstable;
           };
-          modules = [
-            ./hosts/specific/home
 
-            home-manager.nixosModules.home-manager
-
-            catppuccin.nixosModules.catppuccin
-            nix-ld.nixosModules.nix-ld
-            
-            { programs.nix-ld.dev.enable = true; }
-          ];
+          modules = [ ./hosts/desktop/home ];
         };
       };
     };
