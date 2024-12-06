@@ -48,9 +48,7 @@ in
       exec-once = [
         "wl-paste --type text --watch cliphist store"
 
-        "zapzap"
         "vesktop"
-        "localsend_app"
 
         "waybar"
       ];

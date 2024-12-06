@@ -17,6 +17,7 @@ jobs:
         with:
           name: deadnix
       - uses: astro/deadnix-action@main
+      
   flake-check:
     name: Flake check
     runs-on: ubuntu-latest
