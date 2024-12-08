@@ -24,5 +24,5 @@ generate-key:
 get-public-key:
     nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
 
-sobs:
+sops:
     sops ./secrets/secrets.yml
