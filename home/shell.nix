@@ -7,10 +7,25 @@ let
     bye = "shutdown -h now";
     cya = "reboot";
 
-    woman = "man";
+    # mpv /dev/video0 --audio-file=av://alsa:hw:3,0 \
+    # --untimed \
+    # --no-cache \
+    # --demuxer-lavf-o=probesize=32 \
+    # --demuxer-lavf-o=analyzeduration=0 \
+    # --demuxer-lavf-o=live=1 \
+    # --demuxer-lavf-o=fflags=nobuffer \
+    # --demuxer-thread=no \
+    # --video-sync=display-desync --no-audio-sync
 
-    files = "yazi";
-    f = "yazi";
+    # arecord -l
+    capture-card = ''
+      mpv /dev/video0 --profile=low-latency --untimed & PID1=$!; \
+
+      ffplay -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 \
+             -f alsa -i hw:3,0 -nodisp & PID2=$!; \
+
+      wait $PID1 && kill $PID2
+    '';
   };
 in
 {
@@ -32,7 +47,7 @@ in
     bindkey "^[[1;5C" forward-word
     bindkey "^[[1;5D" backward-word
     '';
-    
+
 
     # initExtra = ''
     #   source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh

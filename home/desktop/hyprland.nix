@@ -282,7 +282,7 @@ in
           "memory"
           "cpu"
           "custom/nvidia"
-          "custom/uxplay"
+          "network"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
@@ -305,7 +305,7 @@ in
         };
 
         "custom/nvidia" = {
-          format = "  {}%";
+          format = "󰹑   {}%";
           escape = true;
           interval = 1;
           tooltip = false;
@@ -314,11 +314,18 @@ in
           max-length = 50;
         };
 
-        "custom/uxplay" = {
-          format = "{}";
-          exec = "if pgrep uxplay > /dev/null; then echo ''; else echo ''; fi";
+        network = {
           interval = 1;
-          on-click = "if pgrep uxplay > /dev/null; then pkill -f uxplay; else uxplay -p tcp 4000 -p udp 5000; fi";
+          format = "{ifname}";
+          # format-wifi = "{icon} {bandwidthDownBytes}  {bandwidthUpBytes} ";
+          format-ethernet = "{icon} 󰮏  {bandwidthDownBytes}  󰸇  {bandwidthUpBytes} ";
+          format-disconnected = "";
+          # tooltip-format = "{ipaddr}";
+          # format-linked = "󰈁 {ifname} (No IP)";
+          # tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
+          tooltip-format-ethernet = "󰌘 {ifname}";
+          tooltip-format-disconnected = "󰌙 Disconnected";
+          max-length = 50;
         };
 
         temperature = {
