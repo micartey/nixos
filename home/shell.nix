@@ -17,12 +17,15 @@ let
     # --demuxer-thread=no \
     # --video-sync=display-desync --no-audio-sync
 
+    # TODO: Need to get hw:3,0 dynamically. "3" in this case stands for card 3,
     # arecord -l
     capture-card = ''
+      CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
+
       mpv /dev/video0 --profile=low-latency --untimed & PID1=$!; \
 
       ffplay -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 \
-             -f alsa -i hw:3,0 -nodisp & PID2=$!; \
+             -f alsa -i hw:$CAPTURE_CARD_ID,0 -nodisp & PID2=$!; \
 
       wait $PID1 && kill $PID2
     '';
