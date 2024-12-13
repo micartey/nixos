@@ -33,9 +33,6 @@
     {
       nixpkgs,
       nixpkgs-unstable,
-      home-manager,
-      nix-ld,
-      catppuccin,
       ...
     }@inputs:
     let
