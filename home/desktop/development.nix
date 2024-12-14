@@ -36,6 +36,7 @@
 
     # java-related
     pkgs.zulu21
+    pkgs.gradle_7
 
     # scala-related
     pkgs-unstable.scala
@@ -50,6 +51,8 @@
     pkgs.python3
     pkgs.uv
     pkgs.python312Packages.grip
+
+    pkgs.socat
 
     # # rust-related
     # pkgs.rustc
