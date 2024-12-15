@@ -95,10 +95,10 @@ in
         ", F11, fullscreen,"
 
         # Window controls (left ritgh up down)
-        # "${mainMod}, w, movefocus, u"
-        # "${mainMod}, a, movefocus, l"
-        # "${mainMod}, s, movefocus, d"
-        # "${mainMod}, d, movefocus, r"
+        "${subMod}, up, movefocus, u"
+        "${subMod}, left, movefocus, l"
+        "${subMod}, down, movefocus, d"
+        "${subMod}, right, movefocus, r"
 
         # Jump to workspace
         "${ctrlMod}, 1, workspace, 1"
