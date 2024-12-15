@@ -17,8 +17,6 @@ let
     # --demuxer-thread=no \
     # --video-sync=display-desync --no-audio-sync
 
-    # TODO: Need to get hw:3,0 dynamically. "3" in this case stands for card 3,
-    # arecord -l
     capture-card = ''
       CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
 
