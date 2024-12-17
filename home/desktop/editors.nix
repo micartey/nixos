@@ -1,4 +1,4 @@
-{ inputs, pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = [
