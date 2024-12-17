@@ -4,6 +4,7 @@
   imports = [
     ../default.nix
 
+    ./mpv.nix
     ./app.nix
     ./dconf.nix
     ./development.nix
