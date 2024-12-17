@@ -20,7 +20,7 @@ let
     capture-card = ''
       CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
 
-      mpv /dev/video0 --profile=low-latency --untimed --vf=unsharp=luma_msize_x=5:luma_msize_y=5:luma_amount=-0.1 & PID1=$!; \
+      mpv /dev/video0 --profile=low-latency --untimed & PID1=$!; \
 
       ffplay -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 \
              -f alsa -i hw:$CAPTURE_CARD_ID,0 -nodisp & PID2=$!; \
@@ -121,7 +121,6 @@ in
   programs.fzf.enable = true;
   programs.carapace.enable = true;
   programs.ripgrep.enable = true;
-  programs.mpv.enable = true;
   programs.yt-dlp.enable = true;
 
   home.packages = [
