@@ -1,5 +1,6 @@
+{ pkgs, ... }:
+
 {
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -11,4 +12,6 @@
     jack.enable = true;
   };
   services.libinput.enable = true;
+
+  environment.systemPackages = [ pkgs.alsa-utils ];
 }

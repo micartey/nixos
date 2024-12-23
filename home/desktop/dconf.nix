@@ -7,5 +7,7 @@
     };
   };
 
-  home.packages = with pkgs; [ gnome.dconf-editor ];
+  home.packages = with pkgs; [
+    dconf-editor
+  ];
 }

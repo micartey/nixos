@@ -7,6 +7,9 @@ home-iso:
 home-switch:
     nixos-rebuild switch --flake .#home
 
+flake-update:
+    nix flake update
+
 generate-key:
     nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/private > ~/.config/sops/age/keys.txt
 

@@ -1,4 +1,4 @@
-{ config, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 # let
 # bambulab = pkgs.appimageTools.wrapType2 rec {
@@ -30,7 +30,7 @@
 # in
 
 {
-    environment.systemPackages = with pkgs-unstable; [
-        bambu-studio
-    ];
+  environment.systemPackages = with pkgs; [
+    bambu-studio
+  ];
 }
