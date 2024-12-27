@@ -32,23 +32,22 @@
         enable = true;
 
         defaultApplications = {
-          "application/x-extension-htm" = brave;
-          "application/x-extension-html" = brave;
-          "application/x-extension-shtml" = brave;
-          "application/x-extension-xht" = brave;
-          "application/x-extension-xhtml" = brave;
-          "application/xhtml+xml" = brave;
-          "application/json" = brave;
-          "text/html" = brave;
-          "x-scheme-handler/about" = brave;
-          "x-scheme-handler/chrome" = brave;
-          "x-scheme-handler/ftp" = brave;
-          "x-scheme-handler/http" = brave;
-          "x-scheme-handler/https" = brave;
-          "x-scheme-handler/unknown" = brave;
-          "image/svg+xml" = brave;
-
+          "application/x-extension-htm" = firefox;
+          "application/x-extension-html" = firefox;
+          "application/x-extension-shtml" = firefox;
+          "application/x-extension-xht" = firefox;
+          "application/x-extension-xhtml" = firefox;
+          "application/xhtml+xml" = firefox;
+          "application/json" = firefox;
           "application/pdf" = firefox;
+          "text/html" = firefox;
+          "x-scheme-handler/about" = firefox;
+          "x-scheme-handler/chrome" = firefox;
+          "x-scheme-handler/ftp" = firefox;
+          "x-scheme-handler/http" = firefox;
+          "x-scheme-handler/https" = firefox;
+          "x-scheme-handler/unknown" = firefox;
+          "image/svg+xml" = firefox;
 
           "text/markdown" = vscode;
         };
