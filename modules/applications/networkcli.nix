@@ -1,7 +1,7 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 {
-  environment.systemPackages = [ 
+  environment.systemPackages = [
     pkgs.tcpdump
     pkgs.traceroute
   ];

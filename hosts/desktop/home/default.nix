@@ -1,8 +1,5 @@
 {
-  inputs,
   pkgs,
-  pkgs-unstable,
-  lib,
   ...
 }:
 
@@ -13,7 +10,6 @@
   ];
 
   networking.hostName = "home";
-
 
   boot = {
     kernelModules = [
