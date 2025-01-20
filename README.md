@@ -5,3 +5,10 @@
 </div>
 
 ![img](preview.png)
+
+## TODO
+
+- [ ] Remove unused variables
+- [ ] Make AppImage work
+  - [ ] etcher.nix (Balena Etcher)
+  - [ ] moonclient.nix

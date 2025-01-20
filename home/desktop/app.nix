@@ -33,6 +33,38 @@
     enable = true;
     package = pkgs-unstable.firefox;
 
+    policies = {
+
+      ExtensionSettings = {
+        "*".installation_mode = "blocked";
+
+        # uBlock Origin
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+
+        # AdGuard AdBlocker
+        "adguardadblocker@adguard.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/adguard-adblocker/latest.xpi";
+          installation_mode = "force_installed";
+        };
+
+        # LanguageTool
+        "languagetool-webextension@languagetool.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/languagetool/latest.xpi";
+          installation_mode = "force_installed";
+        };
+
+        # Return YouTube Dislike
+        "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislike/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+
+    };
+
     profiles.default = {
       isDefault = true;
     };
@@ -48,7 +80,6 @@
     pkgs-unstable.legcord
     pkgs-unstable.discordo
 
-    pkgs.mullvad-vpn
     pkgs.spotify
     pkgs.openscad-unstable
 

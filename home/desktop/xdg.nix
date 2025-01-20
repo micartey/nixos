@@ -23,7 +23,6 @@
 
     mimeApps =
       let
-        brave = [ "brave.desktop" ];
         firefox = [ "firefox.desktop" ];
 
         vscode = [ "vscode.desktop" ];
