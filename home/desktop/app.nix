@@ -36,7 +36,7 @@
     policies = {
 
       ExtensionSettings = {
-        "*".installation_mode = "blocked";
+        # "*".installation_mode = "blocked";
 
         # uBlock Origin
         "uBlock0@raymondhill.net" = {

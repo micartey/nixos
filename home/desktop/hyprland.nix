@@ -71,11 +71,6 @@ in
 
         "${mainMod}, T, exec, kitty"
 
-        # Start applications
-        # "${mainMod}, 1, exec, vesktop"
-        # "${mainMod}, 2, exec, brave"
-        # "${mainMod}, 3, exec, idea"
-
         # "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
         # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
 
@@ -107,10 +102,6 @@ in
         "${ctrlMod}, 4, workspace, 4"
         "${ctrlMod}, 5, workspace, 5"
         "${ctrlMod}, 6, workspace, 6"
-        # "${subMod}, 7, workspace, 7"
-        # "${subMod}, 8, workspace, 8"
-        # "${subMod}, 9, workspace, 9"
-        # "${subMod}, 0, workspace, 10"
 
         "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
         "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
@@ -118,14 +109,16 @@ in
         "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
         "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
         "${ctrlMod} SHIFT, 6, movetoworkspace, 6"
-        # "${subMod} CTRL, 7, movetoworkspace, 7"
-        # "${subMod} CTRL, 8, movetoworkspace, 8"
-        # "${subMod} CTRL, 9, movetoworkspace, 9"
-        # "${subMod} CTRL, 0, movetoworkspace, 10"
 
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
+
+        # Toggle Network delay
+        "${mainMod}, 1, exec, sudo tc qdisc add dev enp14s0 root netem delay 120ms"
+        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 50ms 150ms distribution normal loss 30%"
+        "${mainMod}, 3, exec, sudo tc qdisc add dev enp14s0 root netem loss 100%"
+        "${mainMod}, 0, exec, sudo tc qdisc del dev enp14s0 root"
       ];
 
       # Window drag
@@ -143,7 +136,6 @@ in
         "float,title:(Save File)"
         "float,title:(Open File)"
         "float,initialTitle:(discord popout)"
-
 
         "workspace 1,initialTitle:(YouTube Music)"
         "noanim,initialClass:^(Minecraft\*\s1\.20\.6)$"
@@ -231,7 +223,7 @@ in
       };
 
       misc = {
-	      force_default_wallpaper = 0;
+        force_default_wallpaper = 0;
         mouse_move_enables_dpms = false;
         vrr = 1;
       };
