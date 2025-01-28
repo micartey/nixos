@@ -8,7 +8,7 @@
       runAs = "root";
       commands = [
         {
-          command = "/etc/profiles/per-user/daniel/bin/just";
+          command = "/run/current-system/sw/bin/tc";
           options = [ "NOPASSWD" ];
         }
       ];

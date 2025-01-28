@@ -1,9 +1,14 @@
-{ inputs, pkgs, pkgs-unstable, ... }:
+{
+  inputs,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
-  imports = [ 
+  imports = [
     ../default.nix
-    
+
     ../../modules
   ];
 
@@ -16,7 +21,7 @@
   };
 
   home-manager.users = {
-    daniel = import ../../home/desktop {
+    daniel = import ../../home-manager/desktop {
       inherit inputs pkgs pkgs-unstable;
     };
   };
