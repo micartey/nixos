@@ -12,6 +12,7 @@
     ./gaming.nix
     ./gtk.nix
     ./hyprland.nix
+    ./rofi.nix
     ./mail.nix
     ./terminal.nix
     ./xdg.nix

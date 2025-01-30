@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
   mainMod = "SUPER";
@@ -162,6 +166,10 @@ in
         "center,class:(org.gnome.Nautilus)"
       ];
 
+      layerrule = [
+        "blur, rofi"
+      ];
+
       input = {
         kb_layout = "de";
         kb_variant = ",qwertz";
@@ -189,7 +197,7 @@ in
         blur = {
           enabled = true;
           size = 3;
-          passes = 1;
+          passes = 3;
         };
 
         #"drop_shadow" = "yes";
@@ -391,12 +399,6 @@ in
         };
       };
     };
-  };
-
-  # quick access
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
   };
 
   # notifications
