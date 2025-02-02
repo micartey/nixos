@@ -105,7 +105,7 @@ button selected {
 }
 
 message {
-    background-color: @bg-col-light;
+    background-color: transparent;
     margin: 2px;
     padding: 2px;
     border-radius: 5px;
@@ -115,5 +115,9 @@ textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
     text-color: @accent;
-    background-color: @bg-col-light;
+    background-color: transparent;
+}
+
+error-message {
+    background-color: transparent;
 }
