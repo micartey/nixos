@@ -1,18 +1,20 @@
+{ meta, ... }:
+
 {
-  time.timeZone = "Europe/Vienna";
+  time.timeZone = meta.timeZone;
 
   i18n = {
-    defaultLocale = "de_DE.UTF-8";
+    defaultLocale = meta.locale;
     extraLocaleSettings = {
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_IDENTIFICATION = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_MONETARY = "de_DE.UTF-8";
-      LC_NAME = "de_DE.UTF-8";
-      LC_NUMERIC = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
+      LC_ADDRESS = meta.locale;
+      LC_IDENTIFICATION = meta.locale;
+      LC_MEASUREMENT = meta.locale;
+      LC_MONETARY = meta.locale;
+      LC_NAME = meta.locale;
+      LC_NUMERIC = meta.locale;
+      LC_PAPER = meta.locale;
+      LC_TELEPHONE = meta.locale;
+      LC_TIME = meta.locale;
     };
   };
 }

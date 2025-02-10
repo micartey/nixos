@@ -10,12 +10,7 @@ let
     );
 
   # Collects all files of a directory as a list of strings of paths
-  files =
-    dir: collect isString (
-      mapAttrsRecursive (path: _: concatStringsSep "/" path)
-        (getDir dir)
-    );
-
+  files = dir: collect isString (mapAttrsRecursive (path: _: concatStringsSep "/" path) (getDir dir));
 
   # Filters out directories that don't end with .nix or are this file, also makes the strings absolute
   validFiles =

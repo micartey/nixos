@@ -92,5 +92,8 @@
 
     # Rest Client
     pkgs.insomnia
+
+    # 3D modeling
+    pkgs-unstable.plasticity
   ];
 }

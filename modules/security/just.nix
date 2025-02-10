@@ -1,10 +1,10 @@
-{ ... }:
+{ meta, ... }:
 
 {
   security.sudo.enable = true;
   security.sudo.extraRules = [
     {
-      users = [ "daniel" ];
+      users = [ meta.user.username ];
       runAs = "root";
       commands = [
         {

@@ -1,27 +1,12 @@
-{ ... }:
+{ lib, meta, ... }:
 
+# This is not an actual SDDM but rather the opposite of it
+# It will automatically log you into your default non-root user account without login password
 {
-  # services.displayManager.sddm = {
-  #   enable = true;
-
-  #   theme = "catppuccin-mocha";
-  #   package = pkgs.kdePackages.sddm;
-  # };
-
   services.displayManager = {
     autoLogin.enable = true;
-    autoLogin.user = "daniel";
+    autoLogin.user = meta.user.username;
   };
 
-  services.getty.autologinUser = "daniel";
-
-  # environment.systemPackages = [
-  #   (pkgs.catppuccin-sddm.override {
-  #     flavor = "mocha";
-  #     font = "Noto Sans";
-  #     fontSize = "9";
-  #     background = "${../wallpapers/default.jpg}";
-  #     loginBackground = true;
-  #   })
-  # ];
+  services.getty.autologinUser = lib.mkForce meta.user.username;
 }

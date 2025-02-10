@@ -1,9 +1,15 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  stateVersion,
+  meta,
+  ...
+}:
 
 {
   imports = [ inputs.nix-ld.nixosModules.nix-ld ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = stateVersion;
 
   nix.settings = {
     experimental-features = [
@@ -12,7 +18,7 @@
     ];
     trusted-users = [
       "root"
-      "daniel"
+      meta.user.username
     ];
 
     # binary cache

@@ -12,6 +12,14 @@ in
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
 
+  # Copy wallpapers to local directory
+  home.file = {
+    wallpapers = {
+      source = ../../dots/wallpapers;
+      target = ".local/nix-wallpapers";
+    };
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -262,8 +270,8 @@ in
       splash = false;
       splash_offset = 2.0;
 
-      preload = [ "~/nixos/wallpapers/default.jpg" ];
-      wallpaper = [ ",~/nixos/wallpapers/default.jpg" ];
+      preload = [ "~/.local/nix-wallpapers/default.jpg" ];
+      wallpaper = [ ",~/.local/nix-wallpapers/default.jpg" ];
     };
   };
 

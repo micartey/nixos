@@ -37,10 +37,26 @@
       ...
     }@inputs:
     let
+      stateVersion = "24.11";
       system = "x86_64-linux";
+
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
+      };
+
+      meta = {
+        user = {
+          description = "default non-root user";
+          username = "daniel"; # Initial password is the same as the username
+          homeDir = "/home/daniel";
+        };
+        git = {
+          username = "micartey";
+          email = "me@micartey.dev";
+        };
+        timeZone = "Europe/Berlin";
+        locale = "de_DE.UTF-8";
       };
     in
     {
@@ -48,10 +64,30 @@
         home = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs pkgs-unstable;
+            inherit
+              inputs
+              pkgs-unstable
+              stateVersion
+              meta
+              ;
           };
 
           modules = [ ./hosts/desktop/home ];
+        };
+
+        homeImg = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit
+              inputs
+              pkgs-unstable
+              system
+              stateVersion
+              meta
+              ;
+          };
+
+          modules = [ ./hosts/img/configuration.nix ];
         };
       };
     };

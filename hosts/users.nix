@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, meta, ... }:
 
 {
   users = {
@@ -8,15 +8,15 @@
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
       };
 
-      daniel = {
+      ${meta.user.username} = {
         isNormalUser = true;
-        description = "Daniel";
-        initialPassword = "daniel";
+        description = meta.user.description;
+        initialPassword = meta.user.username;
         extraGroups = [
           "networkmanager"
           "wheel"
           "docker"
-          "daniel"
+          meta.user.username
           "wireshark"
         ];
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];

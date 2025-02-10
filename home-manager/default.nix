@@ -1,4 +1,9 @@
-{ inputs, ... }:
+{
+  inputs,
+  stateVersion,
+  meta,
+  ...
+}:
 
 {
   imports = [
@@ -10,10 +15,10 @@
 
   programs.home-manager.enable = true;
   home = {
-    stateVersion = "24.11";
+    stateVersion = stateVersion;
 
-    username = "daniel";
-    homeDirectory = "/home/daniel";
+    username = meta.user.username;
+    homeDirectory = meta.user.homeDir;
   };
 
   catppuccin = {

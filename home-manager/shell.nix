@@ -1,11 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, meta, ... }:
 
 let
   shellAliases = {
     cat = "bat";
-
-    bye = "shutdown -h now";
-    cya = "reboot";
 
     # mpv /dev/video0 --audio-file=av://alsa:hw:3,0 \
     # --untimed \
@@ -79,8 +76,8 @@ in
   programs.git = {
     enable = true;
 
-    userEmail = "me@micartey.dev";
-    userName = "micartey";
+    userEmail = meta.git.email;
+    userName = meta.git.username;
 
     # fancier git diff
     delta.enable = true;
@@ -88,7 +85,7 @@ in
     extraConfig = {
       color.ui = true;
       core.editor = "vim";
-      github.user = "micartey";
+      github.user = meta.git.username;
       push.autoSetupRemote = true;
       pull.rebase = true;
     };

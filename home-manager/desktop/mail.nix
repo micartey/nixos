@@ -1,9 +1,9 @@
-{ ... }:
+{ meta, ... }:
 
 {
   programs.thunderbird = {
     enable = true;
-    profiles.daniel = {
+    profiles.${meta.user.username} = {
       isDefault = true;
     };
   };

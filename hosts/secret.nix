@@ -1,9 +1,10 @@
+{ meta, ... }:
+
 {
   sops.secrets = {
     "ssh" = {
-      owner = "daniel";
-      path = "/home/daniel/.ssh/id_ed25519";
+      owner = meta.user.username;
+      path = "/home/${meta.user.username}/.ssh/id_ed25519";
     };
-    # "k8s/token" = { };
   };
 }

@@ -1,14 +1,14 @@
-{ ... }:
+{ meta, ... }:
 
 {
   security.sudo.enable = true;
   security.sudo.extraRules = [
     {
-      users = [ "daniel" ];
+      users = [ meta.user.username ];
       runAs = "root";
       commands = [
         {
-          command = "/etc/profiles/per-user/daniel/bin/just";
+          command = "/etc/profiles/per-user/${meta.user.username}/bin/just";
           options = [ "NOPASSWD" ];
         }
       ];
