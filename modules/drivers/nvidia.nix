@@ -11,17 +11,19 @@
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+    powerManagement = {
+      enable = false;
+      finegrained = false;
+    };
 
     open = false;
     nvidiaSettings = true;
 
     package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "565.57.01";
-      sha256_64bit = "sha256-buvpTlheOF6IBPWnQVLfQUiHv4GcwhvZW3Ks0PsYLHo=";
+      version = "570.86.16";
+      sha256_64bit = "sha256-RWPqS7ZUJH9JEAWlfHLGdqrNlavhaR1xMyzs8lJhy9U=";
       openSha256 = lib.fakeSha256;
-      settingsSha256 = "sha256-H7uEe34LdmUFcMcS6bz7sbpYhg9zPCb/5AmZZFTx1QA=";
+      settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
       sha256_aarch64 = lib.fakeSha256;
       persistencedSha256 = lib.fakeSha256;
     };
