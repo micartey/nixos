@@ -30,7 +30,7 @@
 # in
 
 {
-  # environment.systemPackages = with pkgs; [
-  #   bambu-studio
-  # ];
+  environment.systemPackages = with pkgs; [
+    bambu-studio
+  ];
 }
