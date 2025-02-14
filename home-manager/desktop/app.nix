@@ -35,6 +35,7 @@
 
     policies = {
 
+      # go to: about:support and search for the ID of the extension
       ExtensionSettings = {
         # "*".installation_mode = "blocked";
 
@@ -61,12 +62,24 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislike/latest.xpi";
           installation_mode = "force_installed";
         };
+
+        "addon@darkreader.org" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
       };
 
     };
 
     profiles.default = {
       isDefault = true;
+
+      userChrome = builtins.readFile ../../dots/firefox/userChrome.css;
+      userContent = builtins.readFile ../../dots/firefox/userContent.css;
+
+      settings = {
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+      };
     };
   };
 
