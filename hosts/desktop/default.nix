@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   pkgs-unstable,
   stateVersion,
@@ -31,6 +32,7 @@
     ${meta.user.username} = import ../../home-manager/home {
       inherit
         inputs
+        lib
         pkgs
         pkgs-unstable
         stateVersion
