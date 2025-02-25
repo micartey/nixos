@@ -28,7 +28,7 @@
   };
 
   home-manager.users = {
-    ${meta.user.username} = import ../../home-manager/desktop {
+    ${meta.user.username} = import ../../home-manager/home {
       inherit
         inputs
         pkgs
