@@ -1,7 +1,8 @@
 # nixos
 
 <div align="center">
-    <img src="https://github.com/micartey/nixos/actions/workflows/nix.yml/badge.svg" alt="badge">
+    <img src="https://github.com/micartey/nixos/actions/workflows/flake-check.yml/badge.svg" alt="badge">
+    <img src="https://github.com/micartey/nixos/actions/workflows/dead-code.yml/badge.svg" alt="badge">
 </div>
 
 > [!IMPORTANT]
