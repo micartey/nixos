@@ -96,8 +96,6 @@
     pkgs.spotify
     pkgs.openscad-unstable
 
-    pkgs.obs-studio
-
     # tex-related
     pkgs.texliveFull
     pkgs.graphviz

@@ -198,6 +198,11 @@
     background: #0000 !important;
 }
 
+/* Remove hover color change */
+toolbox {
+    background-color: #242424 !important;
+}
+
 /*  Removes annoying border  */
 #navigator-toolbox {
     border: none !important;
@@ -248,4 +253,11 @@
     background: none !important;
     cursor: pointer;
     display: -moz-box !important;
+}
+
+/* Search Bar */
+findbar {
+    position: fixed !important;
+    width: 100vw !important;
+    background-color: #242424 !important;
 }
