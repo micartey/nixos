@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [master, main]
 
-name: Nix - Flake Check
+name: Flake Check
 
 jobs:
   flake-check:
