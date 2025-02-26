@@ -5,8 +5,9 @@ home-switch:
     nixos-rebuild switch --flake .#home
 
 # Before you run this command, make sure to:
-# 1. remove networking.networkmanager from cloudflare_dns.nix
-# 2. comment openssh.authorizedKeys.keys in users.nix
+# 1. uncomment isoImage in flake.nix configuration
+# 2. remove networking.networkmanager from cloudflare_dns.nix
+# 3. comment openssh.authorizedKeys.keys in users.nix
 home-iso:
     # NixOS-generators does not seem to do the trick
     NIX_BUILD_CORES=32 nix build \
@@ -25,12 +26,3 @@ home-vm:
 
 flake-update:
     nix flake update
-
-generate-key:
-    nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/private > ~/.config/sops/age/keys.txt
-
-get-public-key:
-    nix shell nixpkgs#age -c age-keygen -y ~/.config/sops/age/keys.txt
-
-sops:
-    sops ./secrets/secrets.yml
