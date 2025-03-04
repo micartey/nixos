@@ -12,6 +12,11 @@ sops secrets/secrets.yaml
 
 ### Generate age key
 
+> [!CAUTION]
+> Your key will be stored in `~/.config/sops/age/keys.txt`
+>
+> Make sure to back it up!
+
 ```bash
 # generate new key
 nix shell nixpkgs#age -c age-keygen -o ~/.config/sops/age/keys.txt

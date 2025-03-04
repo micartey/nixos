@@ -13,11 +13,12 @@
         description = meta.user.description;
         initialPassword = meta.user.username;
         extraGroups = [
+          meta.user.username
           "networkmanager"
           "wheel"
           "docker"
-          meta.user.username
           "wireshark"
+          "ydotool"
         ];
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
       };
