@@ -18,7 +18,8 @@
           "wheel"
           "docker"
           "wireshark"
-          "ydotool"
+          "ydotool" # For typ
+          "dialout" # For COM-Ports (Arduino)
         ];
         openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
       };

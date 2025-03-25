@@ -4,15 +4,7 @@ let
   shellAliases = {
     cat = "bat";
 
-    # mpv /dev/video0 --audio-file=av://alsa:hw:3,0 \
-    # --untimed \
-    # --no-cache \
-    # --demuxer-lavf-o=probesize=32 \
-    # --demuxer-lavf-o=analyzeduration=0 \
-    # --demuxer-lavf-o=live=1 \
-    # --demuxer-lavf-o=fflags=nobuffer \
-    # --demuxer-thread=no \
-    # --video-sync=display-desync --no-audio-sync
+    fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
 
     capture-card = ''
       CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
