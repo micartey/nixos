@@ -9,6 +9,9 @@
     pkgs.async-profiler
     pkgs.bytecode-viewer
 
+    # Arduino
+    pkgs.arduino
+
     # vscode
     pkgs.vscode
     # pkgs.vscode-extensions.antyos.openscad

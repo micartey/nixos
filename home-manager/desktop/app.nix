@@ -101,7 +101,9 @@
     pkgs-unstable.discordo
 
     pkgs.spotify
+
     pkgs.openscad-unstable
+    pkgs.kicad
 
     # password
     pkgs.bitwarden-desktop
@@ -116,7 +118,6 @@
     # Rest Client
     pkgs.insomnia
 
-    # 3D modeling
-    pkgs.plasticity
+    (pkgs.callPackage ../../pkgs/pince.nix { })
   ];
 }

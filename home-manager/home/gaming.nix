@@ -12,10 +12,10 @@
     pkgs-unstable.glfw-wayland-minecraft
     pkgs-unstable.lunar-client
 
+    pkgs-unstable.r2modman
+
     pkgs.gamemode
     pkgs.gamescope
     pkgs.gamescope-wsi
-
-    pkgs.furmark
   ];
 }
