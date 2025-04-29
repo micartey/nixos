@@ -294,7 +294,8 @@ in
           "memory"
           "cpu"
           "custom/nvidia"
-          "network"
+          "custom/aiotemp"
+          "custom/pumpspeed"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
@@ -326,19 +327,37 @@ in
           max-length = 50;
         };
 
-        network = {
+        "custom/aiotemp" = {
+          format = "  {} °C";
+          escape = true;
           interval = 1;
-          format = "{ifname}";
-          # format-wifi = "{icon} {bandwidthDownBytes}  {bandwidthUpBytes} ";
-          format-ethernet = "{icon} 󰮏  {bandwidthDownBytes}  󰸇  {bandwidthUpBytes} ";
-          format-disconnected = "";
-          # tooltip-format = "{ipaddr}";
-          # format-linked = "󰈁 {ifname} (No IP)";
-          # tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
-          tooltip-format-ethernet = "󰌘 {ifname}";
-          tooltip-format-disconnected = "󰌙 Disconnected";
+          tooltip = false;
+          exec = "sudo liquidctl status | grep 'Liquid temperature' | awk '{print $(NF-1)}'";
           max-length = 50;
         };
+
+        "custom/pumpspeed" = {
+          format = "󰈐  {}%";
+          escape = true;
+          interval = 1;
+          tooltip = false;
+          exec = "sudo liquidctl status | grep 'Pump duty' | awk '{print $(NF-1)}'";
+          max-length = 50;
+        };
+
+        # network = {
+        #   interval = 1;
+        #   format = "{ifname}";
+        #   # format-wifi = "{icon} {bandwidthDownBytes}  {bandwidthUpBytes} ";
+        #   format-ethernet = "{icon} 󰮏  {bandwidthDownBytes}  󰸇  {bandwidthUpBytes} ";
+        #   format-disconnected = "";
+        #   # tooltip-format = "{ipaddr}";
+        #   # format-linked = "󰈁 {ifname} (No IP)";
+        #   # tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
+        #   tooltip-format-ethernet = "󰌘 {ifname}";
+        #   tooltip-format-disconnected = "󰌙 Disconnected";
+        #   max-length = 50;
+        # };
 
         temperature = {
           format = "  {temperatureC} °C";
