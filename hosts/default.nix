@@ -8,6 +8,8 @@
     ./shell.nix
     ./secret.nix
 
+    ./boot-speedup.nix
+
     ../modules/services/docker.nix
     ../modules/nix.nix
   ];
