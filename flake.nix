@@ -51,10 +51,12 @@
           username = "daniel"; # Initial password is the same as the username
           homeDir = "/home/daniel";
         };
+
         git = {
           username = "micartey";
           email = "me@micartey.dev";
         };
+
         timeZone = "Europe/Berlin";
         locale = "de_DE.UTF-8";
       };

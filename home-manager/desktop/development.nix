@@ -39,18 +39,18 @@
     pkgs.gradle_7
 
     # scala-related
-    pkgs-unstable.scala
-    pkgs-unstable.sbt
-    pkgs-unstable.metals
-    pkgs-unstable.coursier
+    # pkgs-unstable.scala
+    # pkgs-unstable.sbt
+    # pkgs-unstable.metals
+    # pkgs-unstable.coursier
 
     # nodejs-related
-    pkgs.nodejs
+    # pkgs.nodejs
 
     # python-related
-    pkgs.python3
-    pkgs.uv
-    pkgs.python312Packages.grip
+    # pkgs.python3
+    # pkgs.uv
+    # pkgs.python312Packages.grip
 
     pkgs.socat
 
@@ -68,7 +68,7 @@
     pkgs-unstable.zig
 
     # elm-related
-    pkgs-unstable.elmPackages.elm
+    # pkgs-unstable.elmPackages.elm
 
     # # haskell-related
     # pkgs.ghc

@@ -37,10 +37,10 @@ in
       # monitor = [
       # ];
 
-      monitor = [
-        "HDMI-A-2,3440x1440@99.98200,0x0,1"
-        "Unknown-1,disable"
-      ];
+      # monitor = [
+      #   "HDMI-A-2,3440x1440@99.98200,0x0,1"
+      #   "Unknown-1,disable"
+      # ];
 
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"

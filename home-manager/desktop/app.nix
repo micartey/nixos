@@ -117,7 +117,5 @@
 
     # Rest Client
     pkgs.insomnia
-
-    (pkgs.callPackage ../../pkgs/pince.nix { })
   ];
 }

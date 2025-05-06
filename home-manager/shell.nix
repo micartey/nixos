@@ -112,12 +112,10 @@ in
   programs.yt-dlp.enable = true;
 
   home.packages = [
-    pkgs.gh
     pkgs.just
     pkgs.tree
     pkgs.zip
     pkgs.unzip
-    pkgs.speedtest-cli
     pkgs.hyperfine
     pkgs.playerctl
     pkgs.ffmpeg
