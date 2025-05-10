@@ -37,10 +37,10 @@ in
       # monitor = [
       # ];
 
-      # monitor = [
-      #   "HDMI-A-2,3440x1440@99.98200,0x0,1"
-      #   "Unknown-1,disable"
-      # ];
+      monitor = [
+        "eDP-1, 3072x1920@60.00000, 0x0, 2"
+        "Unknown-1,disable"
+      ];
 
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -296,13 +296,13 @@ in
           "custom/nvidia"
           "custom/aiotemp"
           "custom/pumpspeed"
+          "battery"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "custom/mic"
           "wireplumber"
           "clock"
-          "custom/notification"
           "tray"
         ];
 
@@ -372,6 +372,15 @@ in
           on-click = "kitty -e btop";
         };
 
+        battery = {
+          states = {
+            warning = 20;
+            critical = 15;
+          };
+
+          format = " {capacity}%";
+        };
+
         "hyprland/workspaces" = {
           format = "{icon}";
           on-click = "activate";
@@ -388,27 +397,6 @@ in
           '';
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           max-length = 50;
-        };
-
-        "custom/notification" = {
-          tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = "";
-          };
-          return-type = "json";
-          exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
-          on-click = "swaync-client -t -sw";
-          on-click-right = "swaync-client -d -sw";
-          escape = true;
         };
 
         wireplumber = {
@@ -430,12 +418,6 @@ in
         };
       };
     };
-  };
-
-  # notifications
-  services.swaync = {
-    enable = true;
-    style = builtins.readFile ../../dots/swaync/theme.css;
   };
 
   # auto mount removable drives

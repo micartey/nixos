@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.davinci-resolve
+    # pkgs.davinci-resolve
     pkgs.obs-studio
   ];
 
