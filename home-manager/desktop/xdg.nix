@@ -24,8 +24,7 @@
     mimeApps =
       let
         firefox = [ "firefox.desktop" ];
-
-        vscode = [ "vscode.desktop" ];
+        zed = [ "zed.desktop" ];
       in
       {
         enable = true;
@@ -48,7 +47,7 @@
           "x-scheme-handler/unknown" = firefox;
           "image/svg+xml" = firefox;
 
-          "text/markdown" = vscode;
+          "text/markdown" = zed;
         };
       };
   };

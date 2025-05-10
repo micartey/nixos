@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 
@@ -7,6 +8,7 @@
   imports = [
     ../default.nix
     ./hardware-configuration.nix
+    inputs.nixos-hardware.nixosModules.lenovo-yoga-7-14ARH7-nvidia
   ];
 
   networking.hostName = "home";

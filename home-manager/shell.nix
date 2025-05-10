@@ -30,10 +30,6 @@ in
     autosuggestion.enable = true;
 
     initExtra = ''
-      if [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland &> /dev/null
-      fi
-
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
     '';
@@ -112,12 +108,10 @@ in
   programs.yt-dlp.enable = true;
 
   home.packages = [
-    pkgs.gh
     pkgs.just
     pkgs.tree
     pkgs.zip
     pkgs.unzip
-    pkgs.speedtest-cli
     pkgs.hyperfine
     pkgs.playerctl
     pkgs.ffmpeg
