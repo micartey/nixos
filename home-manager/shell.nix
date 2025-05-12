@@ -19,13 +19,6 @@ in
     autosuggestion.enable = true;
 
     initExtra = ''
-      if [ "$(tty)" = "/dev/tty1" ]; then
-        if [ ! -e "/tmp/hyprlockshell" ]; then
-            mktemp /tmp/hyprlockshell
-            exec Hyprland
-        fi
-      fi
-
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
     '';

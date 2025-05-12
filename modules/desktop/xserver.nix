@@ -7,8 +7,10 @@
     };
 
     displayManager = {
-      lightdm.enable = false;
-      startx.enable = true;
+      gdm.enable = true;
     };
+
+    desktopManager.gnome.enable = true;
   };
+
 }

@@ -10,7 +10,6 @@
 
     ./boot-speedup.nix
 
-    ../modules/services/docker.nix
     ../modules/nix.nix
   ];
 }

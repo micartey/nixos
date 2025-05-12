@@ -1,5 +1,0 @@
-{ ... }:
-
-{
-  programs.ydotool.enable = true;
-}
