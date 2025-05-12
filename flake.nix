@@ -27,7 +27,6 @@
 
     nix-alien.url = "github:thiagokokada/nix-alien";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     catppuccin.url = "github:catppuccin/nix";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";

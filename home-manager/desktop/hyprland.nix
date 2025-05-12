@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -10,8 +9,6 @@ let
   ctrlMod = "CTRL";
 in
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
-
   # Copy wallpapers to local directory
   home.file = {
     wallpapers = {
@@ -30,8 +27,6 @@ in
       variables = [ "--all" ];
     };
 
-    sourceFirst = true;
-
     settings = {
       # # In case of multiple monitors
       # monitor = [
@@ -43,8 +38,11 @@ in
       ];
 
       env = [
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_QPA_PLATFORM,wayland"
+        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        # "QT_QPA_PLATFORM,wayland"
+
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
 
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -161,9 +159,7 @@ in
         "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
         "bordersize 0,title:(.*)is sharing your screen(.*)"
 
-        # Vesktop (Discord)
-        "float,initialClass:(vesktop)"
-        "size 2549 1123,initialClass:(vesktop)"
+        # Vesktop (Discord)"
         "center, initialClass:(vesktop)"
         "workspace 2,initialClass:(vesktop)"
 
@@ -187,7 +183,7 @@ in
         kb_variant = ",qwertz";
         follow_mouse = 1;
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = "yes";
         };
         sensitivity = 0;
       };

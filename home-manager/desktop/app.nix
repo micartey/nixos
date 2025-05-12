@@ -11,10 +11,6 @@
   # audio effects
   services.easyeffects.enable = true;
 
-  programs.brave = {
-    enable = true;
-  };
-
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
