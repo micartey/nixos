@@ -355,9 +355,9 @@ in
             warning = 20;
             critical = 15;
           };
-          format = "󰁹 {capacity}% {time}";
-          format-charging = "󰂄 {capacity}% {time}";
-          format-plugged = "󰂄 {capacity}% {health}";
+          format = "󰁹 {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
         };
 
         "hyprland/workspaces" = {
