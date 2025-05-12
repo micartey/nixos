@@ -1,6 +1,4 @@
 {
-  pkgs,
-  inputs,
   lib,
   ...
 }:
@@ -13,14 +11,8 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
     withUWSM = lib.mkForce true;
-
     xwayland.enable = true;
-
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   environment.variables = {

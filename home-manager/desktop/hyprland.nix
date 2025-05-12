@@ -30,8 +30,6 @@ in
       variables = [ "--all" ];
     };
 
-    sourceFirst = true;
-
     settings = {
       # # In case of multiple monitors
       # monitor = [
@@ -43,8 +41,11 @@ in
       ];
 
       env = [
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_QPA_PLATFORM,wayland"
+        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        # "QT_QPA_PLATFORM,wayland"
+
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
 
         "XDG_CURRENT_DESKTOP,Hyprland"
