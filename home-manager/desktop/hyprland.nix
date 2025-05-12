@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -10,8 +9,6 @@ let
   ctrlMod = "CTRL";
 in
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
-
   # Copy wallpapers to local directory
   home.file = {
     wallpapers = {
