@@ -2,6 +2,7 @@ default:
     @just --list
 
 home-switch:
+    # nixos-rebuild switch --flake .#home --max-jobs 1
     nixos-rebuild switch --flake .#home
 
 # Before you run this command, make sure to:

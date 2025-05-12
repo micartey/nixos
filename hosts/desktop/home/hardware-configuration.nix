@@ -20,17 +20,20 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [
-    "nvidia"
-    "nvidia_modeset"
-    "nvidia_drm"
-    "nvidia_uvm"
-  ];
-  # boot.kernelParams = [
-  #   "module_blacklist=amdgpu"
+  # boot.initrd.kernelModules = [
+  #   "nvidia"
+  #   "nvidia_modeset"
+  #   "nvidia_drm"
+  #   "nvidia_uvm"
   # ];
+  boot.kernelParams = [
+    "mem_sleep_default=deep"
+    "pcie_aspm.policy=powersupersave"
+    "acpi.prefere_microsoft_dsm_guid=1"
+  ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.blacklistedKernelModules = [ "nouveau" ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c565d2e8-e53a-4966-9774-6be88dfb3758";

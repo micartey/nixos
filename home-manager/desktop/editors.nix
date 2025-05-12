@@ -16,4 +16,14 @@
     pkgs.vim
     pkgs.zed-editor
   ];
+
+  xdg.desktopEntries = {
+    "idea-custom" = {
+      name = "IntelliJ IDEA (Wayland)";
+      genericName = "Code Editor";
+      comment = "IntelliJ IDEA with wayland toolkit";
+      exec = "idea-ultimate -Dawt.toolkit.name=WLToolkit";
+      icon = "idea-ultimate";
+    };
+  };
 }

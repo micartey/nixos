@@ -5,8 +5,8 @@
 }:
 
 {
-  home.packages = [
-    pkgs-unstable.liquidctl
-    pkgs.usbutils
-  ];
+  # home.packages = [
+  #   pkgs-unstable.liquidctl
+  #   pkgs.usbutils
+  # ];
 }

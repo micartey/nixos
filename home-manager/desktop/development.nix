@@ -12,6 +12,8 @@
     zulu21
     gradle_7
 
+    gdb
+
     d2
   ];
 }

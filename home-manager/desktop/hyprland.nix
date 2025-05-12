@@ -60,7 +60,7 @@ in
       exec-once = [
         "wl-paste --type text --watch cliphist store"
 
-        "vesktop"
+        # "vesktop"
 
         "waybar"
       ];
@@ -255,6 +255,7 @@ in
     enable = true;
     config = {
       hyprland.default = [
+        "wlr"
         "gtk"
         "hyprland"
       ];
@@ -262,6 +263,7 @@ in
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
     ];
     xdgOpenUsePortal = true;
   };
@@ -294,8 +296,6 @@ in
           "memory"
           "cpu"
           "custom/nvidia"
-          "custom/aiotemp"
-          "custom/pumpspeed"
           "battery"
         ];
         modules-center = [ "hyprland/workspaces" ];
@@ -324,24 +324,6 @@ in
           tooltip = false;
           exec = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
           on-click = "kitty -e nvtop";
-          max-length = 50;
-        };
-
-        "custom/aiotemp" = {
-          format = "  {} °C";
-          escape = true;
-          interval = 1;
-          tooltip = false;
-          exec = "sudo liquidctl status | grep 'Liquid temperature' | awk '{print $(NF-1)}'";
-          max-length = 50;
-        };
-
-        "custom/pumpspeed" = {
-          format = "󰈐  {}%";
-          escape = true;
-          interval = 1;
-          tooltip = false;
-          exec = "sudo liquidctl status | grep 'Pump duty' | awk '{print $(NF-1)}'";
           max-length = 50;
         };
 
@@ -377,8 +359,9 @@ in
             warning = 20;
             critical = 15;
           };
-
-          format = " {capacity}%";
+          format = "󰁹 {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
         };
 
         "hyprland/workspaces" = {

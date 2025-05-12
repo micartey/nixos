@@ -21,6 +21,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
     nix-alien.url = "github:thiagokokada/nix-alien";
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
@@ -74,7 +78,9 @@
               ;
           };
 
-          modules = [ ./hosts/desktop/home ];
+          modules = [
+            ./hosts/desktop/home
+          ];
         };
 
         # homeImg = nixpkgs.lib.nixosSystem {

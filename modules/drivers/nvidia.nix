@@ -6,18 +6,32 @@
 }:
 
 {
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = lib.mkForce [
+  #   "nvidia"
+  # ];
+
+  # hardware.amdgpu.initrd.enable = true;
 
   # hardware.nvidia = {
   #   modesetting.enable = true;
 
   #   powerManagement = {
   #     enable = false;
-  #     finegrained = false;
+  #     # finegrained = false;
   #   };
 
   #   open = false;
   #   nvidiaSettings = true;
+
+  #   prime = {
+  #     offload = {
+  #       enable = true;
+  #       enableOffloadCmd = true;
+  #     };
+
+  #     amdgpuBusId = "PCI:4:0:0";
+  #     nvidiaBusId = "PCI:1:0:0";
+  #   };
 
   #   package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
   #     version = "570.133.07";
@@ -29,22 +43,20 @@
   #   };
   # };
 
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+
   environment.sessionVariables = {
-    # "LIBVA_DRIVER_NAME" = "nvidia";
-    # "GBM_BACKEND" = "nvidia-drm";
-    # "WLR_NO_HARDWARE_CURSORS" = "1";
-    # "__GL_GSYNC_ALLOWED" = "1";
-    # "__GL_VRR_ALLOWED" = "1";
-    # "__NV_PRIME_RENDER_OFFLOAD" = "1";
-    # "__NV_PRIME_RENDER_OFFLOAD_PROVIDER" = "NVIDIA-G0";
-    # "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
-    # "__VK_LAYER_NV_optimus" = "NVIDIA_only";
+    "GBM_BACKEND" = "nvidia-drm";
+    "MOZ_DISABLE_RDD_SANDBOX" = "1";
+    "LIBVA_DRIVER_NAME" = "nvidia";
+    "__GLX_VENDOR_LIBRARY_NAME" = "nvidia";
   };
 
   environment.systemPackages = with pkgs; [
     nvidia-vaapi-driver
-    vulkan-headers
-    dxvk
+    # vulkan-headers
+    # dxvk
 
     nvtopPackages.full
   ];
