@@ -159,9 +159,7 @@ in
         "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
         "bordersize 0,title:(.*)is sharing your screen(.*)"
 
-        # Vesktop (Discord)
-        "float,initialClass:(vesktop)"
-        "size 2549 1123,initialClass:(vesktop)"
+        # Vesktop (Discord)"
         "center, initialClass:(vesktop)"
         "workspace 2,initialClass:(vesktop)"
 
@@ -185,7 +183,7 @@ in
         kb_variant = ",qwertz";
         follow_mouse = 1;
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = "yes";
         };
         sensitivity = 0;
       };
