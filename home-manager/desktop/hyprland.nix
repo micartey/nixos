@@ -58,7 +58,8 @@ in
       exec-once = [
         "wl-paste --type text --watch cliphist store"
 
-        # "vesktop"
+        # This is a fix for the case I fuck up and end up setting to 0%
+        "brightnessctl s 55%"
 
         "waybar"
       ];
@@ -298,6 +299,7 @@ in
         modules-right = [
           "custom/mic"
           "wireplumber"
+          "backlight"
           "clock"
           "tray"
         ];
@@ -322,20 +324,6 @@ in
           on-click = "kitty -e nvtop";
           max-length = 50;
         };
-
-        # network = {
-        #   interval = 1;
-        #   format = "{ifname}";
-        #   # format-wifi = "{icon} {bandwidthDownBytes}  {bandwidthUpBytes} ";
-        #   format-ethernet = "{icon} 󰮏  {bandwidthDownBytes}  󰸇  {bandwidthUpBytes} ";
-        #   format-disconnected = "";
-        #   # tooltip-format = "{ipaddr}";
-        #   # format-linked = "󰈁 {ifname} (No IP)";
-        #   # tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
-        #   tooltip-format-ethernet = "󰌘 {ifname}";
-        #   tooltip-format-disconnected = "󰌙 Disconnected";
-        #   max-length = 50;
-        # };
 
         temperature = {
           format = "  {temperatureC} °C";
@@ -393,7 +381,12 @@ in
 
         clock = {
           timezone = "Europe/Berlin";
-          format = " {:%d/%m/%Y %H:%M}";
+          format = "{:%d/%m/%Y %H:%M}";
+        };
+
+        backlight = {
+          format = "   {percent}%";
+          min-brightness = 55.5;
         };
       };
     };
@@ -435,5 +428,6 @@ in
     # miscellaneous
     pkgs.xwaylandvideobridge
     pkgs.xdg-utils
+    pkgs.brightnessctl
   ];
 }

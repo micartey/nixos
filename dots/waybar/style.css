@@ -10,15 +10,13 @@
     margin: 5px 5px;
 }
 
-#custom-pumpspeed,
-#custom-aiotemp,
 #custom-nvidia,
 #temperature,
 #memory,
 #cpu,
 #battery,
 #custom-mic,
-#tray,
+#custom-backlight,
 #clock,
 #wireplumber {
     background-color: @surface0;
@@ -48,17 +46,6 @@
     margin-right: 1rem;
 }
 
-#custom-aiotemp {
-    color: @blue;
-    border-radius: 1rem 0 0 1rem;
-}
-
-#custom-pumpspeed {
-    color: @lavender;
-    border-radius: 0 1rem 1rem 0;
-    margin-right: 1rem;
-}
-
 #battery {
     color: @green;
     border-radius: 1rem 1rem 1rem 1rem;
@@ -83,13 +70,14 @@
     margin-right: 1rem;
 }
 
+#backlight {
+    color: @lavender;
+    margin-right: 1rem;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+
 #clock {
     color: @blue;
     border-radius: 1rem 1rem 1rem 1rem;
     margin-right: 1rem;
-}
-
-#tray {
-    margin-right: 1rem;
-    border-radius: 1rem 1rem 1rem 1rem;
 }

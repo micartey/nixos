@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   home.packages = [
@@ -8,6 +8,8 @@
 
     # pkgs-unstable.prismlauncher
     # pkgs-unstable.glfw-wayland-minecraft
+
+    pkgs-unstable.lunar-client
 
     # pkgs.gamemode
     # pkgs.gamescope
