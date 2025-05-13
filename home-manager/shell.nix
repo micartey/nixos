@@ -111,5 +111,6 @@ in
     pkgs.imagemagick
     pkgs.file
     pkgs.binwalk
+    pkgs.wget
   ];
 }
