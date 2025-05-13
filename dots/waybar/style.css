@@ -79,5 +79,9 @@
 #clock {
     color: @blue;
     border-radius: 1rem 1rem 1rem 1rem;
-    margin-right: 1rem;
+}
+
+#tray {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }

@@ -20,10 +20,7 @@ in
 
     initExtra = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        if [ ! -e "/tmp/hyprlockshell" ]; then
-            mktemp /tmp/hyprlockshell
-            exec Hyprland
-        fi
+        exec Hyprland
       fi
 
       bindkey "^[[1;5C" forward-word
@@ -112,5 +109,7 @@ in
     pkgs.playerctl
     pkgs.ffmpeg
     pkgs.imagemagick
+    pkgs.file
+    pkgs.binwalk
   ];
 }

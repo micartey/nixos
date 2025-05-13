@@ -128,18 +128,12 @@ in
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
-
-        # Toggle Network delay
-        "${mainMod}, 1, exec, sudo tc qdisc add dev enp14s0 root netem delay 120ms"
-        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 50ms 150ms distribution normal loss 30%"
-        "${mainMod}, 3, exec, sudo tc qdisc add dev enp14s0 root netem loss 100%"
-        "${mainMod}, 0, exec, sudo tc qdisc del dev enp14s0 root"
       ];
 
       # Window drag
       bindm = [
         "${mainMod}, mouse:272, movewindow"
-        "${mainMod}, mouse:273, resizewindow"
+        "${mainMod} SHIFT, mouse:272, resizewindow"
       ];
 
       windowrule = [ ];
