@@ -162,11 +162,6 @@ in
         "float,title:(Welcome to IntelliJ IDEA)"
         "size 1358 682,title:(Welcome to IntelliJ IDEA)"
         "center,title:(Welcome to IntelliJ IDEA)"
-
-        # Folders
-        "float,class:(org.gnome.Nautilus)"
-        "size 1531 886,class:(org.gnome.Nautilus)"
-        "center,class:(org.gnome.Nautilus)"
       ];
 
       layerrule = [
