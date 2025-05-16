@@ -11,27 +11,9 @@
   # audio effects
   services.easyeffects.enable = true;
 
-  # brave browser
-  programs.chromium = {
-    enable = true;
-    package = pkgs-unstable.brave;
-    extensions = [
-      "gppongmhjkpfnbhagpmjfkannfbllamg" # Wappalyzer
-      "hkgfoiooedgoejojocmhlaklaeopbecg" # Picture-in-Picture
-      "egnjhciaieeiiohknchakcodbpgjnchh" # Tab Wrangler
-      "gebbhagfogifgggkldgodflihgfeippi" # Return YouTube Dislike
-      "oldceeleldhonbafppcapldpdifcinji" # LanguageTool
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
-    ];
-    # commandLineArgs = [
-    #   "--enable-features=UseOzonePlatform"
-    #   "--ozone-platform=x11"
-    # ];
-  };
-
   programs.firefox = {
     enable = true;
-    package = pkgs-unstable.firefox;
+    package = pkgs.firefox;
 
     policies = {
 
@@ -97,13 +79,12 @@
     # discord
     pkgs-unstable.vesktop
     pkgs-unstable.discord
-    pkgs-unstable.legcord
     pkgs-unstable.discordo
 
     pkgs.spotify
 
     pkgs.openscad-unstable
-    pkgs.kicad
+    #pkgs.kicad
 
     # password
     pkgs.bitwarden-desktop
@@ -117,7 +98,5 @@
 
     # Rest Client
     pkgs.insomnia
-
-    (pkgs.callPackage ../../pkgs/pince.nix { })
   ];
 }

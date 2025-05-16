@@ -5,17 +5,6 @@ let
     cat = "bat";
 
     fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
-
-    capture-card = ''
-      CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
-
-      mpv /dev/video0 --profile=low-latency --untimed & PID1=$!; \
-
-      ffplay -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 \
-             -f alsa -i hw:$CAPTURE_CARD_ID,0 -nodisp & PID2=$!; \
-
-      wait $PID1 && kill $PID2
-    '';
   };
 in
 {
@@ -31,7 +20,7 @@ in
 
     initExtra = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland &> /dev/null
+        exec Hyprland
       fi
 
       bindkey "^[[1;5C" forward-word
@@ -112,15 +101,16 @@ in
   programs.yt-dlp.enable = true;
 
   home.packages = [
-    pkgs.gh
     pkgs.just
     pkgs.tree
     pkgs.zip
     pkgs.unzip
-    pkgs.speedtest-cli
     pkgs.hyperfine
     pkgs.playerctl
     pkgs.ffmpeg
     pkgs.imagemagick
+    pkgs.file
+    pkgs.binwalk
+    pkgs.wget
   ];
 }

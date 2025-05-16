@@ -8,7 +8,7 @@
       runAs = "root";
       commands = [
         {
-          command = "/run/current-system/sw/bin/tc";
+          command = "/home/daniel/.nix-profile/bin/just";
           options = [ "NOPASSWD" ];
         }
       ];

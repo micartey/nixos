@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -10,8 +9,6 @@ let
   ctrlMod = "CTRL";
 in
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
-
   # Copy wallpapers to local directory
   home.file = {
     wallpapers = {
@@ -30,21 +27,22 @@ in
       variables = [ "--all" ];
     };
 
-    sourceFirst = true;
-
     settings = {
       # # In case of multiple monitors
       # monitor = [
       # ];
 
       monitor = [
-        "HDMI-A-2,3440x1440@99.98200,0x0,1"
+        "eDP-1, 3072x1920@60.00000, 0x0, 2"
         "Unknown-1,disable"
       ];
 
       env = [
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_QPA_PLATFORM,wayland"
+        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        # "QT_QPA_PLATFORM,wayland"
+
+        "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "NVD_BACKEND,direct"
 
         "XDG_CURRENT_DESKTOP,Hyprland"
@@ -60,7 +58,8 @@ in
       exec-once = [
         "wl-paste --type text --watch cliphist store"
 
-        "vesktop"
+        # This is a fix for the case I fuck up and end up setting to 0%
+        "brightnessctl s 55%"
 
         "waybar"
       ];
@@ -129,18 +128,12 @@ in
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
         "${mainMod}, mouse_up, workspace, e-1"
-
-        # Toggle Network delay
-        "${mainMod}, 1, exec, sudo tc qdisc add dev enp14s0 root netem delay 120ms"
-        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 50ms 150ms distribution normal loss 30%"
-        "${mainMod}, 3, exec, sudo tc qdisc add dev enp14s0 root netem loss 100%"
-        "${mainMod}, 0, exec, sudo tc qdisc del dev enp14s0 root"
       ];
 
       # Window drag
       bindm = [
         "${mainMod}, mouse:272, movewindow"
-        "${mainMod}, mouse:273, resizewindow"
+        "${mainMod} SHIFT, mouse:272, resizewindow"
       ];
 
       windowrule = [ ];
@@ -161,9 +154,7 @@ in
         "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
         "bordersize 0,title:(.*)is sharing your screen(.*)"
 
-        # Vesktop (Discord)
-        "float,initialClass:(vesktop)"
-        "size 2549 1123,initialClass:(vesktop)"
+        # Vesktop (Discord)"
         "center, initialClass:(vesktop)"
         "workspace 2,initialClass:(vesktop)"
 
@@ -171,11 +162,6 @@ in
         "float,title:(Welcome to IntelliJ IDEA)"
         "size 1358 682,title:(Welcome to IntelliJ IDEA)"
         "center,title:(Welcome to IntelliJ IDEA)"
-
-        # Folders
-        "float,class:(org.gnome.Nautilus)"
-        "size 1531 886,class:(org.gnome.Nautilus)"
-        "center,class:(org.gnome.Nautilus)"
       ];
 
       layerrule = [
@@ -187,7 +173,7 @@ in
         kb_variant = ",qwertz";
         follow_mouse = 1;
         touchpad = {
-          natural_scroll = "no";
+          natural_scroll = "yes";
         };
         sensitivity = 0;
       };
@@ -255,6 +241,7 @@ in
     enable = true;
     config = {
       hyprland.default = [
+        "wlr"
         "gtk"
         "hyprland"
       ];
@@ -262,6 +249,7 @@ in
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-wlr
     ];
     xdgOpenUsePortal = true;
   };
@@ -294,15 +282,14 @@ in
           "memory"
           "cpu"
           "custom/nvidia"
-          "custom/aiotemp"
-          "custom/pumpspeed"
+          "battery"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "custom/mic"
           "wireplumber"
+          "backlight"
           "clock"
-          "custom/notification"
           "tray"
         ];
 
@@ -327,38 +314,6 @@ in
           max-length = 50;
         };
 
-        "custom/aiotemp" = {
-          format = "  {} °C";
-          escape = true;
-          interval = 1;
-          tooltip = false;
-          exec = "sudo liquidctl status | grep 'Liquid temperature' | awk '{print $(NF-1)}'";
-          max-length = 50;
-        };
-
-        "custom/pumpspeed" = {
-          format = "󰈐  {}%";
-          escape = true;
-          interval = 1;
-          tooltip = false;
-          exec = "sudo liquidctl status | grep 'Pump duty' | awk '{print $(NF-1)}'";
-          max-length = 50;
-        };
-
-        # network = {
-        #   interval = 1;
-        #   format = "{ifname}";
-        #   # format-wifi = "{icon} {bandwidthDownBytes}  {bandwidthUpBytes} ";
-        #   format-ethernet = "{icon} 󰮏  {bandwidthDownBytes}  󰸇  {bandwidthUpBytes} ";
-        #   format-disconnected = "";
-        #   # tooltip-format = "{ipaddr}";
-        #   # format-linked = "󰈁 {ifname} (No IP)";
-        #   # tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
-        #   tooltip-format-ethernet = "󰌘 {ifname}";
-        #   tooltip-format-disconnected = "󰌙 Disconnected";
-        #   max-length = 50;
-        # };
-
         temperature = {
           format = "  {temperatureC} °C";
           hwmon-path = [ "/sys/class/hwmon/hwmon2/temp1_input" ];
@@ -370,6 +325,16 @@ in
           format = "   {}%";
           interval = 1;
           on-click = "kitty -e btop";
+        };
+
+        battery = {
+          states = {
+            warning = 20;
+            critical = 15;
+          };
+          format = "󰁹 {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-plugged = "󰂄 {capacity}%";
         };
 
         "hyprland/workspaces" = {
@@ -390,27 +355,6 @@ in
           max-length = 50;
         };
 
-        "custom/notification" = {
-          tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = "";
-          };
-          return-type = "json";
-          exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
-          on-click = "swaync-client -t -sw";
-          on-click-right = "swaync-client -d -sw";
-          escape = true;
-        };
-
         wireplumber = {
           format = "{icon}   {volume}%";
           format-muted = " ";
@@ -426,16 +370,15 @@ in
 
         clock = {
           timezone = "Europe/Berlin";
-          format = " {:%d/%m/%Y %H:%M}";
+          format = "{:%d/%m/%Y %H:%M}";
+        };
+
+        backlight = {
+          format = "   {percent}%";
+          min-brightness = 55.5;
         };
       };
     };
-  };
-
-  # notifications
-  services.swaync = {
-    enable = true;
-    style = builtins.readFile ../../dots/swaync/theme.css;
   };
 
   # auto mount removable drives
@@ -474,5 +417,6 @@ in
     # miscellaneous
     pkgs.xwaylandvideobridge
     pkgs.xdg-utils
+    pkgs.brightnessctl
   ];
 }

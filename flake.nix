@@ -21,9 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware = {
+      url = "github:NixOS/nixos-hardware";
+    };
+
     nix-alien.url = "github:thiagokokada/nix-alien";
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     catppuccin.url = "github:catppuccin/nix";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
@@ -51,10 +54,12 @@
           username = "daniel"; # Initial password is the same as the username
           homeDir = "/home/daniel";
         };
+
         git = {
           username = "micartey";
           email = "me@micartey.dev";
         };
+
         timeZone = "Europe/Berlin";
         locale = "de_DE.UTF-8";
       };
@@ -72,7 +77,9 @@
               ;
           };
 
-          modules = [ ./hosts/desktop/home ];
+          modules = [
+            ./hosts/desktop/home
+          ];
         };
 
         # homeImg = nixpkgs.lib.nixosSystem {
