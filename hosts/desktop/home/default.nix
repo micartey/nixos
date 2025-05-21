@@ -24,6 +24,12 @@
     supportedFilesystems = {
       ntfs = true;
     };
+
+    # Emulate arm through qemu? to build arm
+    binfmt.emulatedSystems = [
+      "aarch64-linux"
+      "armv7l-linux"
+    ];
   };
 
   environment.sessionVariables = {

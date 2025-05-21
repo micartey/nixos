@@ -75,7 +75,6 @@
           installation_mode = "force_installed";
         };
       };
-
     };
 
     profiles.default = {
@@ -84,8 +83,16 @@
       userChrome = builtins.readFile ../../dots/firefox/userChrome.css;
       userContent = builtins.readFile ../../dots/firefox/userContent.css;
 
+      # about:config
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # Disable some password stuff of firefox
+        "browser.contextual-password-manager.enabled" = false;
+        "services.sync.engine.passwords" = false;
+        "privacy.cpd.passwords" = false;
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
       };
     };
   };
