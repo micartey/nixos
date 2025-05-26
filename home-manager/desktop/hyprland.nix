@@ -38,8 +38,9 @@ in
       # ];
 
       monitor = [
-        "HDMI-A-2,3440x1440@99.98200,0x0,1"
-        "Unknown-1,disable"
+        "HDMI-A-1, 3440x1440@99.98200, 0x0, 1"
+        # "HDMI-A-1, 2560x1440@59.95Hz, 0x0, 1"
+        "Unknown-1, disable"
       ];
 
       env = [
