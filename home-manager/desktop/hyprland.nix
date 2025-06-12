@@ -415,7 +415,7 @@ in
     pkgs.catppuccin-cursors.mochaMauve
 
     # miscellaneous
-    pkgs.xwaylandvideobridge
+    pkgs.kdePackages.xwaylandvideobridge
     pkgs.xdg-utils
     pkgs.brightnessctl
   ];
