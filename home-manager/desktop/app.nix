@@ -110,6 +110,7 @@
     pkgs.spotify
 
     pkgs.openscad-unstable
+    pkgs.bambu-studio
     pkgs.kicad
 
     # password

@@ -1,6 +1,6 @@
 {
-  inputs,
   pkgs,
+  lib,
   ...
 }:
 
@@ -10,8 +10,6 @@ let
   ctrlMod = "CTRL";
 in
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
-
   # Copy wallpapers to local directory
   home.file = {
     wallpapers = {
@@ -436,7 +434,7 @@ in
   # notifications
   services.swaync = {
     enable = true;
-    style = builtins.readFile ../../dots/swaync/theme.css;
+    style = lib.mkForce (builtins.readFile ../../dots/swaync/theme.css);
   };
 
   # auto mount removable drives
@@ -473,7 +471,7 @@ in
     pkgs.catppuccin-cursors.mochaMauve
 
     # miscellaneous
-    pkgs.xwaylandvideobridge
+    pkgs.kdePackages.xwaylandvideobridge
     pkgs.xdg-utils
   ];
 }

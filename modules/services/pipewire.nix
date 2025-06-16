@@ -6,8 +6,8 @@
     6002
   ];
 
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
 
@@ -27,7 +27,7 @@
     pulse.enable = true;
     jack.enable = true;
   };
-  services.libinput.enable = true;
 
+  services.libinput.enable = true;
   environment.systemPackages = [ pkgs.alsa-utils ];
 }
