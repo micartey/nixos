@@ -18,7 +18,7 @@ in
     syntaxHighlighting.enable = true;
     autosuggestion.enable = true;
 
-    initExtra = ''
+    initContent = ''
       if [ "$(tty)" = "/dev/tty1" ]; then
         exec Hyprland
       fi
@@ -56,6 +56,7 @@ in
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
 
     userEmail = meta.git.email;
     userName = meta.git.username;

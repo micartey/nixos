@@ -19,7 +19,7 @@
 
   services.auto-cpufreq = {
     enable = true;
-    settings = lib.mkForce {
+    settings = {
       battery = {
         governor = "powersave";
         turbo = "never";
