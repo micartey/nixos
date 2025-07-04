@@ -34,3 +34,31 @@
 ├── secrets
 │   └── sops secret files
 ```
+
+
+## Lenovo Hardware Controls
+
+Lenovo can be shit - sadly my device is one of the "shitty" ones.
+Lets see how the hinge holds up...
+
+### Fan controls
+
+```
+# Silent mode
+sudo su -c "echo 0 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/fan_mode"
+
+# Dust cleaning mode
+sudo su -c "echo 1 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/fan_mode"
+```
+
+### Battery controls
+
+Enable this if your laptop should've been a desktop all along.
+
+```
+# Disable battery conservation (load to 100%)
+sudo su -c "echo 0 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/conservation_mode"
+
+# Enable battery conservation (stop at 80%)
+sudo su -c "echo 1 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/conservation_mode"
+```
