@@ -1,4 +1,4 @@
-{ modulesPath, system, ... }:
+{ modulesPath, system, lib, pkgs, ... }:
 
 let
   # We need the absolute path to the project root for the imports
@@ -7,18 +7,20 @@ let
 in
 {
   imports = [
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    # "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/profiles/qemu-guest.nix"
 
     # Import the server configuration
     # This entrypoint would be called by the default in sirius which also imports the hardware configuration
     "${PROJECT_ROOT}/hosts/desktop/default.nix"
   ];
 
-  # programs.zsh.initExtra = ''
-  #   if [[ $(id -u) -ne 1001 ]]; then
-  #       sudo su sirius
-  #   fi
-  # '';
+
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nixos";
+    autoResize = true;
+    fsType = "ext4";
+  };
 
   # Is that required? Idk, but it's here
   nixpkgs.hostPlatform = system;
@@ -28,4 +30,13 @@ in
     "console=ttyS0,115200"
     "console=tty1"
   ];
+
+  boot.growPartition = true;
+  boot.loader.grub.device = lib.mkDefault "/dev/vda"; # "nodev" for non x86_64-linux
+
+  boot.loader.grub.efiSupport = lib.mkIf (pkgs.stdenv.system != "x86_64-linux") (lib.mkDefault true);
+  boot.loader.grub.efiInstallAsRemovable = lib.mkIf (pkgs.stdenv.system != "x86_64-linux") (
+    lib.mkDefault true
+  );
+  boot.loader.timeout = 0;
 }

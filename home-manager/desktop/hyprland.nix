@@ -142,8 +142,6 @@ in
         "${mainMod}, mouse:273, resizewindow"
       ];
 
-      windowrule = [ ];
-
       windowrulev2 = [
         "float,title:(Picture-in-picture)"
         "float,title:(Picture-in-Picture)"

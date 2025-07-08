@@ -1,9 +1,9 @@
 {
-  networking.networkmanager = {
-    enable = true;
+  # networking.networkmanager = {
+  #   enable = true;
 
-    dns = "none";
-  };
+  #   dns = "none";
+  # };
 
   networking.nameservers = [
     "1.1.1.1"

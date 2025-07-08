@@ -4,9 +4,9 @@
   users = {
     defaultUserShell = pkgs.zsh;
     users = {
-      root = {
-        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
-      };
+      # root = {
+      #   openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
+      # };
 
       ${meta.user.username} = {
         isNormalUser = true;
@@ -18,10 +18,10 @@
           "wheel"
           "docker"
           "wireshark"
-          "ydotool" # For typ
+          "ydotool" # For typing
           "dialout" # For COM-Ports (Arduino)
         ];
-        openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
+        # openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
       };
     };
   };

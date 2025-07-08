@@ -74,19 +74,19 @@
           modules = [ ./hosts/desktop/home ];
         };
 
-        # homeImg = nixpkgs.lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = {
-        #     inherit
-        #       inputs
-        #       pkgs-unstable
-        #       system
-        #       stateVersion
-        #       meta
-        #       ;
-        #   };
-        #   modules = [ ./hosts/img/configuration.nix ];
-        # };
+        homeImg = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = {
+            inherit
+              inputs
+              pkgs-unstable
+              system
+              stateVersion
+              meta
+              ;
+          };
+          modules = [ ./hosts/img/configuration.nix ];
+        };
       };
     };
 }

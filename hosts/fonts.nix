@@ -8,5 +8,13 @@
       nerd-fonts.space-mono
       helvetica-neue-lt-std
     ];
+
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Jetbrains Mono" ];
+        sansSerif = [ "Jetbrains Mono" ];
+        serif = [  "Jetbrains Mono" ];
+      };
+    };
   };
 }

@@ -67,6 +67,7 @@ in
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
 
     userEmail = meta.git.email;
     userName = meta.git.username;
