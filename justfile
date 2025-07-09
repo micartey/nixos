@@ -9,21 +9,16 @@ home-switch:
 # 2. remove networking.networkmanager from cloudflare_dns.nix
 # 3. comment openssh.authorizedKeys.keys in users.nix
 home-iso:
-    nix run github:nix-community/nixos-generators -- \
-        --format qcow \
-        --flake .#homeImg \
-        -o result
-
-    sudo cp result/*.qcow2 nixos.qcow2
-    sudo chown $(id -u):$(id -g) nixos.qcow2
-    sudo chmod 600 nixos.qcow2
+    NIX_BUILD_CORES=32 nix build \
+        .#nixosConfigurations.homeImg.config.system.build.isoImage \
+        --impure
 
 
 home-vm:
     qemu-system-x86_64 \
             -enable-kvm \
-            -m 16G \
-            -smp cores=8 \
+            -m 32G \
+            -smp cores=16 \
             -cdrom nixos.iso \
             -boot d \
             -netdev user,id=net0 \
