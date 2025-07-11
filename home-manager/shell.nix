@@ -1,4 +1,9 @@
-{ pkgs, meta, ... }:
+{
+  pkgs,
+  meta,
+  config,
+  ...
+}:
 
 let
   shellAliases = {
@@ -44,6 +49,20 @@ in
     # '';
   };
 
+  programs.bash = {
+    enable = true;
+  };
+
+  programs.eza = {
+    enable = true;
+
+    git = config.programs.git.enable;
+    icons = "auto";
+
+    enableBashIntegration = config.programs.bash.enable;
+    enableZshIntegration = config.programs.zsh.enable;
+  };
+
   # oh-my-posh
   programs.oh-my-posh =
     let
@@ -52,18 +71,13 @@ in
     {
       enable = true;
 
-      enableZshIntegration = true;
+      enableBashIntegration = config.programs.bash.enable;
+      enableZshIntegration = config.programs.zsh.enable;
+
       enableNushellIntegration = true;
 
       settings = settings;
     };
-
-  programs.zellij = {
-    enable = true;
-    settings = {
-      pane_frames = false;
-    };
-  };
 
   programs.git = {
     enable = true;

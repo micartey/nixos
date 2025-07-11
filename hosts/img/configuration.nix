@@ -1,6 +1,7 @@
 {
   modulesPath,
   system,
+  lib,
   ...
 }:
 
@@ -26,4 +27,12 @@ in
     "console=ttyS0,115200"
     "console=tty1"
   ];
+
+  boot.blacklistedKernelModules = [ "nouveau" ];
+
+  networking.networkmanager.enable = lib.mkForce false;
+  hardware.nvidia = lib.mkForce {
+    modesetting.enable = false;
+    nvidiaSettings = false;
+  };
 }
