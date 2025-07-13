@@ -28,8 +28,10 @@ in
     "console=tty1"
   ];
 
+  # Disable NVIDIA
   boot.blacklistedKernelModules = [ "nouveau" ];
-
+  hardware.nvidia-container-toolkit.enable = lib.mkForce false;
+  services.xserver.videoDrivers = lib.mkForce [ ];
   networking.networkmanager.enable = lib.mkForce false;
   hardware.nvidia = lib.mkForce {
     modesetting.enable = false;

@@ -126,6 +126,10 @@
     # Rest Client
     pkgs.insomnia
 
+    # Needs to be called with --disable-gpu
+    pkgs-unstable.lmstudio
+
     (pkgs.callPackage ../../pkgs/pince.nix { })
+    (pkgs.callPackage ../../pkgs/easyeda.nix { })
   ];
 }

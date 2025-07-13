@@ -34,3 +34,19 @@
 ├── secrets
 │   └── sops secret files
 ```
+
+## Create a Live-ISO
+
+Live-ISOs are great thing.
+They can be used to test simple, not persistant, things in a VM or being used to boot from.
+This is mostly useful for secruity things.
+
+```bash
+sudo just home-iso
+```
+
+### Issues
+
+- [x] Nvidia driver is not being unloaded correctly
+- [ ] The fonts are not correctly used resulting in unknown special characters
+- [ ] Number of graphical applications is unnecessary high

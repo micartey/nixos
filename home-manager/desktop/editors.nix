@@ -25,6 +25,6 @@
 
     # text-editors
     pkgs.vim
-    pkgs.zed-editor
+    pkgs-unstable.zed-editor
   ];
 }

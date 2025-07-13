@@ -49,6 +49,14 @@ in
     # '';
   };
 
+  # Don't autostart Hyprland with "no-desktop" specialisation
+  specialisation.no-desktop.configuration = {
+    programs.zsh.initContent = ''
+      bindkey "^[[1;5C" forward-word
+      bindkey "^[[1;5D" backward-word
+    '';
+  };
+
   programs.bash = {
     enable = true;
   };
