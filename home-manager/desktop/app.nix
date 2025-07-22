@@ -131,5 +131,6 @@
 
     (pkgs.callPackage ../../pkgs/pince.nix { })
     (pkgs.callPackage ../../pkgs/easyeda.nix { })
+    (pkgs.callPackage ../../pkgs/transformerlab.nix { })
   ];
 }
