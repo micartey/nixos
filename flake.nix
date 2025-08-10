@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-edge.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -33,6 +34,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-edge,
       ...
     }@inputs:
     let
@@ -45,6 +47,11 @@
         config.permittedInsecurePackages = [
           "libsoup-2.74.3"
         ];
+      };
+
+      pkgs-edge = import nixpkgs-edge {
+        inherit system;
+        config.allowUnfree = true;
       };
 
       meta = {
@@ -69,6 +76,7 @@
             inherit
               inputs
               pkgs-unstable
+              pkgs-edge
               stateVersion
               meta
               ;
@@ -83,6 +91,7 @@
             inherit
               inputs
               pkgs-unstable
+              pkgs-edge
               system
               stateVersion
               meta

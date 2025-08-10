@@ -25,7 +25,7 @@
       ntfs = true;
     };
 
-    # Emulate arm through qemu? to build arm
+    # Emulate arm to build arm for e.g. pi4
     binfmt.emulatedSystems = [
       "aarch64-linux"
       "armv7l-linux"
@@ -48,11 +48,6 @@
     XDG_SESSION_TYPE = "wayland";
     GDK_BACKEND = "wayland";
   };
-
-  # hardware.fancontrol = {
-  #   enable = true;
-  #   config = '''';
-  # };
 
   environment.systemPackages = with pkgs; [
     lm_sensors

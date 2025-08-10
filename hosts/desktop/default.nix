@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  pkgs-edge,
   pkgs-unstable,
   stateVersion,
   meta,
@@ -19,6 +20,7 @@
     extraSpecialArgs = {
       inherit
         inputs
+        pkgs-edge
         pkgs-unstable
         stateVersion
         meta
@@ -34,6 +36,7 @@
         inputs
         lib
         pkgs
+        pkgs-edge
         pkgs-unstable
         stateVersion
         meta

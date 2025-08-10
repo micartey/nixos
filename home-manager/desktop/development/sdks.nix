@@ -10,13 +10,6 @@
     package = pkgs-unstable.go_1_23;
   };
 
-  # # ocaml package manager
-  # programs.opam = {
-  #   enable = true;
-
-  #   enableZshIntegration = true;
-  # };
-
   home.packages = [
     # nix-related
     pkgs.nixd
