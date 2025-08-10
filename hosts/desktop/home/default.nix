@@ -58,5 +58,4 @@
     lm_sensors
     libthai
   ];
-
 }

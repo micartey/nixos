@@ -42,6 +42,9 @@
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
+        config.permittedInsecurePackages = [
+          "libsoup-2.74.3"
+        ];
       };
 
       meta = {

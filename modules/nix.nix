@@ -3,6 +3,7 @@
   pkgs,
   stateVersion,
   meta,
+  lib,
   ...
 }:
 

@@ -94,6 +94,8 @@
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
       };
+
+      extensions.force = true;
     };
   };
 
@@ -110,7 +112,7 @@
     pkgs.spotify
 
     pkgs.openscad-unstable
-    pkgs.bambu-studio
+    pkgs-unstable.bambu-studio
     pkgs.kicad
 
     # password
