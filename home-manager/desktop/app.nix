@@ -99,5 +99,7 @@
 
     # Rest Client
     pkgs.insomnia
+
+    (pkgs.callPackage ../../pkgs/easyeda.nix { })
   ];
 }
