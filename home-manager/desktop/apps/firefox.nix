@@ -1,15 +1,6 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}:
+{ pkgs, ... }:
 
 {
-  # gpg key manager
-  programs.gpg.enable = true;
-
-  # audio effects
-  services.easyeffects.enable = true;
 
   programs.firefox = {
     enable = true;
@@ -63,43 +54,14 @@
     profiles.default = {
       isDefault = true;
 
-      userChrome = builtins.readFile ../../dots/firefox/userChrome.css;
-      userContent = builtins.readFile ../../dots/firefox/userContent.css;
+      extensions.force = true;
+
+      userChrome = builtins.readFile ../../../dots/firefox/userChrome.css;
+      userContent = builtins.readFile ../../../dots/firefox/userContent.css;
 
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
     };
   };
-
-  home.packages = [
-    # WhatApp
-    # pkgs.zapzap
-
-    # discord
-    pkgs-unstable.vesktop
-    pkgs-unstable.discord
-    pkgs-unstable.discordo
-
-    pkgs.spotify
-
-    pkgs.openscad-unstable
-    pkgs.bambu-studio
-    #pkgs.kicad
-
-    # password
-    pkgs.bitwarden-desktop
-
-    pkgs.openconnect
-
-    # tex-related
-    pkgs.texliveFull
-    pkgs.graphviz
-    pkgs.inkscape
-
-    # Rest Client
-    pkgs.insomnia
-
-    (pkgs.callPackage ../../pkgs/easyeda.nix { })
-  ];
 }
