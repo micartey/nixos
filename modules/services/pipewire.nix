@@ -20,6 +20,20 @@
           }
         ];
       };
+
+      "10-block-agc" = {
+        "pulse.rules" = [
+          {
+            # Block every client from touching source (mic) volume
+            matches = [
+              { "application.process.binary" = "~.*"; }
+            ];
+            actions = {
+              quirks = [ "block-source-volume" ];
+            };
+          }
+        ];
+      };
     };
 
     alsa.enable = true;

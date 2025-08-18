@@ -11,6 +11,15 @@ let
 
     fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
 
+    s = "nix-shell --run zsh -p";
+    codex = "bunx @openai/codex";
+
+    # git alias
+    gp = "git push";
+    gc = "git commit";
+    ga = "git add";
+    gs = "git status";
+
     capture-card = ''
       CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
 
