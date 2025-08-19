@@ -39,6 +39,17 @@
         meta
         ;
     };
+
+    root = import ../../home-manager/home {
+      inherit
+        inputs
+        lib
+        pkgs
+        pkgs-unstable
+        stateVersion
+        meta
+        ;
+    };
   };
 
   programs.appimage = {
