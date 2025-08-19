@@ -28,8 +28,9 @@
     useUserPackages = true;
   };
 
-  home-manager.users = {
-    ${meta.user.username} = import ../../home-manager/home {
+  home-manager.users = lib.genAttrs [ meta.user.username "root" ] (
+    _:
+    import ../../home-manager/home {
       inherit
         inputs
         lib
@@ -38,19 +39,8 @@
         stateVersion
         meta
         ;
-    };
-
-    root = import ../../home-manager/home {
-      inherit
-        inputs
-        lib
-        pkgs
-        pkgs-unstable
-        stateVersion
-        meta
-        ;
-    };
-  };
+    }
+  );
 
   programs.appimage = {
     enable = true;
