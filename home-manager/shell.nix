@@ -48,6 +48,11 @@ in
         exec Hyprland &> /dev/null
       fi
 
+      cdn() {
+        curl --interface tailscale0 -X PUT -F "file=@$1" http://kvm-large:7080/api/v1/upload/blob &&
+        echo "\nhttps://cdn.micartey.dev/api/v1/download/blob/"$1
+      }
+
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
     '';
