@@ -37,7 +37,8 @@ in
 
       monitor = [
         "HDMI-A-1, 3440x1440@99.98200, 0x0, 1"
-        # "HDMI-A-1, 2560x1440@59.95Hz, 0x0, 1"
+        "DP-2, 400x1280@59.98900, 3440x0, 1, transform, 1"
+
         "Unknown-1, disable"
       ];
 

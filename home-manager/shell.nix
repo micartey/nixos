@@ -14,6 +14,8 @@ let
     s = "nix-shell --run zsh -p";
     codex = "bunx @openai/codex";
 
+    opencode = "bunx opencode-ai@latest";
+
     # git alias
     gp = "git push";
     gc = "git commit";

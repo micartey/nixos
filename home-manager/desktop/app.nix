@@ -24,7 +24,6 @@
     pkgs.spotify
 
     pkgs.openscad-unstable
-    pkgs-unstable.bambu-studio
     pkgs.kicad
 
     # password
