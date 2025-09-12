@@ -118,7 +118,7 @@
 
         backlight = {
           format = "   {percent}%";
-          min-brightness = 5;
+          min-brightness = 2;
         };
       };
     };

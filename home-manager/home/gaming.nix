@@ -2,7 +2,7 @@
 
 {
   home.packages = [
-    pkgs.protonup-qt
+    # pkgs.protonup-qt
     pkgs.wineWowPackages.waylandFull
     # pkgs.winetricks
 

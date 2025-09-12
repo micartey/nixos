@@ -1,13 +1,11 @@
 {
   inputs,
   stateVersion,
-  meta,
   ...
 }:
 
 {
   imports = [
-    ./editor.nix
     ./shell.nix
 
     inputs.catppuccin.homeModules.catppuccin
