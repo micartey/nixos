@@ -132,7 +132,7 @@ in
 
         # Toggle Network delay
         "${mainMod}, 1, exec, sudo tc qdisc add dev enp14s0 root netem delay 120ms"
-        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 50ms 150ms distribution normal loss 30%"
+        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 10ms 50ms distribution normal loss 20%"
         "${mainMod}, 3, exec, sudo tc qdisc add dev enp14s0 root netem loss 100%"
         "${mainMod}, 0, exec, sudo tc qdisc del dev enp14s0 root"
       ];
