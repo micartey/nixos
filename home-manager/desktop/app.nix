@@ -21,6 +21,8 @@
     pkgs-unstable.legcord
     pkgs-unstable.discordo
 
+    pkgs-unstable.element-desktop
+
     pkgs.spotify
 
     pkgs.openscad-unstable
