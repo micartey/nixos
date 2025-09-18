@@ -20,6 +20,8 @@
     pkgs-unstable.discord
     pkgs-unstable.discordo
 
+    pkgs.element-desktop
+
     pkgs.spotify
 
     pkgs.openscad-unstable
@@ -38,6 +40,8 @@
 
     # Rest Client
     pkgs.insomnia
+
+    pkgs.gnome-disk-utility
 
     (pkgs.callPackage ../../../pkgs/easyeda.nix { })
   ];
