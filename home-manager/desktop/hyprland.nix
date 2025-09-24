@@ -37,7 +37,7 @@ in
 
       monitor = [
         "HDMI-A-1, 3440x1440@99.98200, 0x0, 1"
-        "DP-2, 400x1280@59.98900, 3440x0, 1, transform, 1"
+        "DP-1, 400x1280@59.98900, 3440x0, 1, transform, 3"
 
         "Unknown-1, disable"
       ];
@@ -118,6 +118,7 @@ in
         "${ctrlMod}, 4, workspace, 4"
         "${ctrlMod}, 5, workspace, 5"
         "${ctrlMod}, 6, workspace, 6"
+        "${ctrlMod}, 7, workspace, 7"
 
         "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
         "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
@@ -125,6 +126,7 @@ in
         "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
         "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
         "${ctrlMod} SHIFT, 6, movetoworkspace, 6"
+        "${ctrlMod} SHIFT, 8, movetoworkspace, 8"
 
         # Window dragging
         "${mainMod}, mouse_down, workspace, e+1"
@@ -171,9 +173,21 @@ in
         "center,title:(Welcome to IntelliJ IDEA)"
 
         # Folders
-        "float,class:(org.gnome.Nautilus)"
-        "size 1531 886,class:(org.gnome.Nautilus)"
-        "center,class:(org.gnome.Nautilus)"
+        # "float,class:(org.gnome.Nautilus)"
+        # "size 1531 886,class:(org.gnome.Nautilus)"
+        # "center,class:(org.gnome.Nautilus)"
+      ];
+
+      # Pin workspaces to display output
+      workspace = [
+        "1, monitor:HDMI-A-1"
+        "2, monitor:HDMI-A-1"
+        "3, monitor:HDMI-A-1"
+        "4, monitor:HDMI-A-1"
+        "5, monitor:HDMI-A-1"
+        "6, monitor:HDMI-A-1"
+
+        "8, monitor:DP-1"
       ];
 
       layerrule = [
@@ -286,6 +300,9 @@ in
       mainBar = {
         layer = "top";
         position = "top";
+
+        # Display waybar only on HDMI (big screen)
+        output = [ "HDMI-A-1" ];
 
         modules-left = [
           "temperature"

@@ -29,3 +29,6 @@ flake-update:
 
 flake-update-unstable:
     nix flake update nixpkgs-unstable
+
+flake-update-edge:
+    nix flake update nixpkgs-edge
