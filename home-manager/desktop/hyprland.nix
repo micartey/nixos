@@ -118,7 +118,7 @@ in
         "${ctrlMod}, 4, workspace, 4"
         "${ctrlMod}, 5, workspace, 5"
         "${ctrlMod}, 6, workspace, 6"
-        "${ctrlMod}, 7, workspace, 7"
+        "${ctrlMod}, 8, workspace, 8"
 
         "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
         "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
