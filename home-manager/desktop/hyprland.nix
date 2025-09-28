@@ -62,6 +62,7 @@ in
         "wl-paste --type text --watch cliphist store"
 
         "vesktop"
+        # "element-desktop"
 
         "waybar"
       ];

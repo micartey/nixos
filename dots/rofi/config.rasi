@@ -83,13 +83,13 @@ element-text {
 element selected {
     border-radius: 10px;
 
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color:  @selected-col;
+    text-color: @fg-col2;
 }
 
 mode-switcher {
     spacing: 0;
-  }
+}
 
 button {
     padding: 10px;

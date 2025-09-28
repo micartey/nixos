@@ -25,8 +25,10 @@
 
     pkgs.spotify
 
+    # Hardware design
     pkgs.openscad-unstable
-    pkgs.kicad
+    # pkgs.kicad
+    (pkgs.callPackage ../../pkgs/easyeda.nix { })
 
     # password
     pkgs.bitwarden-desktop
@@ -45,7 +47,6 @@
     pkgs-unstable.lmstudio
 
     (pkgs.callPackage ../../pkgs/pince.nix { })
-    (pkgs.callPackage ../../pkgs/easyeda.nix { })
     (pkgs.callPackage ../../pkgs/transformerlab.nix { })
   ];
 }
