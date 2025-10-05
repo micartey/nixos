@@ -44,9 +44,3 @@ This is mostly useful for secruity things.
 ```bash
 sudo just home-iso
 ```
-
-### Issues
-
-- [x] Nvidia driver is not being unloaded correctly
-- [ ] The fonts are not correctly used resulting in unknown special characters
-- [ ] Number of graphical applications is unnecessary high

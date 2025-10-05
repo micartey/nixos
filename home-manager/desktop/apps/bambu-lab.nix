@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs-edge, ... }:
 
 {
   home.packages = [
-    pkgs.bambu-studio
+    pkgs-edge.bambu-studio
   ];
 
   xdg.desktopEntries = {

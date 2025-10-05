@@ -21,6 +21,7 @@
     # go-related
     pkgs.delve
     pkgs.gopls
+    pkgs.tinygo
 
     # erlang-related
     pkgs.erlang
