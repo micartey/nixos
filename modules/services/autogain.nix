@@ -1,4 +1,4 @@
-{ pkgs, meta, ... }:
+{ pkgs, ... }:
 
 {
   systemd.user.services.disable-autogain = {

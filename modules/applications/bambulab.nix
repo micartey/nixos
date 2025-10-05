@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 # let
 # bambulab = pkgs.appimageTools.wrapType2 rec {
