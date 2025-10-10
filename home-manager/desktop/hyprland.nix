@@ -317,7 +317,7 @@ in
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
-          "custom/media"
+          "custom/spotify"
           "custom/mic"
           "wireplumber"
           "clock"
@@ -414,13 +414,15 @@ in
           max-length = 50;
         };
 
-        "custom/media" = {
+        "custom/spotify" = {
           format = "  {}";
           escape = true;
           interval = 1;
           tooltip = false;
           exec = "spotifycli --status";
           on-click = "spotifycli --playpause";
+          on-scroll-up = "spotifycli --next";
+          on-scroll-down = "spotifycli --prev";
           max-length = 50;
         };
 
