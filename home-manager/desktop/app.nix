@@ -24,6 +24,7 @@
     pkgs-unstable.element-desktop
 
     pkgs.spotify
+    pkgs.spotify-cli-linux
 
     # Hardware design
     pkgs.openscad-unstable

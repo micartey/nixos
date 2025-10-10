@@ -317,10 +317,10 @@ in
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
+          "custom/media"
           "custom/mic"
           "wireplumber"
           "clock"
-          "custom/notification"
           "tray"
         ];
 
@@ -396,6 +396,12 @@ in
           sort-by-number = true;
         };
 
+        # cpu = {
+        #   format = "   {usage}%";
+        #   interval = 1;
+        #   on-click = "kitty -e btop";
+        # };
+
         "custom/mic" = {
           format = "{}";
           escape = true;
@@ -408,25 +414,14 @@ in
           max-length = 50;
         };
 
-        "custom/notification" = {
-          tooltip = false;
-          format = "{icon}";
-          format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
-            none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
-            dnd-inhibited-none = "";
-          };
-          return-type = "json";
-          exec-if = "which swaync-client";
-          exec = "swaync-client -swb";
-          on-click = "swaync-client -t -sw";
-          on-click-right = "swaync-client -d -sw";
+        "custom/media" = {
+          format = "  {}";
           escape = true;
+          interval = 1;
+          tooltip = false;
+          exec = "spotifycli --status";
+          on-click = "spotifycli --playpause";
+          max-length = 50;
         };
 
         wireplumber = {
