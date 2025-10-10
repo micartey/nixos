@@ -12,7 +12,7 @@
 
     serviceConfig = {
       # Use the command directly since it's now in the PATH
-      ExecStart = "${pkgs.unixtools.watch}/bin/watch -n 1 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%";
+      ExecStart = "${pkgs.unixtools.watch}/bin/watch -n 1 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 60%";
       Restart = "on-failure";
       RestartSec = "5s";
     };

@@ -444,7 +444,24 @@ in
 
         clock = {
           timezone = "Europe/Berlin";
-          format = " {:%d/%m/%Y %H:%M}";
+          format = "{:%d.%m.%Y %H:%M}";
+
+          tooltip-format = "<tt><small>{calendar}</small></tt>";
+
+          # https://github.com/Alexays/Waybar/wiki/Module:-Clock
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#d6d2d4'><b>{}</b></span>";
+              weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#b33e5f'><b>{}</b></span>";
+            };
+          };
         };
       };
     };
@@ -492,5 +509,8 @@ in
     # miscellaneous
     pkgs.kdePackages.xwaylandvideobridge
     pkgs.xdg-utils
+
+    # For waybar clock
+    pkgs.tzdata
   ];
 }

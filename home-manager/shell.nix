@@ -32,6 +32,11 @@ let
 
       wait $PID1 && kill $PID2
     '';
+
+    stream-audio = ''
+      pw-cat -r --target $(wpctl status | grep "Easy Effects Source" | sed -n 's/^[^0-9]*\([0-9]*\)\..*/\1/p') --format s16 --rate 44100 --channels 2 - \
+        | nc pi.local 12345
+    '';
   };
 in
 {
