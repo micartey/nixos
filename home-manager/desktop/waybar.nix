@@ -29,6 +29,7 @@
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
+          "custom/spotify"
           "custom/mic"
           "wireplumber"
           "backlight"
@@ -98,6 +99,18 @@
           max-length = 50;
         };
 
+        "custom/spotify" = {
+          format = "  {}";
+          escape = true;
+          interval = 1;
+          tooltip = false;
+          exec = "spotifycli --status";
+          on-click = "spotifycli --playpause";
+          on-scroll-up = "spotifycli --next";
+          on-scroll-down = "spotifycli --prev";
+          max-length = 20;
+        };
+
         wireplumber = {
           format = "{icon}   {volume}%";
           format-muted = " ";
@@ -113,7 +126,7 @@
 
         clock = {
           timezone = "Europe/Berlin";
-          format = "{:%d/%m/%Y %H:%M}";
+          format = "{:%H:%M}";
         };
 
         backlight = {

@@ -23,6 +23,7 @@
     pkgs.element-desktop
 
     pkgs.spotify
+    pkgs.spotify-cli-linux
 
     pkgs.openscad-unstable
     pkgs.bambu-studio
