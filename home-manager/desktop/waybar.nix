@@ -26,13 +26,13 @@
           "cpu"
           "custom/nvidia"
           "battery"
+          "backlight"
         ];
         modules-center = [ "hyprland/workspaces" ];
         modules-right = [
           "custom/spotify"
           "custom/mic"
           "wireplumber"
-          "backlight"
           "clock"
           "tray"
         ];
