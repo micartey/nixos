@@ -126,7 +126,7 @@
 
         clock = {
           timezone = "Europe/Berlin";
-          format = "{:%H:%M}";
+          format = "{:%d.%m.%Y %H:%M}";
         };
 
         backlight = {
