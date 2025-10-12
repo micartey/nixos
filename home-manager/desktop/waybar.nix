@@ -81,10 +81,27 @@
           format-plugged = "󰂄 {capacity}%";
         };
 
+        backlight = {
+          format = "   {percent}%";
+          min-brightness = 2;
+        };
+
         "hyprland/workspaces" = {
           format = "{icon}";
           on-click = "activate";
           sort-by-number = true;
+        };
+
+        "custom/spotify" = {
+          format = "  {}";
+          escape = true;
+          interval = 1;
+          tooltip = false;
+          exec = "spotifycli --status";
+          on-click = "spotifycli --playpause";
+          on-scroll-up = "spotifycli --next";
+          on-scroll-down = "spotifycli --prev";
+          max-length = 18;
         };
 
         "custom/mic" = {
@@ -97,18 +114,6 @@
           '';
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           max-length = 50;
-        };
-
-        "custom/spotify" = {
-          format = "  {}";
-          escape = true;
-          interval = 1;
-          tooltip = false;
-          exec = "spotifycli --status";
-          on-click = "spotifycli --playpause";
-          on-scroll-up = "spotifycli --next";
-          on-scroll-down = "spotifycli --prev";
-          max-length = 20;
         };
 
         wireplumber = {
@@ -127,11 +132,6 @@
         clock = {
           timezone = "Europe/Berlin";
           format = "{:%d.%m.%Y %H:%M}";
-        };
-
-        backlight = {
-          format = "   {percent}%";
-          min-brightness = 2;
         };
       };
     };
