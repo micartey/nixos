@@ -65,8 +65,6 @@
 
 #workspaces button.active {
     color: @lavender;
-
-    font-weight: bold;
 }
 
 #custom-mic {
