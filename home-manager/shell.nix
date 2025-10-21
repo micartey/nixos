@@ -148,7 +148,12 @@ in
   };
 
   programs.bat.enable = true;
-  programs.btop.enable = true;
+
+  programs.btop = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
   programs.fastfetch.enable = true;
   programs.fzf.enable = true;
   programs.carapace.enable = true;

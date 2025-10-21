@@ -28,7 +28,8 @@
 
     # Hardware design
     pkgs.openscad-unstable
-    # pkgs.kicad
+
+    pkgs.kicad
     (pkgs.callPackage ../../pkgs/easyeda.nix { })
 
     # password
