@@ -11,7 +11,7 @@
 
   home.file = {
     theme = {
-      source = ../../dots/rofi/config.rasi;
+      source = ../dots/rofi/config.rasi;
       target = ".config/rofi/custom.rasi";
     };
   };

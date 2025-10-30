@@ -31,7 +31,7 @@
   };
 
   home-manager.users = {
-    ${meta.user.username} = import ../../home-manager/home {
+    ${meta.user.username} = import ../../home-manager {
       inherit
         inputs
         lib

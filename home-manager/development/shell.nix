@@ -95,7 +95,7 @@ in
   # oh-my-posh
   programs.oh-my-posh =
     let
-      settings = builtins.fromJSON (builtins.readFile ../dots/oh-my-posh/settings.json);
+      settings = builtins.fromJSON (builtins.readFile ../../dots/oh-my-posh/settings.json);
     in
     {
       enable = true;
