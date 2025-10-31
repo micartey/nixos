@@ -97,7 +97,7 @@
 /* Navbar size calc */
 :root {
     --tab-border-radius: 10px !important; /*  Tab border radius -- Changes the tabs rounding  */ /*  Default: 6px  */
-    --NavbarWidth: 43; /*  Default values: 36 - 43  */
+    --NavbarWidth: 50; /*  Default values: 36 - 43  */
     --TabsHeight: 36; /*  Minimum: 30  */ /*  Default: 36  */
     --TabsBorder: 8; /*  Doesnt do anything on small layout  */ /*  Default: 8  */
     --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))
@@ -131,7 +131,7 @@
     }
 }
 
-@media screen and (min-width: 950px) and (max-width: 1324px) /* Both the tabs space and the navbar will grow */ {
+@media screen and (min-width: 1000px) and (max-width: 1400px) /* Both the tabs space and the navbar will grow */ {
     :root #nav-bar {
         margin-top: calc(
             var(--TabsHeight) * -1px - var(--TabsBorder) * 1px
@@ -158,7 +158,7 @@
     }
 }
 
-@media screen and (max-width: 949px) /* The window is not enough wide for a one line layout */ {
+@media screen and (max-width: 1000px) /* The window is not enough wide for a one line layout */ {
     :root #nav-bar {
         padding: 0 5px 0 5px !important;
         height: calc(var(--NavbarHeightSmall) * 1px) !important;
