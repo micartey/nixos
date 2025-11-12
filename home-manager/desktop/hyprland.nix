@@ -162,6 +162,12 @@ in
         "float,title:(Welcome to IntelliJ IDEA)"
         "size 1358 682,title:(Welcome to IntelliJ IDEA)"
         "center,title:(Welcome to IntelliJ IDEA)"
+
+        # Viro
+        "float,class:(.*)viro(.*)$"
+        "bordersize 0, class:(.*)viro(.*)$"
+        "noblur, title:^(Radial-Menu)$"
+        "noshadow, title:^(Radial-Menu)$"
       ];
 
       layerrule = [
@@ -197,11 +203,6 @@ in
           size = 2;
           passes = 3;
         };
-
-        #"drop_shadow" = "yes";
-        #shadow_range = 4;
-        #shadow_render_power = 3;
-        #"col.shadow" = "$crust";
       };
 
       animations = {
