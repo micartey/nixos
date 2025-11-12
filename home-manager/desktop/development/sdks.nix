@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  programs.java = {
+    enable = true;
+    package = (pkgs.jdk17.override { enableJavaFX = true; });
+  };
+
   home.packages = with pkgs; [
     nixd
     nixfmt-rfc-style
@@ -14,7 +19,6 @@
     gcc
     gox
 
-    zulu21
     gradle_7
 
     gdb

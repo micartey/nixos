@@ -44,6 +44,7 @@
 
     pkgs.gnome-disk-utility
 
+    pkgs.kicad
     (pkgs.callPackage ../../../pkgs/easyeda.nix { })
   ];
 }
