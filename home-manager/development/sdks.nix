@@ -10,6 +10,11 @@
     package = pkgs-unstable.go_1_23;
   };
 
+  programs.java = {
+    enable = true;
+    package = (pkgs.jdk17.override { enableJavaFX = true; });
+  };
+
   home.packages = [
     # nix-related
     pkgs.nixd
@@ -29,8 +34,9 @@
     pkgs.gleam
 
     # java-related
-    pkgs.zulu21
+    # pkgs.zulu21
     pkgs.gradle_7
+    (pkgs.callPackage ../../pkgs/recaf.nix { })
 
     # scala-related
     pkgs-unstable.scala
