@@ -10,6 +10,8 @@
 
     ./boot-speedup.nix
 
+    ./dnscontrol.nix
+
     ../modules/services/docker.nix
     ../modules/nix.nix
   ];

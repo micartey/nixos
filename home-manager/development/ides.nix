@@ -15,6 +15,9 @@
     # vscode
     # pkgs.vscode
 
+    pkgs-unstable.gemini-cli
+    pkgs-unstable.codex
+
     # text-editors
     pkgs.vim
     pkgs-unstable.zed-editor

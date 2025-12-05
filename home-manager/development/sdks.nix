@@ -7,7 +7,7 @@
 
   programs.go = {
     enable = true;
-    package = pkgs-unstable.go_1_23;
+    package = pkgs-unstable.go_1_24;
   };
 
   programs.java = {
@@ -36,6 +36,7 @@
     # java-related
     # pkgs.zulu21
     pkgs.gradle_7
+    pkgs.lefthook
     (pkgs.callPackage ../../pkgs/recaf.nix { })
 
     # scala-related
