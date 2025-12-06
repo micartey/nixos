@@ -32,3 +32,6 @@ flake-update-unstable:
 
 flake-update-edge:
     nix flake update nixpkgs-edge
+
+change-pwd:
+    passwd daniel
