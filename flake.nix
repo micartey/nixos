@@ -13,21 +13,15 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
 
-    nil = {
-      url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
-
     catppuccin.url = "github:catppuccin/nix";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
   };
 
   outputs =
