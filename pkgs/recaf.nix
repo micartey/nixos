@@ -11,7 +11,7 @@ let
     hash = "sha256-XJcPOr0lnCc+cDk88ipcr6toCdrSuC6rO1mLMdJOxmo=";
   };
 
-  javaWithFx = pkgs.jdk23.override { enableJavaFX = true; };
+  javaWithFx = pkgs.zulu25.override { enableJavaFX = true; };
 in
 buildFHSEnv {
   pname = "recaf";

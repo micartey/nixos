@@ -6,7 +6,7 @@
   pkgs,
   makeWrapper,
   lib,
-  wrapGAppsHook,
+  wrapGAppsHook3,
 }:
 
 stdenv.mkDerivation rec {
@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     unzip
     autoPatchelfHook
     makeWrapper
-    wrapGAppsHook
+    wrapGAppsHook3
   ];
 
   buildInputs = with pkgs; [

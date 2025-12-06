@@ -246,10 +246,6 @@ in
         preserve_split = "yes";
       };
 
-      gestures = {
-        workspace_swipe = "off";
-      };
-
       misc = {
         force_default_wallpaper = 0;
         mouse_move_enables_dpms = false;
@@ -308,7 +304,6 @@ in
     pkgs.catppuccin-cursors.mochaMauve
 
     # miscellaneous
-    pkgs.kdePackages.xwaylandvideobridge
     pkgs.xdg-utils
 
     # For waybar clock

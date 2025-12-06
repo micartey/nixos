@@ -9,7 +9,7 @@
     pkgs.winetricks
 
     pkgs-unstable.prismlauncher
-    pkgs-unstable.glfw-wayland-minecraft
+    pkgs-unstable.glfw3-minecraft
     pkgs-unstable.lunar-client
 
     pkgs-unstable.r2modman
