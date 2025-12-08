@@ -15,6 +15,7 @@
     gleam
 
     go_1_24
+    tinygo
     libcap
     gcc
     gox

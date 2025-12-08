@@ -56,6 +56,10 @@
   #   config = '''';
   # };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "gradle-7.6.6"
+  ];
+
   environment.systemPackages = with pkgs; [
     lm_sensors
     libthai

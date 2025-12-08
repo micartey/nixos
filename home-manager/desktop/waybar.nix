@@ -73,8 +73,8 @@
 
         battery = {
           states = {
-            warning = 20;
-            critical = 15;
+            warning = 40;
+            critical = 20;
           };
           format = "󰁹 {capacity}%";
           format-charging = "󰂄 {capacity}%";

@@ -20,7 +20,7 @@
     pkgs-unstable.discord
     pkgs-unstable.discordo
 
-    pkgs.element-desktop
+    pkgs-unstable.element-desktop
 
     pkgs.spotify
     pkgs.spotify-cli-linux
