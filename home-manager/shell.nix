@@ -55,7 +55,10 @@ in
   };
 
   # fancier git diff
-  programs.delta.enable = true;
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
 
   programs.git = {
     enable = true;

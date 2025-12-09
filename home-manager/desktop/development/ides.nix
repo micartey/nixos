@@ -9,9 +9,6 @@
     pkgs.async-profiler
     pkgs.bytecode-viewer
 
-    # Arduino
-    pkgs.arduino
-
     # text-editors
     pkgs.vim
     pkgs.zed-editor
