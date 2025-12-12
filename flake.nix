@@ -35,7 +35,7 @@
       ...
     }@inputs:
     let
-      stateVersion = "25.05";
+      stateVersion = "25.05"; # DO NOT UPDATE
       system = "x86_64-linux";
 
       pkgs-unstable = import nixpkgs-unstable {
