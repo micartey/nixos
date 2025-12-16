@@ -21,7 +21,7 @@
     pkgs-unstable.legcord
     pkgs-unstable.discordo
 
-    pkgs-unstable.element-desktop
+    pkgs.element-desktop
 
     pkgs.spotify
     pkgs.spotify-cli-linux

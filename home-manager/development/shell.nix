@@ -108,26 +108,31 @@ in
       settings = settings;
     };
 
+  # fancier git diff
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+  };
+
   programs.git = {
     enable = true;
     lfs.enable = true;
 
-    userEmail = meta.git.email;
-    userName = meta.git.username;
+    settings = {
+      user = {
+        email = meta.git.email;
+        name = meta.git.username;
+      };
 
-    # fancier git diff
-    delta.enable = true;
-
-    extraConfig = {
       color.ui = true;
       core.editor = "vim";
       github.user = meta.git.username;
       push.autoSetupRemote = true;
       pull.rebase = true;
-    };
 
-    aliases = {
-      graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all";
+      aliases = {
+        graph = "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all";
+      };
     };
   };
 
@@ -170,6 +175,5 @@ in
     pkgs.hyperfine
     pkgs.playerctl
     pkgs.ffmpeg
-    pkgs.imagemagick
   ];
 }

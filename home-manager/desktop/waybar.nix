@@ -12,7 +12,10 @@
         position = "top";
 
         # Display waybar only on HDMI (big screen)
-        output = [ "HDMI-A-1" ];
+        output = [
+          "HDMI-A-1"
+          "HDMI-A-2"
+        ];
 
         modules-left = [
           "temperature"

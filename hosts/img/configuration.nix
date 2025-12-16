@@ -28,6 +28,10 @@ in
     "console=tty1"
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "gradle-7.6.6"
+  ];
+
   # Disable NVIDIA
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.nvidia-container-toolkit.enable = lib.mkForce false;

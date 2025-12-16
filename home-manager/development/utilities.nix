@@ -9,5 +9,8 @@
     # Another - more generic - imager
     # Run as root 'sudo caligula burn <PATH>'
     pkgs.caligula
+
+    # Remove image meta data
+    pkgs.imagemagick
   ];
 }

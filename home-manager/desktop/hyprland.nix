@@ -27,9 +27,9 @@ in
       # ];
 
       monitor = [
-        "HDMI-A-1, 3440x1440@99.98200, 0x0, 1"
+        "HDMI-A-2, 3440x1440@99.98200, 0x0, 1"
         # "HDMI-A-1, 1920x1080@99.98200, 0x0, 1"
-        "DP-1, 400x1280@59.98900, 3440x0, 1, transform, 3"
+        "DP-4, 400x1280@59.98900, 3440x0, 1, transform, 3"
 
         "Unknown-1, disable"
       ];
@@ -176,14 +176,14 @@ in
 
       # Pin workspaces to display output
       workspace = [
-        "1, monitor:HDMI-A-1"
-        "2, monitor:HDMI-A-1"
-        "3, monitor:HDMI-A-1"
-        "4, monitor:HDMI-A-1"
-        "5, monitor:HDMI-A-1"
-        "6, monitor:HDMI-A-1"
+        "1, monitor:HDMI-A-2"
+        "2, monitor:HDMI-A-2"
+        "3, monitor:HDMI-A-2"
+        "4, monitor:HDMI-A-2"
+        "5, monitor:HDMI-A-2"
+        "6, monitor:HDMI-A-2"
 
-        "8, monitor:DP-1"
+        "8, monitor:DP-4"
       ];
 
       layerrule = [
