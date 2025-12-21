@@ -56,8 +56,19 @@ in
       fi
 
       cdn() {
+        # Upload the file
         curl --interface tailscale0 -X PUT -F "file=@$1" http://kvm-large:7080/api/v1/upload/blob &&
-        echo "\nhttps://cdn.micartey.dev/api/v1/download/blob/"$1
+
+        # Download link
+        local url="https://cdn.micartey.dev/api/v1/download/blob/$1"
+        echo -e "\n\n$url"
+
+        # Video Preview
+        if [[ "$filename" == *.mp4 ]]; then
+          local encoded_url=$(echo -n "$url" | base64 | tr -d '\n')
+          echo -e "\nVideo Preview:"
+          echo "https://cdn.micartey.dev/preview/video/$encoded_url"
+        fi
       }
 
       bindkey "^[[1;5C" forward-word
