@@ -78,7 +78,7 @@ in
         # "${mainMod}, p, exec, swaync-client -t"
 
         ", F7, exec, hyprshot -m region --clipboard-only"
-        ", F6, exec, nix run github:micartey/viro"
+        ", F8, exec, nix run github:micartey/viro"
 
         "${mainMod}, T, exec, kitty"
 

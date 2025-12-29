@@ -56,19 +56,20 @@ in
       fi
 
       cdn() {
-        # Upload the file
-        curl --interface tailscale0 -X PUT -F "file=@$1" http://kvm-large:7080/api/v1/upload/blob &&
+        # Upload file
+        curl --interface tailscale0 -X PUT -F "file=@$1" http://kvm-large:7080/api/v1/upload/blob || return 1
 
-        # Download link
+        echo -e "\n\n"
+
         local url="https://cdn.micartey.dev/api/v1/download/blob/$1"
-        echo -e "\n\n$url"
-
-        # Video Preview
-        if [[ "$filename" == *.mp4 ]]; then
-          local encoded_url=$(echo -n "$url" | base64 | tr -d '\n')
-          echo -e "\nVideo Preview:"
-          echo "https://cdn.micartey.dev/preview/video/$encoded_url"
+        if [[ "$1" == *.mp4 ]]; then
+          url="https://cdn.micartey.dev/api/v1/stream/blob/$1"
+          local encoded_url=$(echo -n "$url" | base64 -w 0)
+          url="https://cdn.micartey.dev/preview/video/$encoded_url"
         fi
+
+        echo "$url"
+        wl-copy "$url"
       }
 
       bindkey "^[[1;5C" forward-word
