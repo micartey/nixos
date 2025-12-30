@@ -100,6 +100,9 @@ in
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
+        # Spoof Windows Chrome user agent
+        "general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+
         # Disable some password stuff of firefox
         "browser.contextual-password-manager.enabled" = false;
         "services.sync.engine.passwords" = false;
