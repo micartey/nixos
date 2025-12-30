@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs-edge,
+  pkgs-legacy,
   pkgs-unstable,
   stateVersion,
   meta,
@@ -21,6 +22,7 @@
       inherit
         inputs
         pkgs-edge
+        pkgs-legacy
         pkgs-unstable
         stateVersion
         meta
@@ -37,6 +39,7 @@
         lib
         pkgs
         pkgs-edge
+        pkgs-legacy
         pkgs-unstable
         stateVersion
         meta

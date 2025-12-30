@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-edge.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -28,6 +29,7 @@
     {
       nixpkgs,
       nixpkgs-unstable,
+      nixpkgs-legacy,
       nixpkgs-edge,
       ...
     }@inputs:
@@ -44,6 +46,11 @@
       };
 
       pkgs-edge = import nixpkgs-edge {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgs-legacy = import nixpkgs-legacy {
         inherit system;
         config.allowUnfree = true;
       };
@@ -70,6 +77,7 @@
             inherit
               inputs
               pkgs-unstable
+              pkgs-legacy
               pkgs-edge
               stateVersion
               meta
@@ -85,6 +93,7 @@
             inherit
               inputs
               pkgs-unstable
+              pkgs-legacy
               pkgs-edge
               system
               stateVersion
