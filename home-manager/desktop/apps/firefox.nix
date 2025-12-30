@@ -1,10 +1,49 @@
 { pkgs, ... }:
 
+let
+  firefox-wrapper = pkgs.writeShellScriptBin "firefox-firejail" ''
+    exec firejail --ignore=private-bin \
+      --env=XDG_DATA_DIRS="$XDG_DATA_DIRS" \
+      --env=GTK_THEME=Adwaita:dark \
+      --env=XCURSOR_PATH="$XCURSOR_PATH" \
+      --env=NIXOS_OZONE_WL=1 \
+      --noblacklist=/nix/store \
+      --read-only=/nix/store \
+      "$(readlink -f $(which firefox))" \
+      --no-remote "$@"
+  '';
+in
 {
+  home.packages = [ firefox-wrapper ];
+
+  # Override Firefox desktop entry to use firejail
+  xdg.desktopEntries.firefox = {
+    name = "Firefox";
+    genericName = "Web Browser";
+    exec = "firefox-firejail %U";
+    terminal = false;
+    categories = [
+      "Network"
+      "WebBrowser"
+    ];
+    mimeType = [
+      "text/html"
+      "text/xml"
+      "application/xhtml+xml"
+      "application/vnd.mozilla.xul+xml"
+      "application/rss+xml"
+      "application/rdf+xml"
+      "image/svg+xml"
+      "image/png"
+      "image/ico"
+      "image/gif"
+      "text/plain"
+    ];
+    icon = "firefox";
+  };
 
   programs.firefox = {
     enable = true;
-    package = pkgs.firefox;
 
     policies = {
 
@@ -48,7 +87,6 @@
           installation_mode = "force_installed";
         };
       };
-
     };
 
     profiles.default = {
@@ -59,8 +97,20 @@
       userChrome = builtins.readFile ../../../dots/firefox/userChrome.css;
       userContent = builtins.readFile ../../../dots/firefox/userContent.css;
 
+      # about:config
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # Spoof Windows Chrome user agent
+        "general.useragent.override" =
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+
+        # Disable some password stuff of firefox
+        "browser.contextual-password-manager.enabled" = false;
+        "services.sync.engine.passwords" = false;
+        "privacy.cpd.passwords" = false;
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
       };
     };
   };
