@@ -1,15 +1,26 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  config,
+  ...
+}:
 
 let
+  inherit (config) sops;
+
   firefox-wrapper = pkgs.writeShellScriptBin "firefox-firejail" ''
     exec firejail --ignore=private-bin \
       --env=XDG_DATA_DIRS="$XDG_DATA_DIRS" \
       --env=GTK_THEME=Adwaita:dark \
       --env=XCURSOR_PATH="$XCURSOR_PATH" \
       --env=NIXOS_OZONE_WL=1 \
-      --blacklist="$HOME/.ssh" \
       --noblacklist=/nix/store \
+      --blacklist="$HOME/.ssh" \
+      --blacklist=sops \
       --read-only=/nix/store \
+      --blacklist=${pkgs-unstable.sops}/bin/sops \
+      --blacklist=${pkgs.sops}/bin/sops \
+      --blacklist=${sops.age.keyFile} \
       "$(readlink -f $(which firefox))" \
       --no-remote "$@"
   '';
