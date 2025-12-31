@@ -7,6 +7,7 @@ let
       --env=GTK_THEME=Adwaita:dark \
       --env=XCURSOR_PATH="$XCURSOR_PATH" \
       --env=NIXOS_OZONE_WL=1 \
+      --blacklist="$HOME/.ssh" \
       --noblacklist=/nix/store \
       --read-only=/nix/store \
       "$(readlink -f $(which firefox))" \
@@ -101,7 +102,8 @@ in
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # Spoof Windows Chrome user agent
-        "general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+        "general.useragent.override" =
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
 
         # Disable some password stuff of firefox
         "browser.contextual-password-manager.enabled" = false;
