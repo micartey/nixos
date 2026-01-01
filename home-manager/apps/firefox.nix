@@ -111,12 +111,17 @@ in
       # about:config
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        "svg.context-properties.content.enabled" = true;
 
-        # Spoof Windows Chrome user agent
+        # Spoof Windows Firefox (NOT Chrome) to match TLS handshake
         "general.useragent.override" =
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36";
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0";
 
-        # Disable some password stuff of firefox
+        # Override Javascript platform detection to match User Agent
+        "general.platform.override" = "Win32";
+        "general.oscpu.override" = "Windows NT 10.0; Win64; x64";
+
+        # Disable password stuff
         "browser.contextual-password-manager.enabled" = false;
         "services.sync.engine.passwords" = false;
         "privacy.cpd.passwords" = false;
