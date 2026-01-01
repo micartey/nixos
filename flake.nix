@@ -10,6 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    opencode.url = "github:sst/opencode";
+    rime.url = "github:lukasl-dev/rime";
+
     sops-nix.url = "github:Mic92/sops-nix";
 
     nix-ld = {

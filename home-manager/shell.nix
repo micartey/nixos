@@ -4,6 +4,16 @@ let
   shellAliases = {
     cat = "bat";
 
+    s = "nix-shell --run zsh -p";
+
+    "?" = "opencode run";
+
+    # git alias
+    gp = "git push";
+    gc = "git commit";
+    ga = "git add";
+    gs = "git status";
+
     fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
   };
 in
