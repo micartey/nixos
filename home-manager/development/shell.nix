@@ -1,6 +1,5 @@
 {
   pkgs,
-  meta,
   config,
   ...
 }:
@@ -12,7 +11,6 @@ let
     fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
 
     s = "nix-shell --run zsh -p";
-    codex = "bunx @openai/codex";
 
     "?" = "opencode run";
 

@@ -16,7 +16,6 @@ D(
 
   // kvms
   A("node.sirius", "80.75.218.8"),
-  A("kvm", "37.114.56.153"),
   A("homepod", "100.72.132.37"),
 
   // services
@@ -27,6 +26,7 @@ D(
   CNAME("proxy", "node.sirius.micartey.dev."),
   CNAME("vault", "node.sirius.micartey.dev."),
   CNAME("status", "node.sirius.micartey.dev."),
+  CNAME("waka", "node.sirius.micartey.dev."),
 
   // vpn services
   CNAME("status.homepod", "homepod.micartey.dev."),
@@ -38,10 +38,6 @@ D(
 
   // minecraft server
   CNAME("cardinal", "node.sirius.micartey.dev."),
-
-  // legacy
-  CNAME("git", "kvm.micartey.dev."),
-  CNAME("license", "kvm.micartey.dev."),
 
   // new services
   CNAME("gitlab", "node.sirius.micartey.dev."),
