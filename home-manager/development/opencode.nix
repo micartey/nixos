@@ -177,6 +177,11 @@ in
           ];
           enabled = true;
         };
+        android = {
+          type = "remote";
+          url = "http://localhost:3134/sse";
+          enabled = true;
+        };
       };
     };
   };
