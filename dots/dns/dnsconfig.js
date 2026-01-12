@@ -27,6 +27,7 @@ D(
   CNAME("vault", "node.sirius.micartey.dev."),
   CNAME("status", "node.sirius.micartey.dev."),
   CNAME("waka", "node.sirius.micartey.dev."),
+  CNAME("linkwarden", "node.sirius.micartey.dev."),
 
   // vpn services
   CNAME("status.homepod", "homepod.micartey.dev."),
