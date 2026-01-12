@@ -99,6 +99,12 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
+
+        # Linkwarden
+        "jordanlinkwarden@gmail.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4657329/linkwarden-1.5.0.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
 
