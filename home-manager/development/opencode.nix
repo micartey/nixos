@@ -154,6 +154,17 @@ in
             };
           };
         };
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            "gpt-oss:latest" = {
+              tools = true;
+            };
+          };
+        };
       };
       mcp = {
         viro = {
