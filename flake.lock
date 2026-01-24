@@ -347,6 +347,26 @@
         "type": "github"
       }
     },
+    "noctalia": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1769291425,
+        "narHash": "sha256-qCQ8+U1NAumRivisyligc28L/3nMSG6l7nU+sr0ivBc=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "349c02030475652b907db8998f4c9c9de57f6eae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
+      }
+    },
     "opencode": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
@@ -397,6 +417,7 @@
         "nixpkgs-edge": "nixpkgs-edge",
         "nixpkgs-legacy": "nixpkgs-legacy",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "noctalia": "noctalia",
         "opencode": "opencode",
         "rime": "rime",
         "sops-nix": "sops-nix"
