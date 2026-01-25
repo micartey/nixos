@@ -34,6 +34,10 @@
           "usePrimaryColor": false
         },
         {
+          "id": "Spacer",
+          "width": 20
+        },
+        {
           "displayMode": "alwaysShow",
           "hideIfIdle": false,
           "hideIfNotDetected": true,
@@ -41,6 +45,13 @@
           "showNoctaliaPerformance": false,
           "showPowerProfiles": true,
           "warningThreshold": 30
+        },
+        {
+          "displayMode": "alwaysShow",
+          "id": "Brightness"
+        },
+        {
+          "id": "NightLight"
         }
       ],
       "center": [
@@ -131,7 +142,7 @@
     "compactLockScreen": false,
     "lockOnSuspend": false,
     "showSessionButtonsOnLockScreen": false,
-    "showHibernateOnLockScreen": false,
+    "showHibernateOnLockScreen": true,
     "enableShadows": false,
     "shadowDirection": "center",
     "shadowOffsetX": 0,
@@ -444,7 +455,7 @@
     "volumeFeedback": false
   },
   "brightness": {
-    "brightnessStep": 5,
+    "brightnessStep": 2,
     "enforceMinimum": true,
     "enableDdcSupport": false
   },
