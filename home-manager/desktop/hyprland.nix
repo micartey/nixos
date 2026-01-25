@@ -56,7 +56,7 @@ in
         "vesktop"
         # "element-desktop"
 
-        "waybar"
+        # "waybar"
       ];
 
       debug = {
@@ -69,10 +69,15 @@ in
 
       bind = [
         # Application Launcher
+        # noctalia-shell ipc call launcher toggle
         "${mainMod}, SPACE, exec, rofi -show drun -show-icons"
+
         # Emoji
+        # noctalia-shell ipc call launcher emoji
         "${mainMod}, M, exec, bemoji"
+
         # Clipboard History
+        # noctalia-shell ipc call launcher clipboard
         "CTRL SHIFT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         # "${mainMod}, p, exec, swaync-client -t"

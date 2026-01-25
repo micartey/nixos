@@ -1,7 +1,7 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 
 let
-  enable-noctalia = false;
+  enable-noctalia = true;
 in
 {
   imports = [ inputs.noctalia.homeModules.default ];
@@ -32,5 +32,5 @@ in
     };
   };
 
-  # xdg.configFile."noctalia/colors.json".force = true;
+  xdg.configFile."noctalia/colors.json".force = true;
 }

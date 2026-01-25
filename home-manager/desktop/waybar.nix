@@ -3,7 +3,7 @@
 {
   # waybar
   programs.waybar = {
-    enable = true;
+    enable = false;
     style = builtins.readFile ../../dots/waybar/style.css;
 
     settings = {
