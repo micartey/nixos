@@ -3,16 +3,16 @@
 {
   home.packages = [
     # waybar
-    pkgs.waybar
+    # pkgs.waybar
 
     # notifications
-    pkgs.libnotify
+    # pkgs.libnotify
 
     pkgs.brightnessctl
   ];
 
   programs.waybar = {
-    enable = true;
+    enable = false;
 
     style = builtins.readFile ../../dots/waybar/style.css;
     settings = {
