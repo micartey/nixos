@@ -58,17 +58,17 @@
       "center": [
         {
           "characterCount": 2,
-          "colorizeIcons": false,
+          "colorizeIcons": true,
           "enableScrollWheel": true,
-          "followFocusedScreen": false,
-          "groupedBorderOpacity": 1,
+          "followFocusedScreen": true,
+          "groupedBorderOpacity": 0,
           "hideUnoccupied": false,
           "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
           "showApplications": true,
           "showLabelsOnlyWhenOccupied": true,
-          "unfocusedIconsOpacity": 1
+          "unfocusedIconsOpacity": 0.41000000000000003
         }
       ],
       "right": [
@@ -79,16 +79,16 @@
           "hideMode": "hidden",
           "hideWhenIdle": false,
           "id": "MediaMini",
-          "maxWidth": 145,
+          "maxWidth": 250,
           "panelShowAlbumArt": true,
           "panelShowVisualizer": true,
           "scrollingMode": "hover",
           "showAlbumArt": true,
           "showArtistFirst": true,
           "showProgressRing": true,
-          "showVisualizer": true,
+          "showVisualizer": false,
           "useFixedWidth": false,
-          "visualizerType": "wave"
+          "visualizerType": "linear"
         },
         {
           "defaultSettings": {
