@@ -12,7 +12,7 @@
     "floating": true,
     "marginVertical": 10,
     "marginHorizontal": 10,
-    "outerCorners": true,
+    "outerCorners": false,
     "exclusive": true,
     "hideOnOverview": false,
     "widgets": {
@@ -152,7 +152,7 @@
     "shadowDirection": "center",
     "shadowOffsetX": 0,
     "shadowOffsetY": 0,
-    "language": "",
+    "language": "en",
     "allowPanelsOnScreenWithoutBar": true,
     "showChangelogOnStartup": true,
     "telemetryEnabled": false,
