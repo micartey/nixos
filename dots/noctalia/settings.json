@@ -1,6 +1,7 @@
 {
-  "settingsVersion": 44,
+  "settingsVersion": 45,
   "bar": {
+    "barType": "floating",
     "position": "top",
     "monitors": ["HDMI-A-2"],
     "density": "comfortable",
@@ -12,6 +13,8 @@
     "floating": true,
     "marginVertical": 8,
     "marginHorizontal": 8,
+    "frameThickness": 8,
+    "frameRadius": 12,
     "outerCorners": false,
     "exclusive": true,
     "hideOnOverview": false,
@@ -39,34 +42,24 @@
             "minimumThreshold": 10
           },
           "id": "plugin:catwalk"
-        },
-        {
-          "defaultSettings": {
-            "arrowType": "caret",
-            "byteThresholdActive": 1024,
-            "fontSizeModifier": 1,
-            "forceMegabytes": false,
-            "iconSizeModifier": 1,
-            "minWidth": 0,
-            "showNumbers": true,
-            "spacingInbetween": 0,
-            "useCustomColors": false
-          },
-          "id": "plugin:network-indicator"
         }
       ],
       "center": [
         {
           "characterCount": 2,
           "colorizeIcons": true,
+          "emptyColor": "onSurface",
           "enableScrollWheel": true,
+          "focusedColor": "primary",
           "followFocusedScreen": true,
           "groupedBorderOpacity": 0,
           "hideUnoccupied": false,
           "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
+          "occupiedColor": "onSurface",
           "showApplications": true,
+          "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 0.41000000000000003
         }
@@ -103,7 +96,33 @@
           "middleClickCommand": "pwvucontrol || pavucontrol"
         },
         {
+          "defaultSettings": {
+            "compactMode": false,
+            "defaultPeerAction": "copy-ip",
+            "hideDisconnected": false,
+            "pingCount": 5,
+            "refreshInterval": 5000,
+            "showIpAddress": true,
+            "showPeerCount": true,
+            "terminalCommand": ""
+          },
           "id": "plugin:tailscale"
+        },
+        {
+          "defaultSettings": {
+            "maxEvents": 50,
+            "openInBrowser": true,
+            "refreshInterval": 1800,
+            "showForks": true,
+            "showMyRepoForks": true,
+            "showMyRepoStars": true,
+            "showPRs": true,
+            "showRepoCreations": true,
+            "showStars": true,
+            "token": "",
+            "username": ""
+          },
+          "id": "plugin:github-feed"
         },
         {
           "colorizeDistroLogo": false,
@@ -130,6 +149,9 @@
           "hidePassive": true,
           "id": "Tray",
           "pinned": []
+        },
+        {
+          "id": "plugin:github-feed"
         }
       ]
     },
@@ -160,7 +182,8 @@
     "showChangelogOnStartup": true,
     "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
-    "lockScreenCountdownDuration": 10000
+    "lockScreenCountdownDuration": 10000,
+    "autoStartAuth": false
   },
   "ui": {
     "fontDefault": "Adwaita Sans",
