@@ -94,8 +94,8 @@ in
 
       extensions.force = true;
 
-      userChrome = builtins.readFile ../../../dots/firefox/userChrome.css;
-      userContent = builtins.readFile ../../../dots/firefox/userContent.css;
+      userChrome = builtins.readFile ../../dots/firefox/userChrome.css;
+      userContent = builtins.readFile ../../dots/firefox/userContent.css;
 
       # about:config
       settings = {

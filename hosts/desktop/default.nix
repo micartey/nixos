@@ -30,7 +30,7 @@
 
   home-manager.users = lib.genAttrs [ meta.user.username "root" ] (
     _:
-    import ../../home-manager/home {
+    import ../../home-manager {
       inherit
         inputs
         lib
