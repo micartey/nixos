@@ -18,13 +18,13 @@
     "widgets": {
       "left": [
         {
-          "compactMode": true,
+          "compactMode": false,
           "diskPath": "/",
           "id": "SystemMonitor",
           "showCpuTemp": true,
           "showCpuUsage": true,
           "showDiskUsage": false,
-          "showGpuTemp": true,
+          "showGpuTemp": false,
           "showLoadAverage": false,
           "showMemoryAsPercent": false,
           "showMemoryUsage": true,
@@ -38,6 +38,7 @@
           "width": 20
         },
         {
+          "deviceNativePath": "",
           "displayMode": "alwaysShow",
           "hideIfIdle": false,
           "hideIfNotDetected": true,
@@ -95,6 +96,10 @@
           "middleClickCommand": "pwvucontrol || pavucontrol"
         },
         {
+          "defaultSettings": {
+            "hideInactive": false,
+            "removeMargins": false
+          },
           "id": "plugin:privacy-indicator"
         },
         {

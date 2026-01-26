@@ -53,8 +53,8 @@
 
       meta = {
         user = {
-          description = "default non-root user";
           username = "daniel"; # Initial password is the same as the username
+          description = "daniel";
           homeDir = "/home/daniel";
         };
 
@@ -84,20 +84,6 @@
             ./hosts/desktop/home
           ];
         };
-
-        # homeImg = nixpkgs.lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = {
-        #     inherit
-        #       inputs
-        #       pkgs-unstable
-        #       system
-        #       stateVersion
-        #       meta
-        #       ;
-        #   };
-        #   modules = [ ./hosts/img/configuration.nix ];
-        # };
       };
     };
 }

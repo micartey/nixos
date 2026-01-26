@@ -10,7 +10,7 @@
         pkgs.runCommand "mpv-shaders"
           {
             buildInputs = [ pkgs.unzip ];
-            shadersZip = ../../../dots/mpv/shaders.zip;
+            shadersZip = ../../dots/mpv/shaders.zip;
           }
           ''
             unzip -j "$shadersZip" -d "$out"
@@ -19,12 +19,12 @@
     };
 
     inputconf = {
-      source = ../../../dots/mpv/input.conf;
+      source = ../../dots/mpv/input.conf;
       target = ".config/mpv/input.conf";
     };
 
     mpvconf = {
-      source = ../../../dots/mpv/mpv.conf;
+      source = ../../dots/mpv/mpv.conf;
       target = ".config/mpv/mpv.conf";
     };
   };
