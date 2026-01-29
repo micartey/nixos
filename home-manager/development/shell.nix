@@ -138,7 +138,6 @@ in
 
   programs.btop = {
     enable = true;
-    catppuccin.enable = true;
   };
 
   programs.fastfetch.enable = true;

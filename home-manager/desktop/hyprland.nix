@@ -53,7 +53,7 @@ in
         "watch -n 0 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"
         "wl-paste --type text --watch cliphist store"
 
-        "vesktop"
+        # "vesktop"
         # "element-desktop"
 
         # "waybar"

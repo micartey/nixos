@@ -3,7 +3,7 @@
 {
   home.packages = [
     # jetbrains
-    pkgs-unstable.jetbrains.idea-ultimate
+    pkgs-unstable.jetbrains.idea
 
     # Java debugger
     pkgs.async-profiler

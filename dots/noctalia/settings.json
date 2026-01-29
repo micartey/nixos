@@ -149,9 +149,6 @@
           "hidePassive": true,
           "id": "Tray",
           "pinned": []
-        },
-        {
-          "id": "plugin:github-feed"
         }
       ]
     },
