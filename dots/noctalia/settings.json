@@ -59,14 +59,18 @@
         {
           "characterCount": 2,
           "colorizeIcons": true,
+          "emptyColor": "onSurface",
           "enableScrollWheel": true,
+          "focusedColor": "primary",
           "followFocusedScreen": true,
           "groupedBorderOpacity": 0,
           "hideUnoccupied": false,
           "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
+          "occupiedColor": "onSurface",
           "showApplications": true,
+          "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 0.41000000000000003
         }
@@ -79,7 +83,7 @@
           "hideMode": "hidden",
           "hideWhenIdle": false,
           "id": "MediaMini",
-          "maxWidth": 250,
+          "maxWidth": 100,
           "panelShowAlbumArt": true,
           "panelShowVisualizer": true,
           "scrollingMode": "hover",
@@ -101,6 +105,22 @@
             "removeMargins": false
           },
           "id": "plugin:privacy-indicator"
+        },
+        {
+          "defaultSettings": {
+            "maxEvents": 50,
+            "openInBrowser": true,
+            "refreshInterval": 1800,
+            "showForks": true,
+            "showMyRepoForks": true,
+            "showMyRepoStars": true,
+            "showPRs": true,
+            "showRepoCreations": true,
+            "showStars": true,
+            "token": "",
+            "username": ""
+          },
+          "id": "plugin:github-feed"
         },
         {
           "colorizeDistroLogo": false,
@@ -157,7 +177,8 @@
     "showChangelogOnStartup": true,
     "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
-    "lockScreenCountdownDuration": 10000
+    "lockScreenCountdownDuration": 10000,
+    "autoStartAuth": false
   },
   "ui": {
     "fontDefault": "Adwaita Sans",

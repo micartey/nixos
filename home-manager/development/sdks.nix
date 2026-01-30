@@ -22,6 +22,8 @@
 
     gradle_7
 
+    lefthook
+
     gdb
 
     d2
