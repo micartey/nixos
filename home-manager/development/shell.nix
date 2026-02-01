@@ -17,6 +17,7 @@ let
     # git alias
     gp = "git push";
     gc = "git commit";
+    gca = "git commit --amend && git push --force-with-lease";
     ga = "git add";
     gs = "git status";
 

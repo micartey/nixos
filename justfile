@@ -9,10 +9,9 @@ home-switch:
 # 2. remove networking.networkmanager from cloudflare_dns.nix
 # 3. comment openssh.authorizedKeys.keys in users.nix
 home-iso:
-    NIX_BUILD_CORES=32 nix build \
+    NIX_BUILD_CORES=25 nix build \
         .#nixosConfigurations.homeImg.config.system.build.isoImage \
         --impure
-
 
 home-vm:
     qemu-system-x86_64 \
@@ -33,5 +32,6 @@ flake-update-unstable:
 flake-update-edge:
     nix flake update nixpkgs-edge
 
-change-pwd:
-    passwd daniel
+flake-update-development:
+    nix flake update nix-vim
+    nix flake update opencode
