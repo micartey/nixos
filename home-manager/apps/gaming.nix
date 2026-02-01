@@ -8,7 +8,7 @@
     pkgs.wineWowPackages.waylandFull
     pkgs.winetricks
 
-    pkgs-unstable.prismlauncher
+    pkgs.prismlauncher
     pkgs-unstable.glfw3-minecraft
     pkgs-unstable.lunar-client
 

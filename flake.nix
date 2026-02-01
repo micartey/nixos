@@ -31,6 +31,11 @@
     catppuccin.url = "github:catppuccin/nix";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    nix-vim = {
+      url = "github:micartey/nix-vim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

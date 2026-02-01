@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  inputs,
+  ...
+}:
 
 {
   home.packages = [
@@ -19,7 +24,7 @@
     pkgs-unstable.codex
 
     # text-editors
-    pkgs.vim
+    inputs.nix-vim.packages.${pkgs.system}.vim
     pkgs-unstable.zed-editor
   ];
 }
