@@ -24,7 +24,7 @@
     pkgs-unstable.codex
 
     # text-editors
-    inputs.nix-vim.packages.${pkgs.system}.vim
+    inputs.nix-vim.packages.${pkgs.system}.default
     pkgs-unstable.zed-editor
   ];
 }
