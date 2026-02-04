@@ -1,4 +1,9 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  inputs,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
   home.packages = [
@@ -10,8 +15,9 @@
     pkgs.bytecode-viewer
 
     # text-editors
-    pkgs.vim
     pkgs.zed-editor
+
+    inputs.nix-vim.packages.${pkgs.system}.vim
   ];
 
   xdg.desktopEntries = {
