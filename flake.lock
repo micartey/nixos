@@ -367,11 +367,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1770069321,
-        "narHash": "sha256-hMShgjl1zjqNAml2+grSEypWlLqbbE0EqknN40wN7Xc=",
+        "lastModified": 1770146904,
+        "narHash": "sha256-9xdr4mdFGyt8Lmp/FdkFO2E7l3FGJjrytLh+jgp4byc=",
         "owner": "micartey",
         "repo": "nix-vim",
-        "rev": "307ec6e363efb5adf83be18a91e9fcae1cda78dc",
+        "rev": "24d18ae211f12fc55416a016bae1134c41a2aa34",
         "type": "github"
       },
       "original": {
