@@ -41,7 +41,7 @@ float get_char_mask_adj(int char_index, vec2 p) {
         mask_lo = 0x80402010u;
         mask_hi = 0x08040201u;
     } else if (char_index == 13) { // \
-                                                                                                mask_lo = 0x01020408u; mask_hi = 0x10204080u;
+                                                                                                        mask_lo = 0x01020408u; mask_hi = 0x10204080u;
     }
     // Density characters
     else if (char_index == 1) {

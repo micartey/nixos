@@ -17,4 +17,8 @@
       LC_TIME = meta.locale;
     };
   };
+
+  console = {
+    useXkbConfig = true;
+  };
 }

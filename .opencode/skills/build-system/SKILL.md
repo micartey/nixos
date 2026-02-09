@@ -12,6 +12,8 @@ Build the configuration and switch to it:
 sudo just home-switch
 ```
 
+**You absolutely have to run this command - Not the command behind the justfile**
+
 ## When to use me
 
 Use this to apply changes to the configuration you did so that they take effect.
