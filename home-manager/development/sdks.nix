@@ -24,6 +24,7 @@
 
     lefthook
 
+    glab
     gdb
 
     d2
