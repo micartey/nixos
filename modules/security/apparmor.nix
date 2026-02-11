@@ -3,15 +3,10 @@
   pkgs-unstable,
   meta,
   config,
-  inputs,
-  system,
   ...
 }:
 
 let
-  firefox = pkgs-unstable.firefox;
-  opencode = inputs.opencode.packages.${system}.default;
-
   inherit (config) sops;
 in
 {
