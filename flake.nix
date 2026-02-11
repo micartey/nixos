@@ -93,6 +93,7 @@
               pkgs-legacy
               pkgs-edge
               stateVersion
+              system
               meta
               ;
           };
@@ -108,8 +109,8 @@
               pkgs-unstable
               pkgs-legacy
               pkgs-edge
-              system
               stateVersion
+              system
               meta
               ;
           };

@@ -1,59 +1,9 @@
 {
-  pkgs,
   pkgs-unstable,
-  config,
   ...
 }:
 
-let
-  inherit (config) sops;
-
-  firefox-wrapper = pkgs.writeShellScriptBin "firefox-firejail" ''
-    exec firejail --ignore=private-bin \
-      --env=XDG_DATA_DIRS="$XDG_DATA_DIRS" \
-      --env=GTK_THEME=Adwaita:dark \
-      --env=XCURSOR_PATH="$XCURSOR_PATH" \
-      --env=NIXOS_OZONE_WL=1 \
-      --noblacklist=/nix/store \
-      --blacklist="$HOME/.ssh" \
-      --blacklist=sops \
-      --read-only=/nix/store \
-      --blacklist=${pkgs-unstable.sops}/bin/sops \
-      --blacklist=${pkgs.sops}/bin/sops \
-      --blacklist=${sops.age.keyFile} \
-      "$(readlink -f $(which firefox))" \
-      --no-remote "$@"
-  '';
-in
 {
-  home.packages = [ firefox-wrapper ];
-
-  # Override Firefox desktop entry to use firejail
-  xdg.desktopEntries.firefox = {
-    name = "Firefox";
-    genericName = "Web Browser";
-    exec = "firefox-firejail %U";
-    terminal = false;
-    categories = [
-      "Network"
-      "WebBrowser"
-    ];
-    mimeType = [
-      "text/html"
-      "text/xml"
-      "application/xhtml+xml"
-      "application/vnd.mozilla.xul+xml"
-      "application/rss+xml"
-      "application/rdf+xml"
-      "image/svg+xml"
-      "image/png"
-      "image/ico"
-      "image/gif"
-      "text/plain"
-    ];
-    icon = "firefox";
-  };
-
   programs.firefox = {
     enable = true;
     package = pkgs-unstable.firefox;
