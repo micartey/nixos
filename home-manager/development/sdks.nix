@@ -83,5 +83,7 @@
 
     # miscellaneous
     pkgs.d2
+
+    pkgs.glab
   ];
 }
