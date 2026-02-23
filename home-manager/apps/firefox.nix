@@ -1,49 +1,12 @@
-{ pkgs, ... }:
-
-let
-  firefox-wrapper = pkgs.writeShellScriptBin "firefox-firejail" ''
-    exec firejail --ignore=private-bin \
-      --env=XDG_DATA_DIRS="$XDG_DATA_DIRS" \
-      --env=GTK_THEME=Adwaita:dark \
-      --env=XCURSOR_PATH="$XCURSOR_PATH" \
-      --env=NIXOS_OZONE_WL=1 \
-      --noblacklist=/nix/store \
-      --read-only=/nix/store \
-      "$(readlink -f $(which firefox))" \
-      --no-remote "$@"
-  '';
-in
 {
-  home.packages = [ firefox-wrapper ];
+  pkgs-unstable,
+  ...
+}:
 
-  # Override Firefox desktop entry to use firejail
-  xdg.desktopEntries.firefox = {
-    name = "Firefox";
-    genericName = "Web Browser";
-    exec = "firefox-firejail %U";
-    terminal = false;
-    categories = [
-      "Network"
-      "WebBrowser"
-    ];
-    mimeType = [
-      "text/html"
-      "text/xml"
-      "application/xhtml+xml"
-      "application/vnd.mozilla.xul+xml"
-      "application/rss+xml"
-      "application/rdf+xml"
-      "image/svg+xml"
-      "image/png"
-      "image/ico"
-      "image/gif"
-      "text/plain"
-    ];
-    icon = "firefox";
-  };
-
+{
   programs.firefox = {
     enable = true;
+    package = pkgs-unstable.firefox;
 
     policies = {
 
@@ -86,13 +49,17 @@ in
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           installation_mode = "force_installed";
         };
+
+        # Linkwarden
+        "jordanlinkwarden@gmail.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/file/4657329/linkwarden-1.5.0.xpi";
+          installation_mode = "force_installed";
+        };
       };
     };
 
     profiles.default = {
       isDefault = true;
-
-      extensions.force = true;
 
       userChrome = builtins.readFile ../../dots/firefox/userChrome.css;
       userContent = builtins.readFile ../../dots/firefox/userContent.css;
@@ -110,13 +77,15 @@ in
         "general.platform.override" = "Win32";
         "general.oscpu.override" = "Windows NT 10.0; Win64; x64";
 
-        # Disable some password stuff of firefox
+        # Disable password stuff
         "browser.contextual-password-manager.enabled" = false;
         "services.sync.engine.passwords" = false;
         "privacy.cpd.passwords" = false;
         "signon.rememberSignons" = false;
         "signon.autofillForms" = false;
       };
+
+      extensions.force = true;
     };
   };
 }

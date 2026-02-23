@@ -18,10 +18,12 @@
 ├── dots
 │   └── dotfiles, e.g. mpv, oh-my-posh, ...
 ├── home-manager
+│   ├── apps
+│   │   └── some applications
 │   ├── desktop
-│   │   └── home-manager config for all hosts
-│   ├── home
-│   │   └── additional config for my home desktop host
+│   │   └── desktop related things
+│   ├── develpment
+│   │   └── sdks, ideas and everything related to development
 │   └── shared config for both desktop and headless hosts
 ├── hosts
 │   ├── desktops
