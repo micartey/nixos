@@ -9,7 +9,7 @@ compatibility: opencode
 Build the configuration and switch to it:
 
 ```bash
-sudo just home-switch
+just home-switch
 ```
 
 **You absolutely have to run this command - Not the command behind the justfile**

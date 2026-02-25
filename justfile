@@ -2,7 +2,7 @@ default:
     @just --list
 
 home-switch:
-    nixos-rebuild switch --flake .#home
+    sudo nixos-rebuild switch --flake .#home
 
 # Before you run this command, make sure to:
 # 1. uncomment isoImage in flake.nix configuration

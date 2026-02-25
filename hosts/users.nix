@@ -16,13 +16,11 @@
           meta.user.username
           "networkmanager"
           "wheel"
-          "docker"
           "wireshark"
           "ydotool" # For typing
           "dialout" # For COM-Ports (Arduino)
           "pcap"
         ];
-        # openssh.authorizedKeys.keys = [ (builtins.readFile ../../../dots/ssh/id_ed25519.pub) ];
       };
     };
   };
