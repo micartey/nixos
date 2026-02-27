@@ -43,15 +43,15 @@ in
     "-${mullvad}/bin/mullvad split-tunnel add $MAINPID"
   ];
 
-  systemd.services.mullvad-dns-fix = {
-    description = "Configure Mullvad DNS for Tailscale compatibility";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "mullvad-daemon.service" ];
-    requires = [ "mullvad-daemon.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${mullvad}/bin/mullvad dns set default";
-      RemainAfterExit = true;
-    };
-  };
+  # systemd.services.mullvad-dns-fix = {
+  #   description = "Configure Mullvad DNS for Tailscale compatibility";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "mullvad-daemon.service" ];
+  #   requires = [ "mullvad-daemon.service" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart = "${mullvad}/bin/mullvad dns set default";
+  #     RemainAfterExit = true;
+  #   };
+  # };
 }
