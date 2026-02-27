@@ -1,4 +1,13 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ nautilus ];
+  environment.systemPackages = with pkgs; [
+    nautilus
+
+    ffmpeg-headless
+    ffmpegthumbnailer
+  ];
+
+  environment.pathsToLink = [
+    "share/thumbnailers"
+  ];
 }
