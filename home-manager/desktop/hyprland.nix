@@ -22,13 +22,8 @@ in
     sourceFirst = true;
 
     settings = {
-      # # In case of multiple monitors
-      # monitor = [
-      # ];
-
       monitor = [
         "HDMI-A-2, 3440x1440@99.98200, 0x0, 1"
-        # "HDMI-A-1, 1920x1080@99.98200, 0x0, 1"
         "DP-4, 400x1280@59.98900, 3440x0, 1, transform, 3"
 
         "Unknown-1, disable"
