@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   pkgs-unstable,
-  config,
   ...
 }:
 
@@ -11,7 +10,7 @@ let
   inherit (pkgs-unstable) github-mcp-server;
 
   github-mcp-server-wrapped = pkgs.writeShellScriptBin "github-mcp-server" ''
-    source ${config.sops.templates."opencode/env".path}
+    source /run/secrets/rendered/opencode/env
     exec ${github-mcp-server}/bin/github-mcp-server "$@"
   '';
 
@@ -19,20 +18,10 @@ let
   rime = inputs.rime.packages.${system}.default;
 in
 {
-  sops = {
-    secrets."opencode/github-pat" = { };
-    templates."opencode/env" = {
-      content = ''
-        export GITHUB_PERSONAL_ACCESS_TOKEN="${config.sops.placeholder."opencode/github-pat"}"
-      '';
-    };
-  };
-
   programs.opencode = {
     enable = true;
     package = opencode;
 
-    # System prompt
     rules = ''
       # Rules
 

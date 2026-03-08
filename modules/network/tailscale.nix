@@ -1,4 +1,13 @@
-{ config, ... }:
+{
+  config,
+  lib,
+  meta,
+  ...
+}:
+
+let
+  secrets = import ../../lib/secrets.nix { inherit config lib; };
+in
 
 {
   services.tailscale = {
@@ -6,10 +15,10 @@
     extraUpFlags = [
       "--ssh"
     ];
-    authKeyFile = config.sops.secrets."tailscale/auth_key".path;
+    authKeyFile = secrets.path "tailscale/auth_key";
   };
 
-  sops.secrets = {
-    "tailscale/auth_key" = { };
+  sops = secrets.mkValue "tailscale/auth_key" {
+    owner = meta.user.username;
   };
 }
