@@ -20,6 +20,8 @@
           "ydotool" # For typing
           "dialout" # For COM-Ports (Arduino)
           "pcap"
+          "plugdev"
+          "adbusers"
         ];
       };
     };
