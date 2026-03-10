@@ -7,5 +7,7 @@
     enable = true;
 
     flavor = "mocha";
+
+    gtk.icon.enable = false;
   };
 }
