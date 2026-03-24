@@ -34,11 +34,6 @@
 
     pkgs.openconnect
 
-    # tex-related
-    pkgs.texliveFull
-    pkgs.graphviz
-    pkgs.inkscape
-
     # Rest Client
     pkgs.insomnia
 
