@@ -26,7 +26,7 @@
       battery = {
         governor = "powersave";
         # Limit max frequency in kHz (example: 1.2GHz)
-        scaling_max_freq = 1100000;
+        # scaling_max_freq = 800000;
         # Set energy preference to maximum power saving
         energy_performance_preference = "power";
         turbo = "never";

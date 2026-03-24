@@ -1,6 +1,7 @@
 {
-  "settingsVersion": 44,
+  "settingsVersion": 46,
   "bar": {
+    "barType": "floating",
     "position": "top",
     "monitors": [],
     "density": "comfortable",
@@ -12,6 +13,8 @@
     "floating": true,
     "marginVertical": 8,
     "marginHorizontal": 8,
+    "frameThickness": 8,
+    "frameRadius": 12,
     "outerCorners": false,
     "exclusive": true,
     "hideOnOverview": false,
@@ -69,6 +72,7 @@
           "id": "Workspace",
           "labelMode": "index",
           "occupiedColor": "onSurface",
+          "reverseScroll": false,
           "showApplications": true,
           "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
@@ -155,8 +159,8 @@
   "general": {
     "avatarImage": "/home/daniel/Pictures/51415855.png",
     "dimmerOpacity": 0.2,
-    "showScreenCorners": false,
-    "forceBlackScreenCorners": false,
+    "showScreenCorners": true,
+    "forceBlackScreenCorners": true,
     "scaleRatio": 1.05,
     "radiusRatio": 1,
     "iRadiusRatio": 1,
@@ -178,7 +182,8 @@
     "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
     "lockScreenCountdownDuration": 10000,
-    "autoStartAuth": false
+    "autoStartAuth": false,
+    "allowPasswordWithFprintd": false
   },
   "ui": {
     "fontDefault": "Adwaita Sans",
@@ -263,6 +268,8 @@
     "autoPasteClipboard": false,
     "enableClipPreview": true,
     "clipboardWrapText": true,
+    "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
+    "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
     "position": "center",
     "pinnedApps": [],
     "useApp2Unit": false,
@@ -487,7 +494,7 @@
   },
   "colorSchemes": {
     "useWallpaperColors": false,
-    "predefinedScheme": "Catppuccin",
+    "predefinedScheme": "Catppuccin Lavender",
     "darkMode": true,
     "schedulingMode": "off",
     "manualSunrise": "06:30",

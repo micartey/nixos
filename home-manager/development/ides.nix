@@ -25,8 +25,8 @@
       name = "IntelliJ IDEA (Wayland)";
       genericName = "Code Editor";
       comment = "IntelliJ IDEA with wayland toolkit";
-      exec = "idea-ultimate -Dawt.toolkit.name=WLToolkit";
-      icon = "idea-ultimate";
+      exec = "idea -Dawt.toolkit.name=WLToolkit";
+      icon = "idea";
     };
   };
 }
