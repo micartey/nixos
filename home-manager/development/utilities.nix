@@ -3,7 +3,7 @@
 {
   home.packages = [
     # Settings: Ctrl + Shift + X
-    # Run as root 'sudo rpi-imager'
+    # Run as root 'nix-shell -p xorg.xhost --run "xhost +SI:localuser:root && sudo -E QT_QPA_PLATFORM=xcb rpi-imager"'
     pkgs-edge.rpi-imager
 
     # Another - more generic - imager

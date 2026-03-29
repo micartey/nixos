@@ -71,6 +71,14 @@ in
         wl-copy "$url"
       }
 
+      s-unstable() {
+        local shell_pkgs=()
+        for pkg in "$@"; do
+          shell_pkgs+=("github:NixOS/nixpkgs/nixos-unstable#$pkg")
+        done
+        nix shell "''${shell_pkgs[@]}" -c zsh
+      }
+
       bindkey "^[[1;5C" forward-word
       bindkey "^[[1;5D" backward-word
     '';

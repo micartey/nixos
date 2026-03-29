@@ -11,6 +11,24 @@
   # audio effects
   services.easyeffects.enable = true;
 
+  xdg.desktopEntries = {
+    "steam" = {
+      name = "Steam (Mullvad)";
+      genericName = "Game Library";
+      comment = "Steam with mullvad exclude";
+      exec = "mullvad-exclude steam %U";
+      icon = "steam";
+    };
+
+    "vesktop" = {
+      name = "Vesktop (Mullvad)";
+      genericName = "Discord";
+      comment = "Vesktop with mullvad exclude";
+      exec = "mullvad-exclude vesktop %U";
+      icon = "vesktop";
+    };
+  };
+
   home.packages = [
     # WhatApp
     # pkgs.zapzap
@@ -36,11 +54,6 @@
     pkgs.bitwarden-desktop
 
     pkgs.openconnect
-
-    # tex-related
-    pkgs.texliveFull
-    pkgs.graphviz
-    pkgs.inkscape
 
     # Rest Client
     pkgs.insomnia
