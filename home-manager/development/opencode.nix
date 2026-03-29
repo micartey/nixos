@@ -14,7 +14,21 @@ let
     exec ${github-mcp-server}/bin/github-mcp-server "$@"
   '';
 
-  opencode = inputs.opencode.packages.${system}.default;
+  opencode = inputs.opencode.packages.${system}.default.overrideAttrs (old: {
+    NO_COLOR = "1";
+    CI = "1";
+
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/opencode/script/build.ts \
+        --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+    '';
+
+    # Overriding entirely to drop the multi-line completion command
+    postInstall = ''
+      echo "Skipping shell completion generation"
+    '';
+  });
+
   rime = inputs.rime.packages.${system}.default;
 in
 {
@@ -65,7 +79,7 @@ in
 
         ## Workflow
 
-        1. Create the required shape in through
+        1. Create the required shape in thought
         2. Check the viro tools at your disposal and their descriptions
         3. Plan how to use the tools in succession
         4. Use the tools
@@ -102,6 +116,7 @@ in
         "opencode-gemini-auth@1.3.6"
         "opencode-wakatime@1.1.0"
       ];
+
       provider = {
         google = {
           models = {
@@ -121,6 +136,7 @@ in
             };
           };
         };
+
         ollama = {
           npm = "@ai-sdk/openai-compatible";
           options = {
@@ -133,12 +149,14 @@ in
           };
         };
       };
+
       mcp = {
         viro = {
           type = "remote";
           url = "http://localhost:8099/mcp/sse";
           enabled = true;
         };
+
         rime = {
           type = "local";
           command = [
@@ -147,6 +165,7 @@ in
           ];
           enabled = true;
         };
+
         github = {
           type = "local";
           command = [
@@ -155,6 +174,7 @@ in
           ];
           enabled = true;
         };
+
         android = {
           type = "remote";
           url = "http://localhost:3134/sse";

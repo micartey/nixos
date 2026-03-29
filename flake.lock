@@ -121,10 +121,7 @@
     },
     "flake-parts": {
       "inputs": {
-        "nixpkgs-lib": [
-          "neovim-nightly-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["neovim-nightly-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1768135262,
@@ -142,11 +139,7 @@
     },
     "flake-parts_2": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nix-vim",
-          "nur",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["nix-vim", "nur", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1733312601,
@@ -164,11 +157,7 @@
     },
     "flake-parts_3": {
       "inputs": {
-        "nixpkgs-lib": [
-          "nix-vim",
-          "nvf",
-          "nixpkgs"
-        ]
+        "nixpkgs-lib": ["nix-vim", "nvf", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1760948891,
@@ -204,9 +193,7 @@
     },
     "home-manager": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1769580047,
@@ -314,10 +301,7 @@
     },
     "nix-index-database": {
       "inputs": {
-        "nixpkgs": [
-          "nix-alien",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nix-alien", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1765267181,
@@ -335,9 +319,7 @@
     },
     "nix-ld": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nixpkgs"]
       },
       "locked": {
         "lastModified": 1769418854,
@@ -357,9 +339,7 @@
       "inputs": {
         "catppuccin": "catppuccin_2",
         "fff-nvim": "fff-nvim",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nixpkgs"],
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nur": "nur",
         "nvf": "nvf",
@@ -462,11 +442,11 @@
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1770073757,
-        "narHash": "sha256-Vy+G+F+3E/Tl+GMNgiHl9Pah2DgShmIUBJXmbiQPHbI=",
+        "lastModified": 1773909469,
+        "narHash": "sha256-vglVrLfHjFIzIdV9A27Ugul6rh3I1qHbbitGW7dk420=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "47472570b1e607482890801aeaf29bfb749884f6",
+        "rev": "7149c06513f335be57f26fcbbbe34afda923882b",
         "type": "github"
       },
       "original": {
@@ -638,9 +618,7 @@
     },
     "noctalia": {
       "inputs": {
-        "nixpkgs": [
-          "nixpkgs-unstable"
-        ]
+        "nixpkgs": ["nixpkgs-unstable"]
       },
       "locked": {
         "lastModified": 1769697713,
@@ -681,10 +659,7 @@
         "flake-parts": "flake-parts_3",
         "mnw": "mnw",
         "ndg": "ndg",
-        "nixpkgs": [
-          "nix-vim",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["nix-vim", "nixpkgs"],
         "systems": "systems_2"
       },
       "locked": {
@@ -706,11 +681,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1770550408,
-        "narHash": "sha256-TS4r3+MDomNjCAv/g6DPjhVLd2qWDpe3/vdDb0Zu4PI=",
+        "lastModified": 1774599919,
+        "narHash": "sha256-ZxmzU/6Gcrq9DFEmqdLWFnZkZuGWZNZBiSycarKflw4=",
         "owner": "sst",
         "repo": "opencode",
-        "rev": "4187a5fe7fadcf52515ef491d61224ae9a01968b",
+        "rev": "3fb60d05e555dad020d3354602affe166ef0cc22",
         "type": "github"
       },
       "original": {
@@ -760,11 +735,7 @@
     },
     "rust-overlay": {
       "inputs": {
-        "nixpkgs": [
-          "nix-vim",
-          "fff-nvim",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["nix-vim", "fff-nvim", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1767926800,
@@ -782,10 +753,7 @@
     },
     "rust-overlay_2": {
       "inputs": {
-        "nixpkgs": [
-          "rime",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["rime", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1766717007,
