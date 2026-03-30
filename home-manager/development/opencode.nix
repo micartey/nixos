@@ -1,13 +1,34 @@
 {
   inputs,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
 let
   inherit (pkgs.stdenv.hostPlatform) system;
+  inherit (pkgs-unstable) github-mcp-server;
 
-  opencode = inputs.opencode.packages.${system}.default;
+  github-mcp-server-wrapped = pkgs.writeShellScriptBin "github-mcp-server" ''
+    source /run/secrets/rendered/opencode/env
+    exec ${github-mcp-server}/bin/github-mcp-server "$@"
+  '';
+
+  opencode = inputs.opencode.packages.${system}.default.overrideAttrs (old: {
+    NO_COLOR = "1";
+    CI = "1";
+
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/opencode/script/build.ts \
+        --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+    '';
+
+    # Overriding entirely to drop the multi-line completion command
+    postInstall = ''
+      echo "Skipping shell completion generation"
+    '';
+  });
+
   rime = inputs.rime.packages.${system}.default;
 in
 {
@@ -15,7 +36,6 @@ in
     enable = true;
     package = opencode;
 
-    # System prompt
     rules = ''
       # Rules
 
@@ -40,7 +60,7 @@ in
 
       - `.scratchpad/*.md` persists across sessions.
       - Use the format `YYYY-MM-DD-topic.md` for scratchpad files (e.g., `2025-11-03-zig-stdlib_changes.md`).
-      - Domain agents read/write scratchpad directly.
+      - Domain agents (nix, zig) read/write scratchpad directly.
       - Before deep exploration: check scratchpad.
       - After expensive research: write to scratchpad.
 
@@ -59,34 +79,35 @@ in
 
         ## Workflow
 
-        1. Create the required shape in through
+        1. Create the required shape in thought
         2. Check the viro tools at your disposal and their descriptions
         3. Plan how to use the tools in succession
         4. Use the tools
       '';
 
-      nix = ''
-        # Nix Agent
+      nix = # markdown
+        ''
+          # Nix Agent
 
-        Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
+          Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
 
-        ## Scratchpad
-        - Read `.scratchpad/*-nix-*.md` before deep exploration
-        - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
-        - Format: `# Title`, `## Summary`, `## Details`, `## References`
+          ## Scratchpad
+          - Read `.scratchpad/*-nix-*.md` before deep exploration
+          - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
+          - Format: `# Title`, `## Summary`, `## Details`, `## References`
 
-        ## Workflow
-        1. Check scratchpad for cached knowledge
-        2. Use `rime` MCP tools (manix, nixhub, wiki)
-        3. Make changes
-        4. Validate: `nix flake check` or `nix-instantiate --parse`
-        5. Format: `nixfmt`
-        6. Cache new knowledge to scratchpad
+          ## Workflow
+          1. Check scratchpad for cached knowledge
+          2. Use `rime` MCP tools (manix, nixhub, wiki)
+          3. Make changes
+          4. Validate: `nix flake check` or `nix-instantiate --parse`
+          5. Format: `nixfmt`
+          6. Cache new knowledge to scratchpad
 
-        ## Return Format
-        - What was changed
-        - Commands to run (e.g., `nixos-rebuild switch`)
-      '';
+          ## Return Format
+          - What was changed
+          - Commands to run (e.g., `nixos-rebuild switch`)
+        '';
     };
 
     settings = {
@@ -95,6 +116,7 @@ in
         "opencode-gemini-auth@1.3.6"
         "opencode-wakatime@1.1.0"
       ];
+
       provider = {
         google = {
           models = {
@@ -114,13 +136,27 @@ in
             };
           };
         };
+
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            "gpt-oss:latest" = {
+              tools = true;
+            };
+          };
+        };
       };
+
       mcp = {
         viro = {
           type = "remote";
           url = "http://localhost:8099/mcp/sse";
           enabled = true;
         };
+
         rime = {
           type = "local";
           command = [
@@ -129,6 +165,16 @@ in
           ];
           enabled = true;
         };
+
+        github = {
+          type = "local";
+          command = [
+            "${github-mcp-server-wrapped}/bin/github-mcp-server"
+            "stdio"
+          ];
+          enabled = true;
+        };
+
         android = {
           type = "remote";
           url = "http://localhost:3134/sse";
