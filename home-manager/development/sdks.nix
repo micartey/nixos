@@ -7,7 +7,7 @@
 
   programs.go = {
     enable = true;
-    package = pkgs-unstable.go_1_24;
+    package = pkgs-unstable.go_1_25;
   };
 
   programs.java = {
