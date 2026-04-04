@@ -143,8 +143,25 @@ in
             baseURL = "http://localhost:11434/v1";
           };
           models = {
-            "gpt-oss:latest" = {
-              tools = true;
+            # ollama run gpt-oss:latest
+            # >>> /set parameter num_ctx 32768
+            # >>> /save gpt-oss-20b-32k
+            # >>> /bye
+            "gpt-oss-20b-32k" = {
+              options = {
+                extraBody = {
+                  think = "high";
+                };
+              };
+            };
+
+            # ollama run gemma4
+            # >>> /set parameter num_ctx 32768
+            # >>> /save gemma4-32k
+            # >>> /bye
+            "gemma4-32k" = {
+              options = {
+              };
             };
           };
         };
