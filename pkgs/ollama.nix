@@ -4,7 +4,6 @@
   fetchFromGitHub,
   buildEnv,
   makeBinaryWrapper,
-  stdenv,
   addDriverRunpath,
   cmake,
   gitMinimal,
