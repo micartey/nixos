@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   pkgs-unstable,
+  meta,
   ...
 }:
 
@@ -112,31 +113,10 @@ in
 
     settings = {
       plugin = [
-        "opencode-openai-codex-auth@4.2.0"
-        "opencode-gemini-auth@1.3.6"
         "opencode-wakatime@1.1.0"
       ];
 
       provider = {
-        google = {
-          models = {
-            "gemini-3-flash-preview" = {
-              name = "Gemini 3 Flash Preview";
-              limit = {
-                context = 1048576;
-                output = 8192;
-              };
-              modalities = {
-                input = [
-                  "text"
-                  "image"
-                ];
-                output = [ "text" ];
-              };
-            };
-          };
-        };
-
         ollama = {
           npm = "@ai-sdk/openai-compatible";
           options = {
@@ -144,10 +124,10 @@ in
           };
           models = {
             # ollama run gpt-oss:latest
-            # >>> /set parameter num_ctx 32768
+            # >>> /set parameter num_ctx 65536
             # >>> /save gpt-oss-20b-32k
             # >>> /bye
-            "gpt-oss-20b-32k" = {
+            "gpt-oss-20b-64k" = {
               options = {
                 extraBody = {
                   think = "high";
@@ -156,10 +136,10 @@ in
             };
 
             # ollama run gemma4
-            # >>> /set parameter num_ctx 32768
+            # >>> /set parameter num_ctx 65536
             # >>> /save gemma4-32k
             # >>> /bye
-            "gemma4-32k" = {
+            "gemma4-64k" = {
               options = {
               };
             };
