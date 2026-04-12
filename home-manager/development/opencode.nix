@@ -2,7 +2,6 @@
   inputs,
   pkgs,
   pkgs-unstable,
-  meta,
   ...
 }:
 

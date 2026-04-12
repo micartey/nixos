@@ -1,7 +1,13 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  pkgs-edge,
+  ...
+}:
 
 {
   programs.bun = {
+    package = pkgs-edge.bun;
     enable = true;
   };
 
