@@ -1,5 +1,5 @@
 {
-  "settingsVersion": 45,
+  "settingsVersion": 46,
   "bar": {
     "barType": "floating",
     "position": "top",
@@ -58,6 +58,7 @@
           "id": "Workspace",
           "labelMode": "index",
           "occupiedColor": "onSurface",
+          "reverseScroll": false,
           "showApplications": true,
           "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
@@ -157,8 +158,8 @@
   "general": {
     "avatarImage": "/home/daniel/Pictures/51415855.png",
     "dimmerOpacity": 0.2,
-    "showScreenCorners": false,
-    "forceBlackScreenCorners": false,
+    "showScreenCorners": true,
+    "forceBlackScreenCorners": true,
     "scaleRatio": 1.05,
     "radiusRatio": 1,
     "iRadiusRatio": 1,
@@ -180,7 +181,8 @@
     "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
     "lockScreenCountdownDuration": 10000,
-    "autoStartAuth": false
+    "autoStartAuth": false,
+    "allowPasswordWithFprintd": false
   },
   "ui": {
     "fontDefault": "Adwaita Sans",
@@ -265,6 +267,8 @@
     "autoPasteClipboard": false,
     "enableClipPreview": true,
     "clipboardWrapText": true,
+    "clipboardWatchTextCommand": "wl-paste --type text --watch cliphist store",
+    "clipboardWatchImageCommand": "wl-paste --type image --watch cliphist store",
     "position": "center",
     "pinnedApps": [],
     "useApp2Unit": false,
@@ -438,24 +442,24 @@
     ]
   },
   "notifications": {
-    "enabled": false,
+    "enabled": true,
     "monitors": [],
     "location": "top_right",
-    "overlayLayer": false,
+    "overlayLayer": true,
     "backgroundOpacity": 1,
-    "respectExpireTimeout": false,
+    "respectExpireTimeout": true,
     "lowUrgencyDuration": 3,
     "normalUrgencyDuration": 8,
     "criticalUrgencyDuration": 15,
     "enableKeyboardLayoutToast": true,
     "saveToHistory": {
-      "low": true,
-      "normal": true,
-      "critical": true
+      "low": false,
+      "normal": false,
+      "critical": false
     },
     "sounds": {
-      "enabled": false,
-      "volume": 0.5,
+      "enabled": true,
+      "volume": 1,
       "separateSounds": false,
       "criticalSoundFile": "",
       "normalSoundFile": "",
