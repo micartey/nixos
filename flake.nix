@@ -28,7 +28,7 @@
     };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
-    catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix/release-25.11";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 

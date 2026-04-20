@@ -102,8 +102,8 @@ in
       	        audit deny "/home/${meta.user.username}/nixos/dns/creds.json" rwklm,
       	        audit deny "/run/secrets/" r,
       	        audit deny "/run/secrets/**" r,
-      	        audit deny "/home/${meta.user.username}/nixos/secrets/**" rwklm,
-      	        audit deny "/home/${meta.user.username}/nixos/sops/**" rwklm,
+                # audit deny "/home/${meta.user.username}/nixos/secrets/**" rwklm,
+                # audit deny "/home/${meta.user.username}/nixos/sops/**" rwklm,
       	        audit deny "/home/${meta.user.username}/.config/sops/**" rwklm,
       	        audit deny "/home/${meta.user.username}/.ssh/**" rwklm,
       	      }

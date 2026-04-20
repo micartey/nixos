@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, lib, ... }:
 
 let
   enable-noctalia = true;
@@ -31,6 +31,8 @@ in
       mOnHover = "#cdd6f4";
     };
   };
+
+  systemd.user.services.noctalia-shell.warnings = lib.mkForce { };
 
   xdg.configFile."noctalia/colors.json".force = true;
 }

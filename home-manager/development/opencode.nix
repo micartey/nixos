@@ -21,6 +21,8 @@ let
     postPatch = (old.postPatch or "") + ''
       substituteInPlace packages/opencode/script/build.ts \
         --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+
+      sed -i '/const prettier = await import("prettier")/,/^    })/c\    const json = raw' packages/opencode/src/cli/cmd/generate.ts
     '';
 
     # Overriding entirely to drop the multi-line completion command
