@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pi-mono.url = "github:lukasl-dev/pi-mono.nix";
+    pi-mcp-adapter.url = "github:nicobailon/pi-mcp-adapter";
+    pi-mcp-adapter.flake = false;
+
     opencode.url = "github:sst/opencode";
     rime.url = "github:lukasl-dev/rime";
 
@@ -35,6 +39,10 @@
     nix-vim = {
       url = "github:micartey/nix-vim";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    fff-nvim = {
+      url = "github:dmtrKovalenko/fff.nvim";
     };
   };
 

@@ -13,7 +13,7 @@ Give rules and best practices on where to place files that are either imported v
 
 Inside of these paths, you need to explore the folder structure and decide on your own where the file fits.
 
-You do not need to manually import any file you place there, as they are automatically imported.
+You do not need to manually import any file you place there, as they are automatiy imported.
 Therefore, it is important that you follow that rule.
 
 But you always need to run `git add <file>` so that when building the system, it won't fail!
