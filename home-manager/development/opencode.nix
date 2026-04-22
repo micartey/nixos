@@ -21,6 +21,8 @@ let
     postPatch = (old.postPatch or "") + ''
       substituteInPlace packages/opencode/script/build.ts \
         --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+
+      sed -i '/const prettier = await import("prettier")/,/^    })/c\    const json = raw' packages/opencode/src/cli/cmd/generate.ts
     '';
 
     # Overriding entirely to drop the multi-line completion command
@@ -112,31 +114,10 @@ in
 
     settings = {
       plugin = [
-        "opencode-openai-codex-auth@4.2.0"
-        "opencode-gemini-auth@1.3.6"
         "opencode-wakatime@1.1.0"
       ];
 
       provider = {
-        google = {
-          models = {
-            "gemini-3-flash-preview" = {
-              name = "Gemini 3 Flash Preview";
-              limit = {
-                context = 1048576;
-                output = 8192;
-              };
-              modalities = {
-                input = [
-                  "text"
-                  "image"
-                ];
-                output = [ "text" ];
-              };
-            };
-          };
-        };
-
         ollama = {
           npm = "@ai-sdk/openai-compatible";
           options = {

@@ -147,6 +147,7 @@
         {
           "colorizeDistroLogo": false,
           "colorizeSystemIcon": "primary",
+          "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": true,
           "icon": "settings",
@@ -187,9 +188,9 @@
   "general": {
     "avatarImage": "/home/daniel/Pictures/51415855.png",
     "dimmerOpacity": 0.2,
-    "showScreenCorners": true,
-    "forceBlackScreenCorners": true,
-    "scaleRatio": 1.05,
+    "showScreenCorners": false,
+    "forceBlackScreenCorners": false,
+    "scaleRatio": 0.8500000000000001,
     "radiusRatio": 1,
     "iRadiusRatio": 1,
     "boxRadiusRatio": 1,
@@ -251,6 +252,7 @@
     "name": "Dortmund",
     "weatherEnabled": false,
     "weatherShowEffects": true,
+    "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false,
@@ -259,7 +261,8 @@
     "analogClockInCalendar": false,
     "firstDayOfWeek": -1,
     "hideWeatherTimezone": true,
-    "hideWeatherCityName": true
+    "hideWeatherCityName": true,
+    "autoLocate": false
   },
   "calendar": {
     "cards": [
@@ -627,7 +630,7 @@
   },
   "plugins": {
     "autoUpdate": false,
-    "notifyUpdates": true
+    "notifyUpdates": false
   },
   "idle": {
     "enabled": false,
