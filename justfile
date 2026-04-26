@@ -10,5 +10,13 @@ home-init:
 home-switch:
     nixos-rebuild switch --flake .#home
 
+bluetooth-start:
+     rfkill unblock bluetooth
+     bluetoothctl power on
+
+bluetooth-stop:
+     bluetoothctl power off
+     rfkill block bluetooth
+
 flake-update:
-    nix flake update
+     nix flake update

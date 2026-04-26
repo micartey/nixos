@@ -37,6 +37,8 @@
       url = "github:micartey/nix-vim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    librepods.url = "github:demenik/librepods";
   };
 
   outputs =
