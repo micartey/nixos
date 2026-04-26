@@ -42,6 +42,7 @@ in
       # Rules
 
       - **NEVER** perform commits.
+      - **NEVER** read files from the /nix/store - only if there is ABSOLUTLY no other way but ask before if it is ok to do so
 
       ## Exploration (CRITICAL)
 
@@ -87,29 +88,28 @@ in
         4. Use the tools
       '';
 
-      nix = # markdown
-        ''
-          # Nix Agent
+      nix = ''
+        # Nix Agent
 
-          Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
+        Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
 
-          ## Scratchpad
-          - Read `.scratchpad/*-nix-*.md` before deep exploration
-          - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
-          - Format: `# Title`, `## Summary`, `## Details`, `## References`
+        ## Scratchpad
+        - Read `.scratchpad/*-nix-*.md` before deep exploration
+        - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
+        - Format: `# Title`, `## Summary`, `## Details`, `## References`
 
-          ## Workflow
-          1. Check scratchpad for cached knowledge
-          2. Use `rime` MCP tools (manix, nixhub, wiki)
-          3. Make changes
-          4. Validate: `nix flake check` or `nix-instantiate --parse`
-          5. Format: `nixfmt`
-          6. Cache new knowledge to scratchpad
+        ## Workflow
+        1. Check scratchpad for cached knowledge
+        2. Use `rime` MCP tools (manix, nixhub, wiki)
+        3. Make changes
+        4. Validate: `nix flake check` or `nix-instantiate --parse`
+        5. Format: `nixfmt`
+        6. Cache new knowledge to scratchpad
 
-          ## Return Format
-          - What was changed
-          - Commands to run (e.g., `nixos-rebuild switch`)
-        '';
+        ## Return Format
+        - What was changed
+        - Commands to run (e.g., `nixos-rebuild switch`)
+      '';
     };
 
     settings = {
@@ -141,6 +141,17 @@ in
             # >>> /save gemma4-32k
             # >>> /bye
             "gemma4-64k" = {
+              options = {
+              };
+            };
+
+            # ollama run hf.co/prism-ml/Ternary-Bonsai-8B-gguf:F16
+            # ollama run hf.co/lilyanatia/Ternary-Bonsai-8B-GGUF:Q2_K
+            # >>> /set parameter num_ctx 65536
+            # >>> /save prism-ml/Ternary-Bonsai-8B
+            # >>> /bye
+            "prism-ml/Ternary-Bonsai-8B" = {
+              name = "Ternary Bonsai 8B";
               options = {
               };
             };
