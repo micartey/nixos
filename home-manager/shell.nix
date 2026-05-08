@@ -74,6 +74,12 @@ in
     enable = true;
     lfs.enable = true;
 
+    signing = {
+      signByDefault = true;
+      format = "ssh";
+      key = "~/.ssh/id_ed25519";
+    };
+
     settings = {
       user = {
         email = meta.git.email;
