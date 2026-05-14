@@ -147,14 +147,6 @@ in
 
             # ollama run hf.co/prism-ml/Ternary-Bonsai-8B-gguf:F16
             # ollama run hf.co/lilyanatia/Ternary-Bonsai-8B-GGUF:Q2_K
-            # >>> /set parameter num_ctx 65536
-            # >>> /save prism-ml/Ternary-Bonsai-8B
-            # >>> /bye
-            "prism-ml/Ternary-Bonsai-8B" = {
-              name = "Ternary Bonsai 8B";
-              options = {
-              };
-            };
           };
         };
       };

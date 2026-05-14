@@ -16,6 +16,8 @@
     pi-mcp-adapter.url = "github:nicobailon/pi-mcp-adapter";
     pi-mcp-adapter.flake = false;
 
+    viro.url = "github:micartey/viro";
+
     opencode.url = "github:sst/opencode";
     rime.url = "github:lukasl-dev/rime";
 
