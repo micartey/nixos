@@ -158,6 +158,16 @@ in
           enabled = true;
         };
 
+        # This is just a test mcp for me to mess around and learn mcp + oauth integration
+        test = {
+          type = "remote";
+          url = "http://localhost:8080/sse";
+          enabled = true;
+          oauth = {
+            scope = "mcp:read mcp:write";
+          };
+        };
+
         rime = {
           type = "local";
           command = [
