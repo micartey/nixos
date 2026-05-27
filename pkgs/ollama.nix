@@ -41,7 +41,7 @@ let
 in
 goBuild (finalAttrs: {
   pname = "ollama";
-  version = "0.20.0";
+  version = "0.24.0";
 
   src = fetchFromGitHub {
     owner = "ollama";

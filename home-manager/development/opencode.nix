@@ -161,7 +161,7 @@ in
         # This is just a test mcp for me to mess around and learn mcp + oauth integration
         test = {
           type = "remote";
-          url = "http://localhost:8080/sse";
+          url = "http://localhost:8888/mcp";
           enabled = true;
           oauth = {
             scope = "mcp:read mcp:write";
