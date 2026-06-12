@@ -555,22 +555,6 @@
     },
     "nixpkgs_11": {
       "locked": {
-        "lastModified": 1773646010,
-        "narHash": "sha256-iYrs97hS7p5u4lQzuNWzuALGIOdkPXvjz7bviiBjUu8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5b2c2d84341b2afb5647081c1386a80d7a8d8605",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_12": {
-      "locked": {
         "lastModified": 1766651565,
         "narHash": "sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU=",
         "owner": "NixOS",
@@ -585,7 +569,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_13": {
+    "nixpkgs_12": {
       "locked": {
         "lastModified": 1775888245,
         "narHash": "sha256-nwASzrRDD1JBEu/o8ekKYEXm/oJW6EMCzCRdrwcLe90=",
@@ -601,7 +585,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_14": {
+    "nixpkgs_13": {
       "locked": {
         "lastModified": 1762844143,
         "narHash": "sha256-SlybxLZ1/e4T2lb1czEtWVzDCVSTvk9WLwGhmxFmBxI=",
@@ -852,47 +836,12 @@
         "type": "github"
       }
     },
-    "pi-mcp-adapter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1776805744,
-        "narHash": "sha256-s9XWte5wfMnD77Jx7CzRycl76M9SR82zb4Lio9XeO3M=",
-        "owner": "nicobailon",
-        "repo": "pi-mcp-adapter",
-        "rev": "d351b6d134f2ff4ec6f35454927629e8b6ab316c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nicobailon",
-        "repo": "pi-mcp-adapter",
-        "type": "github"
-      }
-    },
-    "pi-mono": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_11",
-        "systems": "systems_7"
-      },
-      "locked": {
-        "lastModified": 1776898371,
-        "narHash": "sha256-nD6KJnRBLqTKcN+Wlml9yzVCdgDfjTzk+Ugh1qna1PU=",
-        "owner": "lukasl-dev",
-        "repo": "pi-mono.nix",
-        "rev": "4bba5346bc7b07fda86d2d91c42cd7a3b60cc78c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lukasl-dev",
-        "repo": "pi-mono.nix",
-        "type": "github"
-      }
-    },
     "rime": {
       "inputs": {
         "crane": "crane_3",
-        "nixpkgs": "nixpkgs_12",
+        "nixpkgs": "nixpkgs_11",
         "rust-overlay": "rust-overlay_3",
-        "systems": "systems_8"
+        "systems": "systems_7"
       },
       "locked": {
         "lastModified": 1767480275,
@@ -923,8 +872,6 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2",
         "noctalia": "noctalia",
         "opencode": "opencode",
-        "pi-mcp-adapter": "pi-mcp-adapter",
-        "pi-mono": "pi-mono",
         "rime": "rime",
         "sops-nix": "sops-nix_2",
         "viro": "viro"
@@ -1014,7 +961,7 @@
     },
     "sops-nix_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_13"
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1776119890,
@@ -1151,21 +1098,6 @@
         "type": "github"
       }
     },
-    "systems_9": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
@@ -1190,7 +1122,7 @@
     },
     "utils": {
       "inputs": {
-        "systems": "systems_9"
+        "systems": "systems_8"
       },
       "locked": {
         "lastModified": 1731533236,
@@ -1208,15 +1140,15 @@
     },
     "viro": {
       "inputs": {
-        "nixpkgs": "nixpkgs_14",
+        "nixpkgs": "nixpkgs_13",
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1767240501,
-        "narHash": "sha256-ZzGlyc2Zg49P6ANId4mAYU4RRofkx7/wjRazEbE0yl0=",
+        "lastModified": 1780005444,
+        "narHash": "sha256-Ow4MVdTwyhXYd/CGGs+c4gwOFxnYvab59oD/JPijoNo=",
         "owner": "micartey",
         "repo": "viro",
-        "rev": "e6fd78e538295e70c9b819fa28db022f83268d80",
+        "rev": "f230edbd14523e9a76d7f3201fdf7af0399ede08",
         "type": "github"
       },
       "original": {
