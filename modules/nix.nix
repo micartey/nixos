@@ -21,14 +21,16 @@
       meta.user.username
     ];
 
-    # binary cache
+    # TODO: Move binary cache
     substituters = [
       "https://nix-community.cachix.org"
       "https://nixos-raspberrypi.cachix.org"
+      "https://cache.nixos-cuda.org"
     ];
     trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
     ];
   };
 

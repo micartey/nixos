@@ -2,13 +2,13 @@
   description = "daniel";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-legacy.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-edge.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -30,13 +30,13 @@
     };
 
     nix-alien.url = "github:thiagokokada/nix-alien";
-    catppuccin.url = "github:catppuccin/nix/release-25.11";
+    catppuccin.url = "github:catppuccin/nix/release-26.05";
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     nix-vim = {
       url = "github:micartey/nix-vim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     fff-nvim = {
@@ -61,6 +61,7 @@
         config.allowUnfree = true;
         config.permittedInsecurePackages = [
           "gradle-7.6.6"
+          "electron-39.8.10"
         ];
       };
 

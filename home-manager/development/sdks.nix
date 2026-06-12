@@ -37,7 +37,7 @@
     # erlang-related
     pkgs.erlang
     pkgs.elixir
-    pkgs.gleam
+    # pkgs.gleam
 
     # java-related
     # pkgs.zulu21
@@ -61,31 +61,8 @@
 
     pkgs.socat
 
-    # # rust-related
-    # pkgs.rustc
-    # pkgs.clippy
-    # pkgs.cargo
-    # pkgs.rustfmt
-
-    # # tex-related
-    # pkgs.texliveFull
-    # pkgs.graphviz
-
     # zig-related
     pkgs-unstable.zig
-
-    # elm-related
-    pkgs-unstable.elmPackages.elm
-
-    # # haskell-related
-    # pkgs.ghc
-    # pkgs.haskell-language-server
-
-    # # ocaml-related
-    # pkgs-unstable.ocaml
-    # pkgs-unstable.ocamlPackages.lsp
-    # pkgs-unstable.ocamlPackages.ocamlformat
-    # pkgs-unstable.ocamlPackages.utop
 
     # miscellaneous
     pkgs.d2

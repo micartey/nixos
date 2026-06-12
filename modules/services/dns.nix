@@ -8,14 +8,14 @@
 
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      DNS=100.72.132.37
-    '';
-    fallbackDns = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
+    settings.Resolve = {
+      DNS = "100.72.132.37";
+      FallbackDNS = [
+        "1.1.1.1"
+        "1.0.0.1"
+        "8.8.8.8"
+        "8.8.4.4"
+      ];
+    };
   };
 }

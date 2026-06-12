@@ -149,6 +149,8 @@ in
     enable = true;
   };
 
+  xdg.configFile."btop/btop.conf".force = true;
+
   programs.fastfetch.enable = true;
   programs.fzf.enable = true;
   programs.carapace.enable = true;

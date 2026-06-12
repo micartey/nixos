@@ -51,6 +51,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "gradle-7.6.6"
+    "electron-39.8.10"
   ];
 
   environment.systemPackages = with pkgs; [

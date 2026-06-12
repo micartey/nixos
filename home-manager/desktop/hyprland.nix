@@ -1,16 +1,20 @@
 {
+  config,
+  lib,
   pkgs,
   ...
 }:
 
 let
   mainMod = "SUPER";
-  subMod = "L_ALT SHIFT";
+  subMod = "ALT + SHIFT";
   ctrlMod = "CTRL";
+  mkLua = lib.generators.mkLuaInline;
 in
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "lua";
 
     xwayland.enable = true;
 
@@ -19,238 +23,238 @@ in
       variables = [ "--all" ];
     };
 
-    sourceFirst = true;
-
     settings = {
       monitor = [
-        "HDMI-A-2, 3440x1440@99.98200, 0x0, 1"
-        "DP-4, 400x1280@59.98900, 3440x0, 1, transform, 3"
-
-        "Unknown-1, disable"
+        { output = "HDMI-A-2"; mode = "3440x1440@99.98200"; position = "0x0"; scale = 1; }
+        { output = "DP-4"; mode = "400x1280@59.98900"; position = "3440x0"; scale = 1; transform = 3; }
+        { output = "Unknown-1"; disabled = true; }
       ];
 
       env = [
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_QPA_PLATFORM,wayland"
-        "NVD_BACKEND,direct"
-
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-
-        # hyprcursor
-        "HYPRCURSOR_SIZE,26"
-        "HYPRCURSOR_THEME,Catppuccin-Mocha-Light-Cursors"
+        { _args = [ "QT_WAYLAND_DISABLE_WINDOWDECORATION" "1" ]; }
+        { _args = [ "QT_QPA_PLATFORM" "wayland" ]; }
+        { _args = [ "NVD_BACKEND" "direct" ]; }
+        { _args = [ "XDG_CURRENT_DESKTOP" "Hyprland" ]; }
+        { _args = [ "XDG_SESSION_TYPE" "wayland" ]; }
+        { _args = [ "ELECTRON_OZONE_PLATFORM_HINT" "auto" ]; }
+        { _args = [ "HYPRCURSOR_SIZE" "26" ]; }
+        { _args = [ "HYPRCURSOR_THEME" "Catppuccin-Mocha-Light-Cursors" ]; }
       ];
 
-      exec-once = [
-        # "watch -n 0 wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 100%"
-        "wl-paste --type text --watch cliphist store"
-
-        # "vesktop"
-        # "element-desktop"
-
-        # "waybar"
-      ];
-
-      debug = {
-        disable_logs = false;
-      };
-
-      cursor = {
-        no_hardware_cursors = true;
-      };
-
-      bind = [
-        # Application Launcher
-        # noctalia-shell ipc call launcher toggle
-        "${mainMod}, SPACE, exec, rofi -show drun -show-icons"
-
-        # Emoji
-        # noctalia-shell ipc call launcher emoji
-        "${mainMod}, M, exec, bemoji"
-
-        # Clipboard History
-        # noctalia-shell ipc call launcher clipboard
-        "CTRL SHIFT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-
-        # "${mainMod}, p, exec, swaync-client -t"
-
-        ", F7, exec, hyprshot -m region --clipboard-only"
-        ", F8, exec, viro"
-
-        "${mainMod}, T, exec, kitty"
-
-        # "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-
-        # Overlay workspace
-        "${ctrlMod}, 0, togglespecialworkspace,"
-        "${ctrlMod} SHIFT, 0, movetoworkspace, special"
-
-        # Float window
-        "${mainMod}, V, togglefloating,"
-        "${mainMod}, V, centerwindow,"
-
-        # "${mainMod}, N, swapnext,"
-        "${ctrlMod} SHIFT, Q, killactive,"
-
-        # Fullscreen window
-        "${mainMod}, up, fullscreen, 1"
-        ", F11, fullscreen,"
-
-        # Window controls (left ritgh up down)
-        "${subMod}, up, movefocus, u"
-        "${subMod}, left, movefocus, l"
-        "${subMod}, down, movefocus, d"
-        "${subMod}, right, movefocus, r"
-
-        # Jump to workspace
-        "${ctrlMod}, 1, workspace, 1"
-        "${ctrlMod}, 2, workspace, 2"
-        "${ctrlMod}, 3, workspace, 3"
-        "${ctrlMod}, 4, workspace, 4"
-        "${ctrlMod}, 5, workspace, 5"
-        "${ctrlMod}, 6, workspace, 6"
-        "${ctrlMod}, 8, workspace, 8"
-
-        "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
-        "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
-        "${ctrlMod} SHIFT, 3, movetoworkspace, 3"
-        "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
-        "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
-        "${ctrlMod} SHIFT, 6, movetoworkspace, 6"
-        "${ctrlMod} SHIFT, 8, movetoworkspace, 8"
-
-        # Window dragging
-        "${mainMod}, mouse_down, workspace, e+1"
-        "${mainMod}, mouse_up, workspace, e-1"
-
-        # Toggle Network delay
-        "${mainMod}, 1, exec, sudo tc qdisc add dev enp14s0 root netem delay 120ms"
-        "${mainMod}, 2, exec, sudo tc qdisc add dev enp14s0 root netem delay 10ms 50ms distribution normal loss 20%"
-        "${mainMod}, 3, exec, sudo tc qdisc add dev enp14s0 root netem loss 100%"
-        "${mainMod}, 0, exec, sudo tc qdisc del dev enp14s0 root"
-      ];
-
-      # Window drag
-      bindm = [
-        "${mainMod}, mouse:272, movewindow"
-        "${mainMod}, mouse:273, resizewindow"
-      ];
-
-      windowrulev2 = [
-        "float,title:(Picture-in-picture)"
-        "float,title:(Picture-in-Picture)"
-        "float,class:(Rofi)"
-        "float,title:(Save File)"
-        "float,title:(Open File)"
-        "float,initialTitle:(discord popout)"
-
-        "workspace 1,initialTitle:(YouTube Music)"
-        "noanim,initialClass:^(Minecraft\*\s1\.20\.6)$"
-        "noblur,initialClass:^(Minecraft\*\s1\.20\.6)$"
-
-        "pin,title:(.*)is sharing your screen(.*)"
-        "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
-        "bordersize 0,title:(.*)is sharing your screen(.*)"
-
-        # Vesktop (Discord)
-        "float,initialClass:(vesktop)"
-        "size 2549 1123,initialClass:(vesktop)"
-        "center, initialClass:(vesktop)"
-        "workspace 2,initialClass:(vesktop)"
-
-        # IntelliJ
-        "float,title:(Welcome to IntelliJ IDEA)"
-        "size 1358 682,title:(Welcome to IntelliJ IDEA)"
-        "center,title:(Welcome to IntelliJ IDEA)"
-
-        # Viro
-        "float,class:(.*)viro(.*)$"
-        "bordersize 0, class:(.*)viro(.*)$"
-        "noblur, title:^(Radial-Menu)$"
-        "noshadow, title:^(Radial-Menu)$"
-      ];
-
-      # Pin workspaces to display output
-      workspace = [
-        "1, monitor:HDMI-A-2"
-        "2, monitor:HDMI-A-2"
-        "3, monitor:HDMI-A-2"
-        "4, monitor:HDMI-A-2"
-        "5, monitor:HDMI-A-2"
-        "6, monitor:HDMI-A-2"
-
-        "8, monitor:DP-4"
-      ];
-
-      layerrule = [
-        "blur, rofi"
-      ];
-
-      input = {
-        kb_layout = "de";
-        kb_variant = ",qwertz";
-        follow_mouse = 1;
-        touchpad = {
-          natural_scroll = "no";
-        };
-        sensitivity = 0;
-      };
-
-      general = {
-        gaps_in = 5;
-        gaps_out = 30;
-        border_size = 2;
-
-        "col.active_border" = "$mauve $lavender 45deg";
-        "col.inactive_border" = "rgba(7c4ec5aa)";
-
-        layout = "dwindle";
-      };
-
-      decoration = {
-        rounding = 10;
-
-        blur = {
-          enabled = true;
-          size = 2;
-          passes = 3;
-        };
-
-        #"drop_shadow" = "yes";
-        #shadow_range = 4;
-        #shadow_render_power = 3;
-        #"col.shadow" = "$crust";
-      };
-
-      animations = {
-        enabled = "yes";
-
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+      on = {
+        _args = [
+          "hyprland.start"
+          (mkLua ''
+            function()
+              hl.exec_cmd("wl-paste --type text --watch cliphist store")
+            end
+          '')
         ];
       };
 
-      dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
+      config = {
+        debug = {
+          disable_logs = false;
+        };
+
+        cursor = {
+          no_hardware_cursors = true;
+        };
+
+        general = {
+          gaps_in = 5;
+          gaps_out = 30;
+          border_size = 2;
+
+          col = {
+            active_border = {
+              colors = [
+                (mkLua "require('themes.catppuccin').mauve")
+                (mkLua "require('themes.catppuccin').lavender")
+              ];
+              angle = 45;
+            };
+            inactive_border = "rgba(7c4ec5aa)";
+          };
+
+          layout = "dwindle";
+        };
+
+        decoration = {
+          rounding = 10;
+
+          blur = {
+            enabled = true;
+            size = 2;
+            passes = 3;
+          };
+        };
+
+        dwindle = {
+          preserve_split = true;
+        };
+
+        misc = {
+          force_default_wallpaper = 0;
+          mouse_move_enables_dpms = false;
+          vrr = 1;
+        };
+
+        input = {
+          kb_layout = "de";
+          kb_variant = ",qwertz";
+          follow_mouse = 1;
+          touchpad = {
+            natural_scroll = false;
+          };
+          sensitivity = 0;
+        };
+
+        animations = {
+          enabled = true;
+        };
       };
 
-      misc = {
-        force_default_wallpaper = 0;
-        mouse_move_enables_dpms = false;
-        vrr = 1;
+      curve = {
+        _args = [
+          "myBezier"
+          {
+            type = "bezier";
+            points = [
+              [ 0.05 0.9 ]
+              [ 0.1 1.05 ]
+            ];
+          }
+        ];
       };
+
+      animation = [
+        { leaf = "windows"; enabled = true; speed = 7; bezier = "myBezier"; }
+        { leaf = "windowsOut"; enabled = true; speed = 7; bezier = "default"; style = "popin 80%"; }
+        { leaf = "border"; enabled = true; speed = 10; bezier = "default"; }
+        { leaf = "borderangle"; enabled = true; speed = 8; bezier = "default"; }
+        { leaf = "fade"; enabled = true; speed = 7; bezier = "default"; }
+        { leaf = "workspaces"; enabled = true; speed = 6; bezier = "default"; }
+      ];
+
+      bind = [
+        # Window drag (mouse binds)
+        { _args = [ "${mainMod} + mouse:272" (mkLua "hl.dsp.window.drag()") { mouse = true; } ]; }
+        { _args = [ "${mainMod} + mouse:273" (mkLua "hl.dsp.window.resize()") { mouse = true; } ]; }
+
+        # Application Launcher
+        { _args = [ "${mainMod} + SPACE" (mkLua "hl.dsp.exec_cmd(\"rofi -show drun -show-icons\")") ]; }
+
+        # Emoji
+        { _args = [ "${mainMod} + M" (mkLua "hl.dsp.exec_cmd(\"bemoji\")") ]; }
+
+        # Clipboard History
+        { _args = [ "CTRL + SHIFT + v" (mkLua "hl.dsp.exec_cmd(\"cliphist list | rofi -dmenu | cliphist decode | wl-copy\")") ]; }
+
+        # Screenshot / Viro
+        { _args = [ "F7" (mkLua "hl.dsp.exec_cmd(\"hyprshot -m region --clipboard-only\")") ]; }
+        { _args = [ "F8" (mkLua "hl.dsp.exec_cmd(\"viro\")") ]; }
+
+        # Terminal
+        { _args = [ "${mainMod} + T" (mkLua "hl.dsp.exec_cmd(\"kitty\")") ]; }
+
+        # Overlay workspace
+        { _args = [ "${ctrlMod} + 0" (mkLua "hl.dsp.workspace.toggle_special(\"special\")") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 0" (mkLua "hl.dsp.window.move({ workspace = \"special\" })") ]; }
+
+        # Float window
+        { _args = [ "${mainMod} + V" (mkLua "hl.dsp.window.float({ action = \"toggle\" })") ]; }
+        { _args = [ "${mainMod} + V" (mkLua "hl.dsp.window.center()") ]; }
+
+        # Kill window
+        { _args = [ "${ctrlMod} + SHIFT + Q" (mkLua "hl.dsp.window.close()") ]; }
+
+        # Fullscreen
+        { _args = [ "${mainMod} + up" (mkLua "hl.dsp.window.fullscreen(true)") ]; }
+        { _args = [ "F11" (mkLua "hl.dsp.window.fullscreen()") ]; }
+
+        # Window controls (left right up down)
+        { _args = [ "${subMod} + up" (mkLua "hl.dsp.focus({ direction = \"up\" })") ]; }
+        { _args = [ "${subMod} + left" (mkLua "hl.dsp.focus({ direction = \"left\" })") ]; }
+        { _args = [ "${subMod} + down" (mkLua "hl.dsp.focus({ direction = \"down\" })") ]; }
+        { _args = [ "${subMod} + right" (mkLua "hl.dsp.focus({ direction = \"right\" })") ]; }
+
+        # Jump to workspace
+        { _args = [ "${ctrlMod} + 1" (mkLua "hl.dsp.focus({ workspace = 1 })") ]; }
+        { _args = [ "${ctrlMod} + 2" (mkLua "hl.dsp.focus({ workspace = 2 })") ]; }
+        { _args = [ "${ctrlMod} + 3" (mkLua "hl.dsp.focus({ workspace = 3 })") ]; }
+        { _args = [ "${ctrlMod} + 4" (mkLua "hl.dsp.focus({ workspace = 4 })") ]; }
+        { _args = [ "${ctrlMod} + 5" (mkLua "hl.dsp.focus({ workspace = 5 })") ]; }
+        { _args = [ "${ctrlMod} + 6" (mkLua "hl.dsp.focus({ workspace = 6 })") ]; }
+        { _args = [ "${ctrlMod} + 8" (mkLua "hl.dsp.focus({ workspace = 8 })") ]; }
+
+        # Move window to workspace
+        { _args = [ "${ctrlMod} + SHIFT + 1" (mkLua "hl.dsp.window.move({ workspace = 1 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 2" (mkLua "hl.dsp.window.move({ workspace = 2 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 3" (mkLua "hl.dsp.window.move({ workspace = 3 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 4" (mkLua "hl.dsp.window.move({ workspace = 4 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 5" (mkLua "hl.dsp.window.move({ workspace = 5 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 6" (mkLua "hl.dsp.window.move({ workspace = 6 })") ]; }
+        { _args = [ "${ctrlMod} + SHIFT + 8" (mkLua "hl.dsp.window.move({ workspace = 8 })") ]; }
+
+        # Window dragging (scroll)
+        { _args = [ "${mainMod} + mouse_down" (mkLua "hl.dsp.focus({ workspace = \"e+1\" })") ]; }
+        { _args = [ "${mainMod} + mouse_up" (mkLua "hl.dsp.focus({ workspace = \"e-1\" })") ]; }
+
+        # Toggle Network delay
+        { _args = [ "${mainMod} + 1" (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem delay 120ms\")") ]; }
+        { _args = [ "${mainMod} + 2" (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem delay 10ms 50ms distribution normal loss 20%\")") ]; }
+        { _args = [ "${mainMod} + 3" (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem loss 100%\")") ]; }
+        { _args = [ "${mainMod} + 0" (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc del dev enp14s0 root\")") ]; }
+      ];
+
+      window_rule = [
+        { match.title = "Picture-in-picture"; float = true; }
+        { match.title = "Picture-in-Picture"; float = true; }
+        { match.class = "Rofi"; float = true; }
+        { match.title = "Save File"; float = true; }
+        { match.title = "Open File"; float = true; }
+        { match.initial_title = "discord popout"; float = true; }
+
+        { match.initial_title = "YouTube Music"; workspace = "1"; }
+        { match.initial_class = "^(Minecraft\\*\\s1\\.20\\.6)$"; no_anim = true; }
+        { match.initial_class = "^(Minecraft\\*\\s1\\.20\\.6)$"; no_blur = true; }
+
+        { match.title = "(.*)is sharing your screen(.*)"; pin = true; }
+        { match.title = "(.*)is sharing your screen(.*)"; move = "100%-w-35% 0%"; }
+        { match.title = "(.*)is sharing your screen(.*)"; border_size = 0; }
+
+        # Vesktop (Discord)
+        { match.initial_class = "vesktop"; float = true; }
+        { match.initial_class = "vesktop"; size = [ 2549 1123 ]; }
+        { match.initial_class = "vesktop"; center = true; }
+        { match.initial_class = "vesktop"; workspace = "2"; }
+
+        # IntelliJ
+        { match.title = "Welcome to IntelliJ IDEA"; float = true; }
+        { match.title = "Welcome to IntelliJ IDEA"; size = [ 1358 682 ]; }
+        { match.title = "Welcome to IntelliJ IDEA"; center = true; }
+
+        # Viro
+        { match.class = "(.*)viro(.*)$"; float = true; }
+        { match.class = "(.*)viro(.*)$"; border_size = 0; }
+        { match.title = "^(Radial-Menu)$"; no_blur = true; }
+        { match.title = "^(Radial-Menu)$"; no_shadow = true; }
+      ];
+
+      workspace_rule = [
+        { workspace = "1"; monitor = "HDMI-A-2"; }
+        { workspace = "2"; monitor = "HDMI-A-2"; }
+        { workspace = "3"; monitor = "HDMI-A-2"; }
+        { workspace = "4"; monitor = "HDMI-A-2"; }
+        { workspace = "5"; monitor = "HDMI-A-2"; }
+        { workspace = "6"; monitor = "HDMI-A-2"; }
+        { workspace = "8"; monitor = "DP-4"; }
+      ];
+
+      layer_rule = [
+        { match.namespace = "rofi"; blur = true; }
+      ];
     };
   };
 
@@ -272,7 +276,6 @@ in
 
   # auto mount removable drives
   services.udiskie.enable = true;
-  # TODO: should this be enabled for non-hyprland?
 
   # hyprcursor icons directory
   home.file.".icons" = {
@@ -282,31 +285,16 @@ in
   };
 
   home.packages = [
-    # emoji quick access
     pkgs.bemoji
-
-    # waybar
     pkgs.waybar
-
-    # notifications
     pkgs.libnotify
-
-    # screenshot
     pkgs.grim
     pkgs.hyprshot
-
-    # clipboard
     pkgs.wl-clipboard
     pkgs.cliphist
-
-    # hyprcursor
     pkgs.hyprcursor
     pkgs.catppuccin-cursors.mochaMauve
-
-    # miscellaneous
     pkgs.xdg-utils
-
-    # For waybar clock
     pkgs.tzdata
   ];
 }

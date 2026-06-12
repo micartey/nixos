@@ -10,23 +10,22 @@
 
   hardware.nvidia = {
     modesetting.enable = true;
+    nvidiaSettings = true;
+    open = true;
 
     powerManagement = {
       enable = false;
       finegrained = false;
     };
 
-    open = false;
-    nvidiaSettings = true;
-
-    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-      version = "570.172.08";
-      sha256_64bit = "sha256-AlaGfggsr5PXsl+nyOabMWBiqcbHLG4ij617I4xvoX0=";
-      openSha256 = lib.fakeSha256;
-      settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
-      sha256_aarch64 = lib.fakeSha256;
-      persistencedSha256 = lib.fakeSha256;
-    };
+    # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+    #   version = "595.80";
+    #   sha256_64bit = "sha256-AlaGfggsr5PXsl+nyOabMWBiqcbHLG4ij617I4xvoX0=";
+    #   openSha256 = "sha256-AlaGfggsr5PXsl+nyOabMWBiqcbHLG4ij617I4xvoX0=";
+    #   settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
+    #   sha256_aarch64 = lib.fakeSha256;
+    #   persistencedSha256 = lib.fakeSha256;
+    # };
   };
 
   # environment.sessionVariables = {
