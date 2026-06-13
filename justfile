@@ -4,10 +4,6 @@ default:
 home-switch:
     sudo nixos-rebuild switch --flake .#home
 
-# Before you run this command, make sure to:
-# 1. uncomment isoImage in flake.nix configuration
-# 2. remove networking.networkmanager from cloudflare_dns.nix
-# 3. comment openssh.authorizedKeys.keys in users.nix
 home-iso:
     NIX_BUILD_CORES=25 nix build \
         .#nixosConfigurations.homeImg.config.system.build.isoImage \

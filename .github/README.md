@@ -30,6 +30,8 @@
 │   │   ├── home
 │   │   │   └── NixOS config for my home desktop host
 │   │   └── shared config for all desktop hosts
+│   ├── img
+│   │   └── NixOS config for iso file generation
 │   └── shared config for both desktop and server hosts
 ├── modules
 │   └── NixOS modules for various services and apps
@@ -40,9 +42,9 @@
 ## Create a Live-ISO
 
 Live-ISOs are great thing.
-They can be used to test simple, not persistant, things in a VM or being used to boot from.
-This is mostly useful for secruity things.
+They can be used to test simple and not persistant things in a VM or being used to boot from.
 
 ```bash
-sudo just home-iso
+just home-iso
+sudo cp result/iso/nixos-*-x86_64-linux.iso nixos.iso
 ```

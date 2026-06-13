@@ -20,8 +20,8 @@
     # vscode
     # pkgs.vscode
 
-    pkgs-unstable.gemini-cli
-    pkgs-unstable.codex
+    # pkgs-unstable.gemini-cli
+    # pkgs-unstable.codex
 
     # text-editors
     inputs.nix-vim.packages.${pkgs.system}.default
