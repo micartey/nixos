@@ -127,11 +127,14 @@ in
           models = {
             "openai/gpt-oss-20b" = {
               name = "gpt-oss";
-              options = {
-                extraBody = {
-                  think = "high";
-                };
-              };
+            };
+
+            "qwen/qwen3.5" = {
+              name = "qwen3.5";
+            };
+
+            "google/gemma-4-12b-qat" = {
+              name = "gemma-4-12b-qat";
             };
           };
         };
