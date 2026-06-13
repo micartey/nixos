@@ -22,15 +22,15 @@ buildFHSEnv {
       jar
       javaWithFx
 
-      xorg.libX11
+      libX11
       at-spi2-atk
       cairo
       gdk-pixbuf
       glib
       gtk3
       pango
-      xorg.libXtst
-      xorg.libX11
+      libXtst
+      libX11
       xorg_sys_opengl
     ];
 

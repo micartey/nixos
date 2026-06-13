@@ -3,9 +3,6 @@
   pkgs-unstable,
   meta,
   config,
-  lib,
-  inputs,
-  system,
   ...
 }:
 

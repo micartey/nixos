@@ -1,9 +1,9 @@
 {
-  "settingsVersion": 46,
+  "settingsVersion": 59,
   "bar": {
     "barType": "floating",
     "position": "top",
-    "monitors": ["HDMI-A-2"],
+    "monitors": [],
     "density": "comfortable",
     "showOutline": false,
     "showCapsule": false,
@@ -30,18 +30,24 @@
         {
           "compactMode": true,
           "diskPath": "/",
+          "iconColor": "none",
           "id": "SystemMonitor",
+          "showCpuCores": false,
+          "showCpuFreq": false,
           "showCpuTemp": true,
           "showCpuUsage": true,
+          "showDiskAvailable": false,
           "showDiskUsage": false,
+          "showDiskUsageAsPercent": false,
           "showGpuTemp": true,
           "showLoadAverage": false,
           "showMemoryAsPercent": false,
           "showMemoryUsage": true,
           "showNetworkStats": false,
           "showSwapUsage": false,
+          "textColor": "none",
           "useMonospaceFont": false,
-          "usePrimaryColor": false
+          "usePadding": false
         },
         {
           "defaultSettings": {
@@ -59,14 +65,16 @@
           "enableScrollWheel": true,
           "focusedColor": "primary",
           "followFocusedScreen": true,
+          "fontWeight": "bold",
           "groupedBorderOpacity": 0,
           "hideUnoccupied": false,
           "iconScale": 0.8,
           "id": "Workspace",
           "labelMode": "index",
           "occupiedColor": "onSurface",
-          "reverseScroll": false,
+          "pillSize": 0.6,
           "showApplications": true,
+          "showApplicationsHover": false,
           "showBadge": true,
           "showLabelsOnlyWhenOccupied": true,
           "unfocusedIconsOpacity": 0.41000000000000003
@@ -75,19 +83,17 @@
       "right": [
         {
           "compactMode": false,
-          "compactShowAlbumArt": true,
-          "compactShowVisualizer": false,
           "hideMode": "hidden",
           "hideWhenIdle": false,
           "id": "MediaMini",
           "maxWidth": 250,
           "panelShowAlbumArt": true,
-          "panelShowVisualizer": true,
           "scrollingMode": "hover",
           "showAlbumArt": true,
           "showArtistFirst": true,
           "showProgressRing": true,
           "showVisualizer": false,
+          "textColor": "none",
           "useFixedWidth": false,
           "visualizerType": "linear"
         },
@@ -100,8 +106,10 @@
         },
         {
           "displayMode": "onhover",
+          "iconColor": "none",
           "id": "Volume",
-          "middleClickCommand": "pwvucontrol || pavucontrol"
+          "middleClickCommand": "pwvucontrol || pavucontrol",
+          "textColor": "none"
         },
         {
           "defaultSettings": {
@@ -135,6 +143,7 @@
         {
           "colorizeDistroLogo": false,
           "colorizeSystemIcon": "primary",
+          "colorizeSystemText": "none",
           "customIconPath": "",
           "enableColorization": true,
           "icon": "settings",
@@ -142,16 +151,17 @@
           "useDistroLogo": false
         },
         {
+          "clockColor": "none",
           "customFont": "",
           "formatHorizontal": "HH:mm ddd, MMM dd",
           "formatVertical": "HH mm - dd MM",
           "id": "Clock",
           "tooltipFormat": "HH:mm ddd, MMM dd",
-          "useCustomFont": false,
-          "usePrimaryColor": false
+          "useCustomFont": false
         },
         {
           "blacklist": [],
+          "chevronColor": "none",
           "colorizeIcons": true,
           "drawerEnabled": false,
           "hidePassive": true,
@@ -169,7 +179,12 @@
     "rightClickAction": "controlCenter",
     "rightClickFollowMouse": true,
     "rightClickCommand": "",
-    "screenOverrides": []
+    "screenOverrides": [
+      {
+        "enabled": false,
+        "name": "HDMI-A-2"
+      }
+    ]
   },
   "general": {
     "avatarImage": "/home/daniel/Pictures/51415855.png",
@@ -474,37 +489,43 @@
         "action": "lock",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "1"
       },
       {
         "action": "suspend",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "2"
       },
       {
         "action": "hibernate",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "3"
       },
       {
         "action": "reboot",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "4"
       },
       {
         "action": "logout",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "5"
       },
       {
         "action": "shutdown",
         "command": "",
         "countdownEnabled": false,
-        "enabled": false
+        "enabled": false,
+        "keybind": "6"
       }
     ]
   },
