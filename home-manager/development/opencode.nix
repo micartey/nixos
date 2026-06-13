@@ -118,35 +118,21 @@ in
       ];
 
       provider = {
-        ollama = {
+        lmstudio = {
           npm = "@ai-sdk/openai-compatible";
+          name = "LM Studio (local)";
           options = {
-            baseURL = "http://localhost:11434/v1";
+            baseURL = "http://127.0.0.1:1234/v1";
           };
           models = {
-            # ollama run gpt-oss:latest
-            # >>> /set parameter num_ctx 65536
-            # >>> /save gpt-oss-20b-32k
-            # >>> /bye
-            "gpt-oss-20b-64k" = {
+            "openai/gpt-oss-20b" = {
+              name = "gpt-oss";
               options = {
                 extraBody = {
                   think = "high";
                 };
               };
             };
-
-            # ollama run gemma4
-            # >>> /set parameter num_ctx 65536
-            # >>> /save gemma4-32k
-            # >>> /bye
-            "gemma4-64k" = {
-              options = {
-              };
-            };
-
-            # ollama run hf.co/prism-ml/Ternary-Bonsai-8B-gguf:F16
-            # ollama run hf.co/lilyanatia/Ternary-Bonsai-8B-GGUF:Q2_K
           };
         };
       };

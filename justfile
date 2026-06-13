@@ -17,7 +17,8 @@ home-vm:
             -cdrom nixos.iso \
             -boot d \
             -netdev user,id=net0 \
-            -device virtio-net-pci,netdev=net0
+            -device virtio-net-pci,netdev=net0 \
+            -device virtio-vga,edid=on,xres=1920,yres=1080
 
 flake-update:
     nix flake update
