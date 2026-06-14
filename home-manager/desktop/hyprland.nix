@@ -330,7 +330,7 @@ in
         {
           _args = [
             "${mainMod} + up"
-            (mkLua "hl.dsp.window.fullscreen(true)")
+            (mkLua "hl.dsp.window.fullscreen({ mode = \"maximized\" })")
           ];
         }
         {
