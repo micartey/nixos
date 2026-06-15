@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 
 let
   enable-noctalia = true;
@@ -9,6 +9,10 @@ in
   programs.noctalia-shell = {
     enable = enable-noctalia;
     systemd.enable = true;
+
+    package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      patches = (old.patches or [ ]) ++ [ ../../patches/noctalia-hyprland-lua-dispatch.patch ];
+    });
 
     settings = builtins.fromJSON (builtins.readFile ../../dots/noctalia/settings.json);
 

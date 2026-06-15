@@ -21,6 +21,8 @@ let
     ga = "git add";
     gs = "git status";
 
+    opencode-continue = "opencode -s $(opencode session list | head -3 | tail -1 | awk '{print $1}')";
+
     capture-card = ''
       CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
 
@@ -43,6 +45,7 @@ in
   programs.zsh = {
     enable = true;
 
+    dotDir = config.home.homeDirectory;
     shellAliases = shellAliases;
 
     enableCompletion = true;

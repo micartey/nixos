@@ -114,6 +114,10 @@ in
           no_hardware_cursors = true;
         };
 
+        scrolling = {
+          column_width = 0.75;
+        };
+
         general = {
           gaps_in = 5;
           gaps_out = 30;
@@ -149,6 +153,7 @@ in
 
         misc = {
           force_default_wallpaper = 0;
+          initial_workspace_tracking = 0;
           mouse_move_enables_dpms = false;
           vrr = 1;
         };
@@ -366,6 +371,20 @@ in
           ];
         }
 
+        # Scroll
+        {
+          _args = [
+            "${mainMod} + SHIFT + mouse_down"
+            (mkLua "hl.dsp.layout(\"move +col\")")
+          ];
+        }
+        {
+          _args = [
+            "${mainMod} + SHIFT + mouse_up"
+            (mkLua "hl.dsp.layout(\"move -col\")")
+          ];
+        }
+
         # Jump to workspace
         {
           _args = [
@@ -458,13 +477,13 @@ in
         {
           _args = [
             "${mainMod} + mouse_down"
-            (mkLua "hl.dsp.focus({ workspace = \"e+1\" })")
+            (mkLua "hl.dsp.focus({ workspace = \"+1\" })")
           ];
         }
         {
           _args = [
             "${mainMod} + mouse_up"
-            (mkLua "hl.dsp.focus({ workspace = \"e-1\" })")
+            (mkLua "hl.dsp.focus({ workspace = \"-1\" })")
           ];
         }
 
@@ -616,6 +635,7 @@ in
         {
           workspace = "3";
           monitor = "HDMI-A-2";
+          # layout = "scrolling";
         }
         {
           workspace = "4";
@@ -627,6 +647,10 @@ in
         }
         {
           workspace = "6";
+          monitor = "HDMI-A-2";
+        }
+        {
+          workspace = "7";
           monitor = "HDMI-A-2";
         }
         {
