@@ -1,12 +1,15 @@
 {
+  config,
+  lib,
   pkgs,
   ...
 }:
 
 let
   mainMod = "SUPER";
-  subMod = "L_ALT SHIFT";
+  subMod = "ALT + SHIFT";
   ctrlMod = "CTRL";
+  mkLua = lib.generators.mkLuaInline;
 in
 {
   # Copy wallpapers to local directory
@@ -19,6 +22,7 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "lua";
 
     xwayland.enable = true;
 
@@ -28,209 +32,545 @@ in
     };
 
     settings = {
-      # # In case of multiple monitors
-      # monitor = [
-      # ];
-
       monitor = [
-        "eDP-1, 3072x1920@60.00000, 0x0, 2"
-        "Unknown-1,disable"
+        {
+          output = "eDP-1";
+          mode = "3072x1920@60.00000";
+          position = "0x0";
+          scale = 2;
+        }
+        {
+          output = "Unknown-1";
+          disabled = true;
+        }
       ];
 
       env = [
-        # "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        # "QT_QPA_PLATFORM,wayland"
-
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "NVD_BACKEND,direct"
-
-        "XDG_CURRENT_DESKTOP,Hyprland"
-        "XDG_SESSION_TYPE,wayland"
-
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
-
-        # hyprcursor
-        "HYPRCURSOR_SIZE,26"
-        "HYPRCURSOR_THEME,Catppuccin-Mocha-Light-Cursors"
+        {
+          _args = [
+            "LIBVA_DRIVER_NAME"
+            "nvidia"
+          ];
+        }
+        {
+          _args = [
+            "__GLX_VENDOR_LIBRARY_NAME"
+            "nvidia"
+          ];
+        }
+        {
+          _args = [
+            "NVD_BACKEND"
+            "direct"
+          ];
+        }
+        {
+          _args = [
+            "XDG_CURRENT_DESKTOP"
+            "Hyprland"
+          ];
+        }
+        {
+          _args = [
+            "XDG_SESSION_TYPE"
+            "wayland"
+          ];
+        }
+        {
+          _args = [
+            "ELECTRON_OZONE_PLATFORM_HINT"
+            "auto"
+          ];
+        }
+        {
+          _args = [
+            "HYPRCURSOR_SIZE"
+            "26"
+          ];
+        }
+        {
+          _args = [
+            "HYPRCURSOR_THEME"
+            "Catppuccin-Mocha-Light-Cursors"
+          ];
+        }
       ];
 
-      exec-once = [
-        "wl-paste --type text --watch cliphist store"
-
-        # This is a fix for the case I fuck up and end up setting to 0%
-        "brightnessctl s 55%"
-
-        "waybar"
-      ];
-
-      debug = {
-        disable_logs = false;
-      };
-
-      cursor = {
-        no_hardware_cursors = true;
-      };
-
-      bind = [
-        # Application Launcher
-        "${mainMod}, SPACE, exec, rofi -show drun -show-icons"
-        # Emoji
-        "${mainMod}, M, exec, bemoji"
-        # Clipboard History
-        "CTRL SHIFT, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-
-        # "${mainMod}, p, exec, swaync-client -t"
-
-        ", F7, exec, hyprshot -m region --clipboard-only"
-
-        "${mainMod}, T, exec, kitty"
-
-        # "${mainMod}, I, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        # "${mainMod}, O, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-
-        # Overlay workspace
-        "${ctrlMod}, 0, togglespecialworkspace,"
-        "${ctrlMod} SHIFT, 0, movetoworkspace, special"
-
-        # Float window
-        "${mainMod}, V, togglefloating,"
-        "${mainMod}, V, centerwindow,"
-
-        # "${mainMod}, N, swapnext,"
-        "${ctrlMod} SHIFT, Q, killactive,"
-
-        # Fullscreen window
-        "${mainMod}, up, fullscreen, 1"
-        ", F11, fullscreen,"
-
-        # Window controls (left ritgh up down)
-        "${subMod}, up, movefocus, u"
-        "${subMod}, left, movefocus, l"
-        "${subMod}, down, movefocus, d"
-        "${subMod}, right, movefocus, r"
-
-        # Jump to workspace
-        "${ctrlMod}, 1, workspace, 1"
-        "${ctrlMod}, 2, workspace, 2"
-        "${ctrlMod}, 3, workspace, 3"
-        "${ctrlMod}, 4, workspace, 4"
-        "${ctrlMod}, 5, workspace, 5"
-        "${ctrlMod}, 6, workspace, 6"
-
-        "${ctrlMod} SHIFT, 1, movetoworkspace, 1"
-        "${ctrlMod} SHIFT, 2, movetoworkspace, 2"
-        "${ctrlMod} SHIFT, 3, movetoworkspace, 3"
-        "${ctrlMod} SHIFT, 4, movetoworkspace, 4"
-        "${ctrlMod} SHIFT, 5, movetoworkspace, 5"
-        "${ctrlMod} SHIFT, 6, movetoworkspace, 6"
-
-        # Window dragging
-        "${mainMod}, mouse_down, workspace, e+1"
-        "${mainMod}, mouse_up, workspace, e-1"
-      ];
-
-      # Window drag
-      bindm = [
-        "${mainMod}, mouse:272, movewindow"
-        "${mainMod} SHIFT, mouse:272, resizewindow"
-        "${mainMod}, mouse:273, resizewindow"
-      ];
-
-      windowrule = [ ];
-
-      windowrulev2 = [
-        "float,title:(Picture-in-picture)"
-        "float,title:(Picture-in-Picture)"
-        "float,class:(Rofi)"
-        "float,title:(Save File)"
-        "float,title:(Open File)"
-        "float,initialTitle:(discord popout)"
-
-        "workspace 1,initialTitle:(YouTube Music)"
-        "noanim,initialClass:^(Minecraft\*\s1\.20\.6)$"
-        "noblur,initialClass:^(Minecraft\*\s1\.20\.6)$"
-
-        "pin,title:(.*)is sharing your screen(.*)"
-        "move 100%-w-35% 0%,title:(.*)is sharing your screen(.*)"
-        "bordersize 0,title:(.*)is sharing your screen(.*)"
-
-        # Vesktop (Discord)"
-        "center, initialClass:(vesktop)"
-        "workspace 2,initialClass:(vesktop)"
-
-        # IntelliJ
-        "float,title:(Welcome to IntelliJ IDEA)"
-        "size 1358 682,title:(Welcome to IntelliJ IDEA)"
-        "center,title:(Welcome to IntelliJ IDEA)"
-
-        # Viro
-        "float,class:(.*)viro(.*)$"
-        "bordersize 0, class:(.*)viro(.*)$"
-        "noblur, title:^(Radial-Menu)$"
-        "noshadow, title:^(Radial-Menu)$"
-      ];
-
-      layerrule = [
-        "blur, rofi"
-      ];
-
-      input = {
-        kb_layout = "de";
-        kb_variant = ",qwertz";
-        follow_mouse = 1;
-        touchpad = {
-          natural_scroll = "yes";
-        };
-        sensitivity = 0;
-      };
-
-      general = {
-        gaps_in = 5;
-        gaps_out = 30;
-        border_size = 2;
-
-        "col.active_border" = "$mauve $lavender 45deg";
-        "col.inactive_border" = "rgba(7c4ec5aa)";
-
-        layout = "dwindle";
-      };
-
-      decoration = {
-        rounding = 10;
-
-        blur = {
-          enabled = true;
-          size = 2;
-          passes = 3;
-        };
-      };
-
-      animations = {
-        enabled = "yes";
-
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "border, 1, 10, default"
-          "borderangle, 1, 8, default"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
+      on = {
+        _args = [
+          "hyprland.start"
+          (mkLua ''
+            function()
+              hl.exec_cmd("wl-paste --type text --watch cliphist store")
+              hl.exec_cmd("brightnessctl s 55%")
+              hl.exec_cmd("waybar")
+            end
+          '')
         ];
       };
 
-      dwindle = {
-        pseudotile = "yes";
-        preserve_split = "yes";
+      config = {
+        debug = {
+          disable_logs = false;
+        };
+
+        scrolling = {
+          column_width = 0.85;
+        };
+
+        cursor = {
+          no_hardware_cursors = true;
+        };
+
+        general = {
+          gaps_in = 5;
+          gaps_out = 30;
+          border_size = 2;
+
+          col = {
+            active_border = {
+              colors = [
+                (mkLua "require('themes.catppuccin').mauve")
+                (mkLua "require('themes.catppuccin').lavender")
+              ];
+              angle = 45;
+            };
+            inactive_border = "rgba(7c4ec5aa)";
+          };
+
+          layout = "scrolling";
+        };
+
+        decoration = {
+          rounding = 10;
+
+          blur = {
+            enabled = true;
+            size = 2;
+            passes = 3;
+          };
+        };
+
+        dwindle = {
+          #pseudotile = true;
+          preserve_split = true;
+        };
+
+        misc = {
+          force_default_wallpaper = 0;
+          mouse_move_enables_dpms = false;
+          vrr = 1;
+        };
+
+        input = {
+          kb_layout = "de";
+          kb_variant = ",qwertz";
+          follow_mouse = 1;
+          touchpad = {
+            natural_scroll = true;
+          };
+          sensitivity = 0;
+        };
+
+        animations = {
+          enabled = true;
+        };
       };
 
-      misc = {
-        force_default_wallpaper = 0;
-        mouse_move_enables_dpms = false;
-        vrr = 1;
+      curve = {
+        _args = [
+          "myBezier"
+          {
+            type = "bezier";
+            points = [
+              [
+                0.05
+                0.9
+              ]
+              [
+                0.1
+                1.05
+              ]
+            ];
+          }
+        ];
       };
+
+      animation = [
+        {
+          leaf = "windows";
+          enabled = true;
+          speed = 7;
+          bezier = "myBezier";
+        }
+        {
+          leaf = "windowsOut";
+          enabled = true;
+          speed = 7;
+          bezier = "default";
+          style = "popin 80%";
+        }
+        {
+          leaf = "border";
+          enabled = true;
+          speed = 10;
+          bezier = "default";
+        }
+        {
+          leaf = "borderangle";
+          enabled = true;
+          speed = 8;
+          bezier = "default";
+        }
+        {
+          leaf = "fade";
+          enabled = true;
+          speed = 7;
+          bezier = "default";
+        }
+        {
+          leaf = "workspaces";
+          enabled = true;
+          speed = 6;
+          bezier = "default";
+        }
+      ];
+
+      bind = [
+        # Window drag (mouse binds)
+        {
+          _args = [
+            "${mainMod} + mouse:272"
+            (mkLua "hl.dsp.window.drag()")
+            { mouse = true; }
+          ];
+        }
+        {
+          _args = [
+            "${mainMod} + SHIFT + mouse:272"
+            (mkLua "hl.dsp.window.resize()")
+            { mouse = true; }
+          ];
+        }
+        {
+          _args = [
+            "${mainMod} + mouse:273"
+            (mkLua "hl.dsp.window.resize()")
+            { mouse = true; }
+          ];
+        }
+
+        # Application Launcher
+        {
+          _args = [
+            "${mainMod} + SPACE"
+            (mkLua ''hl.dsp.exec_cmd("rofi -show drun -show-icons")'')
+          ];
+        }
+
+        # Emoji
+        {
+          _args = [
+            "${mainMod} + M"
+            (mkLua ''hl.dsp.exec_cmd("bemoji")'')
+          ];
+        }
+
+        # Clipboard History
+        {
+          _args = [
+            "CTRL + SHIFT + v"
+            (mkLua ''hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy")'')
+          ];
+        }
+
+        # Screenshot
+        {
+          _args = [
+            "F7"
+            (mkLua ''hl.dsp.exec_cmd("hyprshot -m region --clipboard-only")'')
+          ];
+        }
+
+        # Terminal
+        {
+          _args = [
+            "${mainMod} + T"
+            (mkLua ''hl.dsp.exec_cmd("kitty")'')
+          ];
+        }
+
+        # Overlay workspace
+        {
+          _args = [
+            "${ctrlMod} + 0"
+            (mkLua ''hl.dsp.workspace.toggle_special("special")'')
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 0"
+            (mkLua ''hl.dsp.window.move({ workspace = "special" })'')
+          ];
+        }
+
+        # Float window
+        {
+          _args = [
+            "${mainMod} + V"
+            (mkLua ''hl.dsp.window.float({ action = "toggle" })'')
+          ];
+        }
+        {
+          _args = [
+            "${mainMod} + V"
+            (mkLua "hl.dsp.window.center()")
+          ];
+        }
+
+        # Kill window
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + Q"
+            (mkLua "hl.dsp.window.close()")
+          ];
+        }
+
+        # Fullscreen
+        {
+          _args = [
+            "${mainMod} + up"
+            (mkLua "hl.dsp.window.fullscreen(true)")
+          ];
+        }
+        {
+          _args = [
+            "F11"
+            (mkLua "hl.dsp.window.fullscreen()")
+          ];
+        }
+
+        # Window controls (left right up down)
+        {
+          _args = [
+            "${subMod} + up"
+            (mkLua ''hl.dsp.focus({ direction = "up" })'')
+          ];
+        }
+        {
+          _args = [
+            "${subMod} + left"
+            (mkLua ''hl.dsp.focus({ direction = "left" })'')
+          ];
+        }
+        {
+          _args = [
+            "${subMod} + down"
+            (mkLua ''hl.dsp.focus({ direction = "down" })'')
+          ];
+        }
+        {
+          _args = [
+            "${subMod} + right"
+            (mkLua ''hl.dsp.focus({ direction = "right" })'')
+          ];
+        }
+
+        # Jump to workspace
+        {
+          _args = [
+            "${ctrlMod} + 1"
+            (mkLua "hl.dsp.focus({ workspace = 1 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + 2"
+            (mkLua "hl.dsp.focus({ workspace = 2 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + 3"
+            (mkLua "hl.dsp.focus({ workspace = 3 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + 4"
+            (mkLua "hl.dsp.focus({ workspace = 4 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + 5"
+            (mkLua "hl.dsp.focus({ workspace = 5 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + 6"
+            (mkLua "hl.dsp.focus({ workspace = 6 })")
+          ];
+        }
+
+        # Move window to workspace
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 1"
+            (mkLua "hl.dsp.window.move({ workspace = 1 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 2"
+            (mkLua "hl.dsp.window.move({ workspace = 2 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 3"
+            (mkLua "hl.dsp.window.move({ workspace = 3 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 4"
+            (mkLua "hl.dsp.window.move({ workspace = 4 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 5"
+            (mkLua "hl.dsp.window.move({ workspace = 5 })")
+          ];
+        }
+        {
+          _args = [
+            "${ctrlMod} + SHIFT + 6"
+            (mkLua "hl.dsp.window.move({ workspace = 6 })")
+          ];
+        }
+
+        # Window dragging (scroll)
+        {
+          _args = [
+            "${mainMod} + mouse_down"
+            (mkLua ''hl.dsp.focus({ workspace = "e+1" })'')
+          ];
+        }
+        {
+          _args = [
+            "${mainMod} + mouse_up"
+            (mkLua ''hl.dsp.focus({ workspace = "e-1" })'')
+          ];
+        }
+      ];
+
+      window_rule = [
+        {
+          match.title = "Picture-in-picture";
+          float = true;
+        }
+        {
+          match.title = "Picture-in-Picture";
+          float = true;
+        }
+        {
+          match.class = "Rofi";
+          float = true;
+        }
+        {
+          match.title = "Save File";
+          float = true;
+        }
+        {
+          match.title = "Open File";
+          float = true;
+        }
+        {
+          match.initial_title = "discord popout";
+          float = true;
+        }
+
+        {
+          match.initial_title = "YouTube Music";
+          workspace = "1";
+        }
+        {
+          match.initial_class = "^(Minecraft\\*\\s1\\.20\\.6)$";
+          no_anim = true;
+        }
+        {
+          match.initial_class = "^(Minecraft\\*\\s1\\.20\\.6)$";
+          no_blur = true;
+        }
+
+        {
+          match.title = "(.*)is sharing your screen(.*)";
+          pin = true;
+        }
+        {
+          match.title = "(.*)is sharing your screen(.*)";
+          move = "100%-w-35% 0%";
+        }
+        {
+          match.title = "(.*)is sharing your screen(.*)";
+          border_size = 0;
+        }
+
+        # Vesktop (Discord)
+        {
+          match.initial_class = "vesktop";
+          center = true;
+        }
+        {
+          match.initial_class = "vesktop";
+          workspace = "2";
+        }
+
+        # IntelliJ
+        {
+          match.title = "Welcome to IntelliJ IDEA";
+          float = true;
+        }
+        {
+          match.title = "Welcome to IntelliJ IDEA";
+          size = [
+            1358
+            682
+          ];
+        }
+        {
+          match.title = "Welcome to IntelliJ IDEA";
+          center = true;
+        }
+
+        # Viro
+        {
+          match.class = "(.*)viro(.*)$";
+          float = true;
+        }
+        {
+          match.class = "(.*)viro(.*)$";
+          border_size = 0;
+        }
+        {
+          match.title = "^(Radial-Menu)$";
+          no_blur = true;
+        }
+        {
+          match.title = "^(Radial-Menu)$";
+          no_shadow = true;
+        }
+      ];
+
+      layer_rule = [
+        {
+          match.namespace = "rofi";
+          blur = true;
+        }
+      ];
     };
   };
 
@@ -258,16 +598,20 @@ in
     settings = {
       ipc = "on";
       splash = false;
-      splash_offset = 2.0;
+      splash_offset = 2;
 
       preload = [ "~/.local/nix-wallpapers/default.jpg" ];
-      wallpaper = [ ",~/.local/nix-wallpapers/default.jpg" ];
+      wallpaper = [
+        {
+          monitor = "";
+          path = "~/.local/nix-wallpapers/default.jpg";
+        }
+      ];
     };
   };
 
   # auto mount removable drives
   services.udiskie.enable = true;
-  # TODO: should this be enabled for non-hyprland?
 
   # hyprcursor icons directory
   home.file.".icons" = {
@@ -277,22 +621,17 @@ in
   };
 
   home.packages = [
-    # emoji quick access
     pkgs.bemoji
 
-    # screenshot
     pkgs.grim
     pkgs.hyprshot
 
-    # clipboard
     pkgs.wl-clipboard
     pkgs.cliphist
 
-    # hyprcursor
     pkgs.hyprcursor
     pkgs.catppuccin-cursors.mochaMauve
 
-    # miscellaneous
     pkgs.xdg-utils
   ];
 }

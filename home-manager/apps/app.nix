@@ -26,7 +26,7 @@
     pkgs.spotify-cli-linux
 
     pkgs.openscad-unstable
-    pkgs.bambu-studio
+    #pkgs.bambu-studio
     #pkgs.kicad
 
     # password

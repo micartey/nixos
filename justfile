@@ -3,20 +3,21 @@ default:
 
 # Like home-switch but with only one job at a time
 # When initially installing nixos you will run in an out-of-memory error
+
 # Idk why nix is stpudid like that
 home-init:
     nixos-rebuild switch --flake .#home --max-jobs 1
 
 home-switch:
-    nixos-rebuild switch --flake .#home
+    nixos-rebuild switch --flake .#home --max-jobs 1 --cores 8
 
 bluetooth-start:
-     rfkill unblock bluetooth
-     bluetoothctl power on
+    rfkill unblock bluetooth
+    bluetoothctl power on
 
 bluetooth-stop:
-     bluetoothctl power off
-     rfkill block bluetooth
+    bluetoothctl power off
+    rfkill block bluetooth
 
 flake-update:
-     nix flake update
+    nix flake update

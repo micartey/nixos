@@ -12,14 +12,13 @@
 
   # hardware.nvidia = {
   #   modesetting.enable = true;
+  #   nvidiaSettings = true;
+  #   open = true;
 
   #   powerManagement = {
   #     enable = false;
-  #     # finegrained = false;
+  #     finegrained = false;
   #   };
-
-  #   open = false;
-  #   nvidiaSettings = true;
 
   #   prime = {
   #     offload = {
@@ -31,14 +30,14 @@
   #     nvidiaBusId = "PCI:1:0:0";
   #   };
 
-  #   package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
-  #     version = "570.133.07";
-  #     sha256_64bit = "sha256-LUPmTFgb5e9VTemIixqpADfvbUX1QoTT2dztwI3E3CY=";
-  #     openSha256 = lib.fakeSha256;
-  #     settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
-  #     sha256_aarch64 = lib.fakeSha256;
-  #     persistencedSha256 = lib.fakeSha256;
-  #   };
+  #   # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+  #   #   version = "570.133.07";
+  #   #   sha256_64bit = "sha256-LUPmTFgb5e9VTemIixqpADfvbUX1QoTT2dztwI3E3CY=";
+  #   #   openSha256 = lib.fakeSha256;
+  #   #   settingsSha256 = "sha256-VUetj3LlOSz/LB+DDfMCN34uA4bNTTpjDrb6C6Iwukk=";
+  #   #   sha256_aarch64 = lib.fakeSha256;
+  #   #   persistencedSha256 = lib.fakeSha256;
+  #   # };
   # };
 
   hardware.graphics.enable = true;
