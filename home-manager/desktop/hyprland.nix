@@ -159,6 +159,7 @@ in
         misc = {
           force_default_wallpaper = 0;
           mouse_move_enables_dpms = false;
+          disable_watchdog_warning = true;
           vrr = 1;
         };
 

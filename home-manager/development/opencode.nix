@@ -18,16 +18,17 @@ let
     NO_COLOR = "1";
     CI = "1";
 
-    postPatch = (old.postPatch or "") + ''
-      substituteInPlace packages/opencode/script/build.ts \
-        --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+    configurePhase = builtins.replaceStrings
+      [ "patchShebangs node_modules" ]
+      [ ''
+        sed -i 's/"packageManager": "bun@1.3.14"/"packageManager": "bun@1.3.13"/' package.json
+        patchShebangs node_modules'' ]
+      old.configurePhase;
 
-      sed -i '/const prettier = await import("prettier")/,/^    })/c\    const json = raw' packages/opencode/src/cli/cmd/generate.ts
-    '';
-
-    # Overriding entirely to drop the multi-line completion command
     postInstall = ''
-      echo "Skipping shell completion generation"
+      installShellCompletion --cmd opencode \
+        --bash <($out/bin/opencode completion 2>/dev/null || true) \
+        --zsh <(SHELL=/bin/zsh $out/bin/opencode completion 2>/dev/null || true) || true
     '';
   });
 
@@ -115,6 +116,7 @@ in
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
+        "@thelioo/opencode-balancer@latest"
       ];
 
       provider = {
@@ -162,6 +164,13 @@ in
           enabled = true;
         };
       };
+    };
+
+    tui = {
+      plugin = [
+        "opencode-wakatime@1.1.0"
+        "@thelioo/opencode-balancer@latest"
+      ];
     };
   };
 }
