@@ -32,3 +32,7 @@ flake-update-edge:
 flake-update-development:
     nix flake update nix-vim
     nix flake update opencode
+
+# Run 'nix run nixpkgs#gdrive3 account add' before you can use this command!
+iso-upload:
+    nix run nixpkgs#gdrive3 files upload nixos.iso

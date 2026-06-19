@@ -115,6 +115,7 @@ in
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
+        "@thelioo/opencode-balancer@latest"
       ];
 
       provider = {
@@ -135,6 +136,10 @@ in
 
             "google/gemma-4-12b-qat" = {
               name = "gemma-4-12b-qat";
+            };
+
+            "qwen/qwen3.6-35b-a3b" = {
+              name = "qwen3.6-35b-a3b";
             };
           };
         };
@@ -181,6 +186,13 @@ in
           enabled = true;
         };
       };
+    };
+
+    tui = {
+      plugin = [
+        "opencode-wakatime@1.1.0"
+        "@thelioo/opencode-balancer@latest"
+      ];
     };
   };
 }
