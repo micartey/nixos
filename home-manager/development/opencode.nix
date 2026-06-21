@@ -116,7 +116,10 @@ in
       plugin = [
         "opencode-wakatime@1.1.0"
         "@thelioo/opencode-balancer@latest"
+        "caveman-opencode-plugin@latest"
       ];
+
+      # lsp = true;
 
       provider = {
         lmstudio = {
