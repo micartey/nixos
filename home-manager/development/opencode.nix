@@ -18,12 +18,15 @@ let
     NO_COLOR = "1";
     CI = "1";
 
-    configurePhase = builtins.replaceStrings
-      [ "patchShebangs node_modules" ]
-      [ ''
-        sed -i 's/"packageManager": "bun@1.3.14"/"packageManager": "bun@1.3.13"/' package.json
-        patchShebangs node_modules'' ]
-      old.configurePhase;
+    configurePhase =
+      builtins.replaceStrings
+        [ "patchShebangs node_modules" ]
+        [
+          ''
+            sed -i 's/"packageManager": "bun@1.3.14"/"packageManager": "bun@1.3.13"/' package.json
+            patchShebangs node_modules''
+        ]
+        old.configurePhase;
 
     postInstall = ''
       installShellCompletion --cmd opencode \
@@ -117,6 +120,7 @@ in
       plugin = [
         "opencode-wakatime@1.1.0"
         "@thelioo/opencode-balancer@latest"
+        "@mumme-it/opencode-caveman"
       ];
 
       provider = {
