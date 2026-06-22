@@ -5,7 +5,7 @@
   home.file = {
     wallpapers = {
       source = ../../dots/wallpapers;
-      target = ".local/nix-wallpapers";
+      target = ".local/wallpapers";
     };
   };
 
@@ -17,11 +17,11 @@
       splash = false;
       splash_offset = 2;
 
-      preload = [ "~/.local/nix-wallpapers/default.jpg" ];
+      preload = [ "~/.local/wallpapers/default.jpg" ];
       wallpaper = [
         {
           monitor = "";
-          path = "~/.local/nix-wallpapers/default.jpg";
+          path = "~/.local/wallpapers/default.jpg";
         }
       ];
     };

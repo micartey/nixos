@@ -255,7 +255,7 @@
   },
   "location": {
     "name": "Dortmund",
-    "weatherEnabled": false,
+    "weatherEnabled": true,
     "weatherShowEffects": true,
     "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
@@ -264,7 +264,7 @@
     "showCalendarEvents": true,
     "showCalendarWeather": true,
     "analogClockInCalendar": false,
-    "firstDayOfWeek": -1,
+    "firstDayOfWeek": 1,
     "hideWeatherTimezone": true,
     "hideWeatherCityName": true,
     "autoLocate": false
@@ -280,7 +280,7 @@
         "id": "calendar-month-card"
       },
       {
-        "enabled": false,
+        "enabled": true,
         "id": "weather-card"
       }
     ]
@@ -288,7 +288,7 @@
   "wallpaper": {
     "enabled": true,
     "overviewEnabled": false,
-    "directory": "/home/daniel/nixos/dots/wallpapers",
+    "directory": "/home/daniel/.local/wallpapers",
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,

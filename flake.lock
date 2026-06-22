@@ -550,6 +550,22 @@
     },
     "nixpkgs_11": {
       "locked": {
+        "lastModified": 1776169885,
+        "narHash": "sha256-l/iNYDZ4bGOAFQY2q8y5OAfBBtrDAaPuRQqWaFHVRXM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4bd9165a9165d7b5e33ae57f3eecbcb28fb231c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_12": {
+      "locked": {
         "lastModified": 1776683584,
         "narHash": "sha256-NuTLMrr10Tng72hurYG8jYQ4XKK8wnpJmOGcPiis96g=",
         "owner": "NixOS",
@@ -564,7 +580,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_12": {
+    "nixpkgs_13": {
       "locked": {
         "lastModified": 1766651565,
         "narHash": "sha256-QEhk0eXgyIqTpJ/ehZKg9IKS7EtlWxF3N7DXy42zPfU=",
@@ -580,7 +596,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_13": {
+    "nixpkgs_14": {
       "locked": {
         "lastModified": 1775888245,
         "narHash": "sha256-nwASzrRDD1JBEu/o8ekKYEXm/oJW6EMCzCRdrwcLe90=",
@@ -596,7 +612,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_14": {
+    "nixpkgs_15": {
       "locked": {
         "lastModified": 1762844143,
         "narHash": "sha256-SlybxLZ1/e4T2lb1czEtWVzDCVSTvk9WLwGhmxFmBxI=",
@@ -745,7 +761,9 @@
         "nixpkgs": [
           "nixpkgs-unstable"
         ],
-        "noctalia-qs": "noctalia-qs"
+        "noctalia-qs": [
+          "noctalia-qs"
+        ]
       },
       "locked": {
         "lastModified": 1776666525,
@@ -758,15 +776,13 @@
       "original": {
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
+        "rev": "ed1fff6260470d6f5cbe1951a8cceccb5265d61b",
         "type": "github"
       }
     },
     "noctalia-qs": {
       "inputs": {
-        "nixpkgs": [
-          "noctalia",
-          "nixpkgs"
-        ],
+        "nixpkgs": "nixpkgs_11",
         "systems": "systems_6",
         "treefmt-nix": "treefmt-nix"
       },
@@ -781,6 +797,7 @@
       "original": {
         "owner": "noctalia-dev",
         "repo": "noctalia-qs",
+        "rev": "75d180c28a9ab4470e980f3d6f706ad6c5213add",
         "type": "github"
       }
     },
@@ -831,7 +848,7 @@
     },
     "opencode": {
       "inputs": {
-        "nixpkgs": "nixpkgs_11"
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1778765624,
@@ -850,7 +867,7 @@
     "rime": {
       "inputs": {
         "crane": "crane_3",
-        "nixpkgs": "nixpkgs_12",
+        "nixpkgs": "nixpkgs_13",
         "rust-overlay": "rust-overlay_3",
         "systems": "systems_7"
       },
@@ -882,6 +899,7 @@
         "nixpkgs-legacy": "nixpkgs-legacy",
         "nixpkgs-unstable": "nixpkgs-unstable_2",
         "noctalia": "noctalia",
+        "noctalia-qs": "noctalia-qs",
         "opencode": "opencode",
         "rime": "rime",
         "sops-nix": "sops-nix_2",
@@ -972,7 +990,7 @@
     },
     "sops-nix_2": {
       "inputs": {
-        "nixpkgs": "nixpkgs_13"
+        "nixpkgs": "nixpkgs_14"
       },
       "locked": {
         "lastModified": 1776119890,
@@ -1112,7 +1130,6 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "noctalia",
           "noctalia-qs",
           "nixpkgs"
         ]
@@ -1151,7 +1168,7 @@
     },
     "viro": {
       "inputs": {
-        "nixpkgs": "nixpkgs_14",
+        "nixpkgs": "nixpkgs_15",
         "utils": "utils"
       },
       "locked": {
