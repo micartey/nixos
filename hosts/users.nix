@@ -10,7 +10,7 @@
 
       ${meta.user.username} = {
         isNormalUser = true;
-        description = meta.user.description;
+        # description = meta.user.description;
         initialPassword = meta.user.username;
         extraGroups = [
           meta.user.username

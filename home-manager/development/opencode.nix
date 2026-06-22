@@ -115,8 +115,8 @@ in
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@latest"
-        "caveman-opencode-plugin@latest"
+        "@thelioo/opencode-balancer@0.2.8"
+        "@mumme-it/opencode-caveman@0.2.0"
       ];
 
       # lsp = true;

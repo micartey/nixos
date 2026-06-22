@@ -1,4 +1,9 @@
-{ inputs, pkgs, lib, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   enable-noctalia = true;
@@ -11,7 +16,10 @@ in
     systemd.enable = true;
 
     package = inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
-      patches = (old.patches or [ ]) ++ [ ../../patches/noctalia-hyprland-lua-dispatch.patch ];
+      patches = (old.patches or [ ]) ++ [
+        ../../patches/noctalia-hyprland-lua-dispatch.patch
+        ../../patches/noctalia-wallpaper-desktop-blur.patch
+      ];
     });
 
     settings = builtins.fromJSON (builtins.readFile ../../dots/noctalia/settings.json);
