@@ -300,6 +300,13 @@ in
           ];
         }
 
+        {
+          _args = [
+            "${mainMod} + L"
+            (mkLua ''hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock")'')
+          ];
+        }
+
         # Overlay workspace
         {
           _args = [

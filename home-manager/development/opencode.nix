@@ -1,18 +1,11 @@
 {
   inputs,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
 let
   inherit (pkgs.stdenv.hostPlatform) system;
-  inherit (pkgs-unstable) github-mcp-server;
-
-  github-mcp-server-wrapped = pkgs.writeShellScriptBin "github-mcp-server" ''
-    source /run/secrets/rendered/opencode/env
-    exec ${github-mcp-server}/bin/github-mcp-server "$@"
-  '';
 
   opencode = inputs.opencode.packages.${system}.default.overrideAttrs (old: {
     NO_COLOR = "1";
@@ -119,8 +112,8 @@ in
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@latest"
-        "@mumme-it/opencode-caveman"
+        "@thelioo/opencode-balancer@0.2.9"
+        "@mumme-it/opencode-caveman@0.2.0"
       ];
 
       provider = {
@@ -148,15 +141,6 @@ in
           type = "local";
           command = [
             "${rime}/bin/rime"
-            "stdio"
-          ];
-          enabled = true;
-        };
-
-        github = {
-          type = "local";
-          command = [
-            "${github-mcp-server-wrapped}/bin/github-mcp-server"
             "stdio"
           ];
           enabled = true;
