@@ -1,0 +1,33 @@
+--- a/Commons/Settings.qml
++++ b/Commons/Settings.qml
+@@ -428,6 +428,7 @@
+       property bool hideWallpaperFilenames: false
+       property bool useOriginalImages: false
+       property real overviewBlur: 0.4
++      property real desktopBlur: 0.4
+       property real overviewTint: 0.6
+       property bool useWallhaven: false
+       property string wallhavenQuery: ""
+--- a/Modules/Background/Background.qml
++++ b/Modules/Background/Background.qml
+@@ -1,4 +1,5 @@
+ import QtQuick
++import QtQuick.Effects
+ import Quickshell
+ import Quickshell.Wayland
+ import qs.Commons
+@@ -182,6 +183,14 @@
+         id: shaderLoader
+         anchors.fill: parent
+         active: true
++
++        layer.enabled: Settings.data.wallpaper.desktopBlur > 0 && !PowerProfileService.noctaliaPerformanceMode
++        layer.smooth: false
++        layer.effect: MultiEffect {
++          blurEnabled: true
++          blur: Settings.data.wallpaper.desktopBlur
++          blurMax: 48
++        }
+ 
+         sourceComponent: {
+           switch (transitionType) {

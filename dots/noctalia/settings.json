@@ -129,6 +129,10 @@
           "id": "plugin:privacy-indicator"
         },
         {
+          "iconColor": "none",
+          "id": "WallpaperSelector"
+        },
+        {
           "defaultSettings": {
             "compactMode": false,
             "defaultPeerAction": "copy-ip",
@@ -294,9 +298,9 @@
     ]
   },
   "wallpaper": {
-    "enabled": false,
+    "enabled": true,
     "overviewEnabled": false,
-    "directory": "/home/daniel/Pictures/Wallpapers",
+    "directory": "/home/daniel/.local/nix-wallpapers",
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
@@ -310,21 +314,15 @@
     "automationEnabled": false,
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
-    "transitionDuration": 1500,
-    "transitionType": [
-      "fade",
-      "disc",
-      "stripes",
-      "wipe",
-      "pixelate",
-      "honeycomb"
-    ],
-    "skipStartupTransition": false,
-    "transitionEdgeSmoothness": 0.05,
+    "transitionDuration": 500,
+    "transitionType": [],
+    "skipStartupTransition": true,
+    "transitionEdgeSmoothness": 0,
     "panelPosition": "follow_bar",
     "hideWallpaperFilenames": false,
     "useOriginalImages": false,
     "overviewBlur": 0.4,
+    "desktopBlur": 0.9,
     "overviewTint": 0.6,
     "useWallhaven": false,
     "wallhavenQuery": "",
