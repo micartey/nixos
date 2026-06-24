@@ -9,6 +9,12 @@ let
   subMod = "ALT + SHIFT";
   ctrlMod = "CTRL";
   mkLua = lib.generators.mkLuaInline;
+
+  monitors = {
+    main = "HDMI-A-2";
+    sub = "DP-5";
+  };
+
 in
 {
   wayland.windowManager.hyprland = {
@@ -25,17 +31,17 @@ in
     settings = {
       monitor = [
         {
-          output = "HDMI-A-2";
+          output = monitors.main;
           mode = "3440x1440@99.98200";
           position = "0x0";
           scale = 1;
         }
         {
-          output = "DP-4";
-          mode = "400x1280@59.98900";
-          position = "3440x0";
+          output = monitors.sub;
+          mode = "2560x720@60.26600";
+          position = "400x1440";
           scale = 1;
-          transform = 3;
+          # transform = 3;
         }
         {
           output = "Unknown-1";
@@ -486,13 +492,13 @@ in
         {
           _args = [
             "${mainMod} + mouse_down"
-            (mkLua "hl.dsp.focus({ workspace = \"+1\" })")
+            (mkLua "hl.dsp.focus({ workspace = \"e+1\" })")
           ];
         }
         {
           _args = [
             "${mainMod} + mouse_up"
-            (mkLua "hl.dsp.focus({ workspace = \"-1\" })")
+            (mkLua "hl.dsp.focus({ workspace = \"e-1\" })")
           ];
         }
 
@@ -550,10 +556,6 @@ in
         }
 
         {
-          match.initial_title = "YouTube Music";
-          workspace = "1";
-        }
-        {
           match.initial_class = "^(Minecraft\\*\\s1\\.20\\.6)$";
           no_anim = true;
         }
@@ -591,10 +593,6 @@ in
           match.initial_class = "vesktop";
           center = true;
         }
-        {
-          match.initial_class = "vesktop";
-          workspace = "2";
-        }
 
         # IntelliJ
         {
@@ -630,41 +628,46 @@ in
           match.title = "^(Radial-Menu)$";
           no_shadow = true;
         }
+
+        # Keep new windows on the current workspace.
+        {
+          match.class = ".*";
+          workspace = "unset";
+        }
       ];
 
       workspace_rule = [
         {
           workspace = "1";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "2";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "3";
-          monitor = "HDMI-A-2";
-          # layout = "scrolling";
+          monitor = monitors.main;
         }
         {
           workspace = "4";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "5";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "6";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "7";
-          monitor = "HDMI-A-2";
+          monitor = monitors.main;
         }
         {
           workspace = "8";
-          monitor = "DP-4";
+          monitor = monitors.sub;
         }
       ];
 
@@ -708,6 +711,7 @@ in
     pkgs.waybar
     pkgs.libnotify
     pkgs.grim
+    pkgs.hyprsunset
     pkgs.hyprshot
     pkgs.wl-clipboard
     pkgs.cliphist

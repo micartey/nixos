@@ -11,6 +11,8 @@
 
   networking.hostName = "home";
 
+  hardware.i2c.enable = true;
+
   boot = {
     kernelModules = [
       "nct6775"
@@ -55,6 +57,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    ddcutil
     lm_sensors
     libthai
   ];

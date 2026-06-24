@@ -3,7 +3,7 @@
   "bar": {
     "barType": "floating",
     "position": "top",
-    "monitors": [],
+    "monitors": ["HDMI-A-1", "HDMI-A-2"],
     "density": "comfortable",
     "showOutline": false,
     "showCapsule": false,

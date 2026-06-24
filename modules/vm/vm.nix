@@ -15,6 +15,8 @@
     spiceUSBRedirection.enable = true;
   };
 
+  networking.firewall.trustedInterfaces = [ "virbr0" ];
+
   users.users.${meta.user.username}.extraGroups = [
     "libvirtd"
   ];
