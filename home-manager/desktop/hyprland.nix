@@ -302,6 +302,14 @@ in
           ];
         }
 
+        # Other
+        {
+          _args = [
+            "${mainMod} + C"
+            (mkLua "hl.dsp.exec_cmd(\"pkill -USR2 -x handy || pkill -USR2 -x .handy-wrapped\")")
+          ];
+        }
+
         # Lock Screen
         {
           _args = [

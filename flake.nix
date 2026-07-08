@@ -44,6 +44,10 @@
       # inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    handy = {
+      url = "github:cjpais/Handy";
+    };
+
     fff-nvim = {
       url = "github:dmtrKovalenko/fff.nvim";
     };

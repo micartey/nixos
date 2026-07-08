@@ -60,5 +60,7 @@
 
     # Needs to be called with --disable-gpu
     pkgs-unstable.lmstudio
+
+    (pkgs.callPackage ../../pkgs/pytr.nix { })
   ];
 }

@@ -33,6 +33,7 @@ D(
   CNAME("status.homepod", "homepod.micartey.dev."),
   CNAME("n8n.homepod", "homepod.micartey.dev."),
   CNAME("pihole.homepod", "homepod.micartey.dev."),
+  CNAME("tradebrain.homepod", "homepod.micartey.dev."),
 
   // message services
   // CNAME("mattermost", "node.sirius.micartey.dev."),

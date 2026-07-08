@@ -58,21 +58,23 @@ in
               		audit deny ${sops.age.keyFile} mrwklx,
               		audit deny /run/secrets/ r,
               		audit deny /run/secrets/** mrwklx,
+                  audit deny @{HOME}/.pytr/ r,
+                  audit deny @{HOME}/.pytr/** mrwklx,
 
               		# Block User Configuration Secrets
               		audit deny @{HOME}/.config/sops/ r,
               		audit deny @{HOME}/.config/sops/** mrwklx,
               		audit deny /etc/sops/** mrwklx,
 
-      # Specific User Paths from your config
-             		audit deny @{HOME}/nixos/dns/creds.json mrwklx,
-             		audit deny @{HOME}/nixos/secrets/** mrwklx,
-             		audit deny @{HOME}/nixos/sops/** mrwklx,
-
-             		# Block opencode API key
-             		audit deny @{HOME}/.config/opencode/ r,
-             		audit deny @{HOME}/.config/opencode/** mrwklx,
-
+                  # Specific User Paths from your config
+              		audit deny @{HOME}/nixos/dns/creds.json mrwklx,
+              		audit deny @{HOME}/nixos/secrets/** mrwklx,
+              		audit deny @{HOME}/nixos/sops/** mrwklx,
+                 
+              		# Block opencode API key
+              		audit deny @{HOME}/.config/opencode/ r,
+              		audit deny @{HOME}/.config/opencode/** mrwklx,
+                 
               		# Enforce Read-Only Nix Store
               		# Corresponds to: --read-only=/nix/store
               		# We allow 'r' (read) and 'x' (exec) via 'file' allow above,
@@ -106,6 +108,10 @@ in
       	        audit deny "/home/${meta.user.username}/nixos/dns/creds.json" rwklm,
       	        audit deny "/run/secrets/" r,
       	        audit deny "/run/secrets/**" r,
+
+                audit deny "/home/${meta.user.username}/.pytr/" r,
+                audit deny "/home/${meta.user.username}/.pytr/**" mrwklx,
+               
                 # audit deny "/home/${meta.user.username}/nixos/secrets/**" rwklm,
                 # audit deny "/home/${meta.user.username}/nixos/sops/**" rwklm,
       	        audit deny "/home/${meta.user.username}/.config/sops/**" rwklm,
