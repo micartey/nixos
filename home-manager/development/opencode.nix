@@ -165,6 +165,12 @@ in
           };
         };
 
+        cdn = {
+          type = "remote";
+          url = "http://kvm-large:7080/mcp";
+          enabled = true;
+        };
+
         rime = {
           type = "local";
           command = [
