@@ -14,7 +14,6 @@ let
     main = "HDMI-A-2";
     sub = "DP-5";
   };
-
 in
 {
   wayland.windowManager.hyprland = {

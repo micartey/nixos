@@ -171,6 +171,12 @@ in
           enabled = true;
         };
 
+        # cdn_local = {
+        #   type = "remote";
+        #   url = "http://localhost:7080/mcp";
+        #   enabled = true;
+        # };
+
         rime = {
           type = "local";
           command = [
