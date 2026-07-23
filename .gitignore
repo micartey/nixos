@@ -1,4 +1,8 @@
-# Nix
-result
+# Images
 *.qcow2
 *.iso
+
+# Directories
+.codex/
+.agents/
+result/

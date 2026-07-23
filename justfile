@@ -11,14 +11,14 @@ home-iso:
 
 home-vm:
     qemu-system-x86_64 \
-            -enable-kvm \
-            -m 32G \
-            -smp cores=16 \
-            -cdrom nixos.iso \
-            -boot d \
-            -netdev user,id=net0 \
-            -device virtio-net-pci,netdev=net0 \
-            -device virtio-vga,edid=on,xres=1920,yres=1080
+        -enable-kvm \
+        -m 32G \
+        -smp cores=16 \
+        -cdrom nixos.iso \
+        -boot d \
+        -netdev user,id=net0 \
+        -device virtio-net-pci,netdev=net0 \
+        -device virtio-vga,edid=on,xres=1920,yres=1080
 
 flake-update:
     nix flake update
