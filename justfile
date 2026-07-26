@@ -36,3 +36,27 @@ flake-update-development:
 # Run 'nix run nixpkgs#gdrive3 account add' before you can use this command!
 iso-upload:
     nix run nixpkgs#gdrive3 files upload nixos.iso
+
+# Runtime check: TracerPid stays 0 while a process is actively straced.
+# Only meaningful after rebuild+reboot with the patch applied.
+verify-tracer-pid-hidden:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    strace -o /dev/null sleep 30 &
+    tracer=$!
+    trap 'kill "$tracer" 2>/dev/null || true' EXIT
+    target=""
+    for _ in $(seq 1 50); do
+        target=$(pgrep -P "$tracer" sleep || true)
+        [ -n "$target" ] && break
+        sleep 0.1
+    done
+    [ -n "$target" ] || { echo "FAIL: could not find traced sleep" >&2; exit 1; }
+    tpid=$(awk '/^TracerPid:/ {print $2}' "/proc/$target/status")
+    echo "traced sleep pid: $target, strace pid: $tracer, TracerPid: $tpid"
+    if [ "$tpid" = "0" ]; then
+        echo "OK: TracerPid hidden (patch active)"
+    else
+        echo "FAIL: TracerPid=$tpid leaks tracer pid (patch inactive or not rebooted)" >&2
+        exit 1
+    fi

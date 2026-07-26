@@ -22,6 +22,7 @@
           "pcap"
           "plugdev"
           "adbusers"
+          "input"
         ];
       };
     };
