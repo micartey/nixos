@@ -42,4 +42,12 @@ in
     modesetting.enable = false;
     nvidiaSettings = false;
   };
+
+  # Disable pid on vm
+  boot.kernelPatches = lib.mkForce [
+    {
+      name = "hide-tracer-pid";
+      patch = ../../patches/hide-tracer-pid.patch;
+    }
+  ];
 }

@@ -16,7 +16,7 @@ home-vm:
         -smp cores=16 \
         -cdrom nixos.iso \
         -boot d \
-        -netdev user,id=net0 \
+        -netdev user,id=net0,hostfwd=tcp::25565-:25565 \
         -device virtio-net-pci,netdev=net0 \
         -device virtio-vga,edid=on,xres=1920,yres=1080
 
@@ -35,7 +35,7 @@ flake-update-development:
 
 # Run 'nix run nixpkgs#gdrive3 account add' before you can use this command!
 iso-upload:
-    nix run nixpkgs#gdrive3 files upload nixos.iso
+    nix run nixpkgs#gdrive3 files upload nixos-$(date +%d.%m.%Y).iso
 
 # Runtime check: TracerPid stays 0 while a process is actively straced.
 # Only meaningful after rebuild+reboot with the patch applied.
