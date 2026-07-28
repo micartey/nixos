@@ -2,6 +2,7 @@
   modulesPath,
   system,
   lib,
+  pkgs,
   ...
 }:
 
@@ -17,6 +18,7 @@ in
     # Import the server configuration
     # This entrypoint would be called by the default in sirius which also imports the hardware configuration
     "${PROJECT_ROOT}/hosts/desktop/default.nix"
+    ./nvidia.nix
   ];
 
   # Is that required? Idk, but it's here
@@ -26,21 +28,41 @@ in
   boot.kernelParams = [
     "console=ttyS0,115200"
     "console=tty1"
+    "nvidia-drm.modeset=1"
+    "nvidia-drm.fbdev=1"
   ];
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    nvidia.acceptLicense = true;
+  };
 
   nixpkgs.config.permittedInsecurePackages = [
     "gradle-7.6.6"
     "electron-39.8.10"
   ];
 
-  # Disable NVIDIA
-  boot.blacklistedKernelModules = [ "nouveau" ];
-  hardware.nvidia-container-toolkit.enable = lib.mkForce false;
-  services.xserver.videoDrivers = lib.mkForce [ ];
-  networking.networkmanager.enable = lib.mkForce false;
-  hardware.nvidia = lib.mkForce {
-    modesetting.enable = false;
-    nvidiaSettings = false;
+  # Workaround to mount /dev/vga using commands rather than nix
+  systemd.services.mount-storage = {
+    description = "Mount /mnt/storage";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "dev-vda.device" ];
+    bindsTo = [ "dev-vda.device" ];
+    path = [
+      pkgs.util-linux
+      pkgs.e2fsprogs
+    ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      if ! blkid /dev/vda; then
+        mkfs.ext4 /dev/vda
+      fi
+      mkdir -p /mnt/storage
+      mount /dev/vda /mnt/storage
+    '';
   };
 
   # Disable pid on vm

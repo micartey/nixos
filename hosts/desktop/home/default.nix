@@ -13,10 +13,27 @@
 
   hardware.i2c.enable = true;
 
+  users.groups.vfio = { };
+
+  security.pam.loginLimits = [
+    { domain = "@vfio"; type = "-"; item = "memlock"; value = "infinity"; }
+  ];
+
+  services.udev.extraRules = ''
+    KERNEL=="vfio", SUBSYSTEM=="misc", GROUP="vfio", MODE="0660"
+    KERNEL=="[0-9]*", SUBSYSTEM=="vfio", GROUP="vfio", MODE="0660"
+  '';
+
   boot = {
     kernelModules = [
       "nct6775"
       "coretemp"
+      "vfio-pci"
+    ];
+    # Get IDs from `lspci -nn | grep -i nvidia` — look for [vendor:device]
+    # e.g. "03:00.0 ... [10de:1c02]" → 10de:1c02
+    kernelParams = [
+      "vfio-pci.ids=10de:1c02,10de:10f1"
     ];
     loader = {
       systemd-boot.enable = true;
@@ -60,5 +77,6 @@
     ddcutil
     lm_sensors
     libthai
+    OVMF
   ];
 }

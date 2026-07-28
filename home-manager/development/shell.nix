@@ -53,8 +53,10 @@ in
     autosuggestion.enable = true;
 
     initContent = ''
-      if [ "$(tty)" = "/dev/tty1" ]; then
-        exec Hyprland &> /dev/null
+      hyprland_marker="/tmp/hyprland-started-$UID"
+      if [ "$(tty)" = "/dev/tty1" ] && [ ! -e "$hyprland_marker" ]; then
+        : > "$hyprland_marker"
+        exec Hyprland &> /tmp/hyprland.log
       fi
 
       cdn() {

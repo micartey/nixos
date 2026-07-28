@@ -2,6 +2,8 @@
 *.qcow2
 *.iso
 
+ovmf_vars.fd
+
 # Directories
 .codex/
 .agents/

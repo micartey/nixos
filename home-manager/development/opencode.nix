@@ -41,7 +41,8 @@ in
     context = ''
       # Rules
 
-      - **NEVER** perform commits.
+      - **NEVER** touch git.
+      - **NEVER** touch ssh or anything that uses the keys in ~/.ssh
       - **NEVER** perform destructive actions or changes on live infrastructure using the aws cli
       - **NEVER** read files from the /nix/store - only if there is ABSOLUTLY no other way
 
@@ -66,57 +67,14 @@ in
       - Use `ast-grep` for structural search.
       - If a tool is missing, use `nix run` (e.g., `nix run nixpkgs#ripgrep -- rg ...`).
       - For multi-tool sessions, use `nix shell` to enter a temporary environment.
-
-      ## Domain Agents
-
-      - `nix`: ALL Nix/NixOS work.
-      - `viro`: ALL Viro/Drawing related work.
     '';
-
-    agents = {
-      viro = ''
-        # Viro Agent
-
-        Specialized agent for Viro drawing tool.
-        Handle ALL Viro/Drawing-related tasks autonomously.
-
-        ## Workflow
-
-        1. Create the required shape in thought
-        2. Check the viro tools at your disposal and their descriptions
-        3. Plan how to use the tools in succession
-        4. Use the tools
-      '';
-
-      nix = ''
-        # Nix Agent
-
-        Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
-
-        ## Scratchpad
-        - Read `.scratchpad/*-nix-*.md` before deep exploration
-        - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
-        - Format: `# Title`, `## Summary`, `## Details`, `## References`
-
-        ## Workflow
-        1. Check scratchpad for cached knowledge
-        2. Use `rime` MCP tools (manix, nixhub, wiki)
-        3. Make changes
-        4. Validate: `nix flake check` or `nix-instantiate --parse`
-        5. Format: `nixfmt`
-        6. Cache new knowledge to scratchpad
-
-        ## Return Format
-        - What was changed
-        - Commands to run (e.g., `nixos-rebuild switch`)
-      '';
-    };
 
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@0.2.8"
+        "@slkiser/opencode-quota@latest"
         "@mumme-it/opencode-caveman@0.2.0"
+        # "@thelioo/opencode-balancer@latest"
       ];
 
       # lsp = true;
@@ -206,7 +164,8 @@ in
     tui = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@latest"
+        "@slkiser/opencode-quota@latest"
+        # "@thelioo/opencode-balancer@latest"
       ];
     };
   };
