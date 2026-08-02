@@ -169,4 +169,6 @@ in
       ];
     };
   };
+
+  xdg.configFile."opencode/opencode.json".force = true;
 }
