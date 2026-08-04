@@ -6,6 +6,10 @@ on:
 
 name: Dead Code
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   deadcode:
     name: Dead code analysis

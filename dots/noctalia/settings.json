@@ -33,13 +33,13 @@
           "iconColor": "none",
           "id": "SystemMonitor",
           "showCpuCores": false,
-          "showCpuFreq": false,
+          "showCpuFreq": true,
           "showCpuTemp": true,
           "showCpuUsage": true,
           "showDiskAvailable": false,
           "showDiskUsage": false,
           "showDiskUsageAsPercent": false,
-          "showGpuTemp": true,
+          "showGpuUsage": true,
           "showLoadAverage": false,
           "showMemoryAsPercent": false,
           "showMemoryUsage": true,
@@ -215,8 +215,6 @@
     "shadowOffsetY": 0,
     "language": "en",
     "allowPanelsOnScreenWithoutBar": false,
-    "showChangelogOnStartup": true,
-    "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
     "lockScreenCountdownDuration": 10000,
     "autoStartAuth": false,
@@ -257,7 +255,6 @@
     "name": "Dortmund",
     "weatherEnabled": true,
     "weatherShowEffects": true,
-    "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false,
@@ -366,9 +363,6 @@
         },
         {
           "id": "WallpaperSelector"
-        },
-        {
-          "id": "NoctaliaPerformance"
         }
       ],
       "right": [
@@ -436,7 +430,7 @@
     "criticalColor": "#f38ba8",
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
-  "noctaliaPerformance": {
+  "diutaliaPerformance": {
     "disableWallpaper": true,
     "disableDesktopWidgets": true
   },
