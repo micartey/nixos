@@ -21,13 +21,9 @@
     };
 
     # pinned — do not update (staying on old version)
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs/75d180c28a9ab4470e980f3d6f706ad6c5213add";
-    };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/ed1fff6260470d6f5cbe1951a8cceccb5265d61b";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      inputs.noctalia-qs.follows = "noctalia-qs";
+    diutalia = {
+      url = "github:micartey/diutalia";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixos-hardware = {

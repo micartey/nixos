@@ -11,20 +11,16 @@ let
     NO_COLOR = "1";
     CI = "1";
 
-    configurePhase =
-      builtins.replaceStrings
-        [ "patchShebangs node_modules" ]
-        [
-          ''
-            sed -i 's/"packageManager": "bun@1.3.14"/"packageManager": "bun@1.3.13"/' package.json
-            patchShebangs node_modules''
-        ]
-        old.configurePhase;
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/opencode/script/build.ts \
+        --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
 
+      sed -i '/const prettier = await import("prettier")/,/^    })/c\    const json = raw' packages/opencode/src/cli/cmd/generate.ts
+    '';
+
+    # Overriding entirely to drop the multi-line completion command
     postInstall = ''
-      installShellCompletion --cmd opencode \
-        --bash <($out/bin/opencode completion 2>/dev/null || true) \
-        --zsh <(SHELL=/bin/zsh $out/bin/opencode completion 2>/dev/null || true) || true
+      echo "Skipping shell completion generation"
     '';
   });
 
@@ -35,10 +31,13 @@ in
     enable = true;
     package = opencode;
 
-    rules = ''
+    context = ''
       # Rules
 
-      - **NEVER** perform commits.
+      - **NEVER** touch git.
+      - **NEVER** touch ssh or anything that uses the keys in ~/.ssh
+      - **NEVER** perform destructive actions or changes on live infrastructure using the aws cli
+      - **NEVER** read files from the /nix/store - only if there is ABSOLUTLY no other way
 
       ## Exploration (CRITICAL)
 
@@ -47,72 +46,30 @@ in
         - "Find files matching Y"
         - "How does Z work?"
         - Any search that might need multiple glob/grep/read cycles
+      - **REFRAIN** from using sub-agents if not explicitly stated for exploiration
+
+      Important Note: Oftentimes the problem does not require a full understanding of the project,
+      e.g. when working on pipelines or fixing abstract issues that are fully enclosed.
 
       ## Tooling
+
+      The usage of tools is highly encouraged.
+      Trust tools more than internal knowledge - they are always up to date and return valid data.
 
       - Prefer `rg` / `rg --files` for search.
       - Use `ast-grep` for structural search.
       - If a tool is missing, use `nix run` (e.g., `nix run nixpkgs#ripgrep -- rg ...`).
       - For multi-tool sessions, use `nix shell` to enter a temporary environment.
-
-      ## Scratchpad (Knowledge Cache)
-
-      - `.scratchpad/*.md` persists across sessions.
-      - Use the format `YYYY-MM-DD-topic.md` for scratchpad files (e.g., `2025-11-03-zig-stdlib_changes.md`).
-      - Domain agents (nix, zig) read/write scratchpad directly.
-      - Before deep exploration: check scratchpad.
-      - After expensive research: write to scratchpad.
-
-      ## Domain Agents
-
-      - `nix`: ALL Nix/NixOS work.
-      - `viro`: ALL Viro/Drawing related work.
     '';
 
     agents = {
-      viro = ''
-        # Viro Agent
 
-        Specialized agent for Viro drawing tool.
-        Handle ALL Viro/Drawing-related tasks autonomously.
-
-        ## Workflow
-
-        1. Create the required shape in thought
-        2. Check the viro tools at your disposal and their descriptions
-        3. Plan how to use the tools in succession
-        4. Use the tools
-      '';
-
-      nix = # markdown
-        ''
-          # Nix Agent
-
-          Specialized agent for Nix/NixOS work. Handle ALL Nix-related tasks autonomously.
-
-          ## Scratchpad
-          - Read `.scratchpad/*-nix-*.md` before deep exploration
-          - Write findings to `.scratchpad/YYYY-MM-DD-nix-<topic>.md` after learning non-obvious patterns
-          - Format: `# Title`, `## Summary`, `## Details`, `## References`
-
-          ## Workflow
-          1. Check scratchpad for cached knowledge
-          2. Use `rime` MCP tools (manix, nixhub, wiki)
-          3. Make changes
-          4. Validate: `nix flake check` or `nix-instantiate --parse`
-          5. Format: `nixfmt`
-          6. Cache new knowledge to scratchpad
-
-          ## Return Format
-          - What was changed
-          - Commands to run (e.g., `nixos-rebuild switch`)
-        '';
     };
 
     settings = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@0.2.9"
+        "@slkiser/opencode-quota@latest"
         "@mumme-it/opencode-caveman@0.2.0"
       ];
 
@@ -157,7 +114,7 @@ in
     tui = {
       plugin = [
         "opencode-wakatime@1.1.0"
-        "@thelioo/opencode-balancer@latest"
+        "@slkiser/opencode-quota@latest"
       ];
     };
   };

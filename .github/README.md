@@ -64,3 +64,16 @@ sudo su -c "echo 0 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/
 # Enable battery conservation (stop at 80%)
 sudo su -c "echo 1 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/conservation_mode"
 ```
+
+### Bluetooth
+
+Enabling and disabling bluetooth can be a struggle, this is probably due to the setup and not hardware related.
+To enable or disable it, use the just commands below:
+
+```bash
+# Enable bluetooth
+just bluetooth-start
+
+# Disable bluetooth
+just bluetooth-stop
+```

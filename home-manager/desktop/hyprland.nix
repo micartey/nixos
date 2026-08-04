@@ -303,7 +303,7 @@ in
         {
           _args = [
             "${mainMod} + L"
-            (mkLua ''hl.dsp.exec_cmd("noctalia-shell ipc call lockScreen lock")'')
+            (mkLua ''hl.dsp.exec_cmd("diutalia-shell ipc call lockScreen lock")'')
           ];
         }
 

@@ -28,18 +28,18 @@
     "widgets": {
       "left": [
         {
-          "compactMode": false,
+          "compactMode": true,
           "diskPath": "/",
           "iconColor": "none",
           "id": "SystemMonitor",
           "showCpuCores": false,
-          "showCpuFreq": false,
+          "showCpuFreq": true,
           "showCpuTemp": true,
           "showCpuUsage": true,
           "showDiskAvailable": false,
           "showDiskUsage": false,
           "showDiskUsageAsPercent": false,
-          "showGpuTemp": false,
+          "showGpuUsage": true,
           "showLoadAverage": false,
           "showMemoryAsPercent": false,
           "showMemoryUsage": true,
@@ -48,6 +48,13 @@
           "textColor": "none",
           "useMonospaceFont": false,
           "usePadding": false
+        },
+        {
+          "defaultSettings": {
+            "hideBackground": false,
+            "minimumThreshold": 10
+          },
+          "id": "plugin:catwalk"
         },
         {
           "id": "Spacer",
@@ -99,27 +106,10 @@
       ],
       "right": [
         {
-          "compactMode": false,
-          "hideMode": "hidden",
+          "colorName": "primary",
           "hideWhenIdle": false,
-          "id": "MediaMini",
-          "maxWidth": 100,
-          "panelShowAlbumArt": true,
-          "scrollingMode": "hover",
-          "showAlbumArt": true,
-          "showArtistFirst": true,
-          "showProgressRing": true,
-          "showVisualizer": false,
-          "textColor": "none",
-          "useFixedWidth": false,
-          "visualizerType": "linear"
-        },
-        {
-          "displayMode": "onhover",
-          "iconColor": "none",
-          "id": "Volume",
-          "middleClickCommand": "pwvucontrol || pavucontrol",
-          "textColor": "none"
+          "id": "AudioVisualizer",
+          "width": 120
         },
         {
           "defaultSettings": {
@@ -144,22 +134,6 @@
             "terminalCommand": ""
           },
           "id": "plugin:tailscale"
-        },
-        {
-          "defaultSettings": {
-            "maxEvents": 50,
-            "openInBrowser": true,
-            "refreshInterval": 1800,
-            "showForks": true,
-            "showMyRepoForks": true,
-            "showMyRepoStars": true,
-            "showPRs": true,
-            "showRepoCreations": true,
-            "showStars": true,
-            "token": "",
-            "username": ""
-          },
-          "id": "plugin:github-feed"
         },
         {
           "colorizeDistroLogo": false,
@@ -227,13 +201,11 @@
     "shadowOffsetY": 0,
     "language": "en",
     "allowPanelsOnScreenWithoutBar": false,
-    "showChangelogOnStartup": true,
-    "telemetryEnabled": false,
     "enableLockScreenCountdown": true,
     "lockScreenCountdownDuration": 10000,
     "autoStartAuth": false,
     "allowPasswordWithFprintd": false,
-    "clockStyle": "analog",
+    "clockStyle": "digital",
     "clockFormat": "hh\\nmm",
     "passwordChars": false,
     "lockScreenMonitors": [],
@@ -269,7 +241,6 @@
     "name": "Dortmund",
     "weatherEnabled": true,
     "weatherShowEffects": true,
-    "weatherTaliaMascotAlways": false,
     "useFahrenheit": false,
     "use12hourFormat": false,
     "showWeekNumberInCalendar": false,
@@ -314,10 +285,17 @@
     "automationEnabled": false,
     "wallpaperChangeMode": "random",
     "randomIntervalSec": 300,
-    "transitionDuration": 500,
-    "transitionType": [],
-    "skipStartupTransition": true,
-    "transitionEdgeSmoothness": 0,
+    "transitionDuration": 1500,
+    "transitionType": [
+      "fade",
+      "disc",
+      "stripes",
+      "wipe",
+      "pixelate",
+      "honeycomb"
+    ],
+    "skipStartupTransition": false,
+    "transitionEdgeSmoothness": 0.05,
     "panelPosition": "follow_bar",
     "hideWallpaperFilenames": false,
     "useOriginalImages": false,
@@ -448,7 +426,7 @@
     "criticalColor": "#f38ba8",
     "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor"
   },
-  "noctaliaPerformance": {
+  "diutaliaPerformance": {
     "disableWallpaper": true,
     "disableDesktopWidgets": true
   },
@@ -604,7 +582,7 @@
     "volumeStep": 5,
     "volumeOverdrive": false,
     "spectrumFrameRate": 30,
-    "visualizerType": "linear",
+    "visualizerType": "wave",
     "spectrumMirrored": true,
     "mprisBlacklist": [],
     "preferredPlayer": "",
