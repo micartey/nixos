@@ -45,13 +45,43 @@ Lets see how the hinge holds up...
 
 ### Fan controls
 
-```
+Controling the fans on lenovo yoga 7x pro is actually possible with lenovo legion linux.
+
+#### Dust Cleaning Mode
+
+These fan options are built in, but not very partical to regulate temprature.
+
+```bash
 # Silent mode
 sudo su -c "echo 0 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/fan_mode"
 
 # Dust cleaning mode
 sudo su -c "echo 1 > /sys/devices/pci0000:00/0000:00:14.3/PNP0C09:00/VPC2004:00/fan_mode"
 ```
+
+#### Lenovo Legion Linux Fan Curve
+
+Jobs resolve `legion_hwmon` by name, so they do not depend on unstable `hwmon`
+indexes.
+
+##### Custom Temperature Graph
+
+```bash
+# This sets values that represent the RPM per temprature
+just lenovo-fan-curve
+```
+
+##### Maximum Curve Speed
+
+```bash
+# Set every curve point to maximum PWM.
+# This device reaches roughly 55% of its 10,000 RPM sensor range.
+just lenovo-fan-max
+```
+
+Fan curves are stored in laptop firmware and may reset after reboot, suspend,
+or power-mode changes. Reapply curve when needed. The `fan_fullspeed` control
+is exposed by the module but does not work on this device.
 
 ### Battery controls
 
