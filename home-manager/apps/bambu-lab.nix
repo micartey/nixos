@@ -3,7 +3,6 @@
   ...
 }:
 
-# @profile default
 {
   # home.packages = [
   #  pkgs.bambu-studio

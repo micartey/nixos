@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-# @profile default
 {
   gtk = {
     enable = true;

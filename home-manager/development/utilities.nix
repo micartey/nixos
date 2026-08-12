@@ -1,6 +1,5 @@
 { pkgs-edge, pkgs, ... }:
 
-# @profile default
 {
   home.packages = [
     # Settings: Ctrl + Shift + X

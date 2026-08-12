@@ -3,7 +3,6 @@
   ...
 }:
 
-# @profile default
 {
   # services.open-webui = {
   #   enable = true;

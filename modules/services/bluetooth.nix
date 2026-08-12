@@ -1,4 +1,3 @@
-# @profile default
 {
   hardware.bluetooth = {
     enable = true;

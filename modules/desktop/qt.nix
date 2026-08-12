@@ -1,4 +1,3 @@
-# @profile default
 {
   qt = {
     enable = true;

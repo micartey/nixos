@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-# @profile default
 {
   dconf.settings = {
     "org/gnome/desktop/interface" = {

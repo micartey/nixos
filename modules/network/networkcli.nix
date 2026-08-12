@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-# @profile default
 {
   environment.systemPackages = [
     pkgs.tcpdump

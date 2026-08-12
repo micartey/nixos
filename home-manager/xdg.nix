@@ -1,6 +1,5 @@
 { config, ... }:
 
-# @profile default
 {
   xdg = {
     enable = true;

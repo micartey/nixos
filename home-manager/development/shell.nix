@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile default
 let
   shellAliases = {
     cat = "bat";
@@ -24,6 +23,21 @@ let
 
     opencode-continue = "opencode -s $(opencode session list | head -3 | tail -1 | awk '{print $1}')";
 
+    capture-card = ''
+      CAPTURE_CARD_ID=$(arecord -l | grep UGREEN | awk '{print $2}' | cut -c 1)
+
+      mpv /dev/video0 --profile=low-latency --untimed & PID1=$!; \
+
+      ffplay -fflags nobuffer -flags low_delay -probesize 32 -analyzeduration 0 \
+             -f alsa -i hw:$CAPTURE_CARD_ID,0 -nodisp & PID2=$!; \
+
+      wait $PID1 && kill $PID2
+    '';
+
+    stream-audio = ''
+      pw-cat -r --target $(wpctl status | grep "Easy Effects Source" | sed -n 's/^[^0-9]*\([0-9]*\)\..*/\1/p' | head -n 1) --format s16 --rate 44100 --channels 2 - \
+        | nc homepod.local 12345
+    '';
   };
 in
 {

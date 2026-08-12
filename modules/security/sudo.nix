@@ -1,6 +1,5 @@
 { meta, ... }:
 
-# @profile home
 let
   mkSudoCmd = options: command: {
     inherit command options;

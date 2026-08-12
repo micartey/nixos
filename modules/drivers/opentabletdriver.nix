@@ -1,6 +1,5 @@
 { ... }:
 
-# @profile home
 {
   hardware.opentabletdriver = {
     enable = true;

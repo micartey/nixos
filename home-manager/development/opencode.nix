@@ -2,11 +2,9 @@
   inputs,
   pkgs,
   pkgs-unstable,
-  pkgs-edge,
   ...
 }:
 
-# @profile default
 let
   inherit (pkgs.stdenv.hostPlatform) system;
   inherit (pkgs-unstable) github-mcp-server;
@@ -16,12 +14,29 @@ let
     exec ${github-mcp-server}/bin/github-mcp-server "$@"
   '';
 
+  opencode = inputs.opencode.packages.${system}.default.overrideAttrs (old: {
+    NO_COLOR = "1";
+    CI = "1";
+
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/opencode/script/build.ts \
+        --replace-warn 'await createEmbeddedWebUIBundle()' 'console.log("Skipping Web UI build")'
+
+      sed -i '/const prettier = await import("prettier")/,/^    })/c\    const json = raw' packages/opencode/src/cli/cmd/generate.ts
+    '';
+
+    # Overriding entirely to drop the multi-line completion command
+    postInstall = ''
+      echo "Skipping shell completion generation"
+    '';
+  });
+
   rime = inputs.rime.packages.${system}.default;
 in
 {
   programs.opencode = {
     enable = true;
-    package = pkgs-edge.opencode;
+    package = opencode;
 
     context = ''
       # Rules

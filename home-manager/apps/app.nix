@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile default
 {
   # gpg key manager
   programs.gpg.enable = true;
@@ -13,6 +12,14 @@
   services.easyeffects.enable = true;
 
   xdg.desktopEntries = {
+    "steam" = {
+      name = "Steam (Mullvad)";
+      genericName = "Game Library";
+      comment = "Steam with mullvad exclude";
+      exec = "mullvad-exclude steam %U";
+      icon = "steam";
+    };
+
     "vesktop" = {
       name = "Vesktop (Mullvad)";
       genericName = "Discord";

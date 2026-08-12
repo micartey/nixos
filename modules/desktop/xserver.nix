@@ -1,4 +1,3 @@
-# @profile default
 {
   services.xserver = {
     enable = true;

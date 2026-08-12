@@ -3,7 +3,6 @@
   ...
 }:
 
-# @profile default
 {
   # tex-related
   home.packages = [

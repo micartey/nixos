@@ -1,6 +1,5 @@
 { pkgs, pkgs-unstable, ... }:
 
-# @profile home
 {
   home.packages = [
     pkgs.lutris

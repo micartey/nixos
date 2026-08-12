@@ -1,6 +1,5 @@
 { lib, ... }:
 
-# @profile default
 {
   networking.networkmanager = {
     enable = lib.mkDefault true;

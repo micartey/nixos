@@ -3,7 +3,6 @@
   ...
 }:
 
-# @profile home
 {
   services.xserver.videoDrivers = [ "nvidia" ];
 

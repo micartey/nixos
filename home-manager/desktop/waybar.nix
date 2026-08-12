@@ -1,6 +1,5 @@
 { ... }:
 
-# @profile default
 {
   # waybar
   programs.waybar = {

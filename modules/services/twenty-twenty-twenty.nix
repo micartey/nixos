@@ -1,6 +1,5 @@
 { pkgs, ... }:
 
-# @profile default
 {
   systemd.user.services.twenty-twenty-twenty = {
     description = "20-20-20 Rule reminder";

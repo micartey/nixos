@@ -2,7 +2,6 @@
   modulesPath,
   system,
   lib,
-  meta,
   pkgs,
   ...
 }:
@@ -18,19 +17,12 @@ in
 
     # Import the server configuration
     # This entrypoint would be called by the default in sirius which also imports the hardware configuration
-    "${PROJECT_ROOT}/hosts/graphical.nix"
-    ../../profiles/home
+    "${PROJECT_ROOT}/hosts/desktop/default.nix"
     ./nvidia.nix
   ];
 
   # Is that required? Idk, but it's here
   nixpkgs.hostPlatform = system;
-
-  system.stateVersion = "25.11";
-  home-manager.users.${meta.user.username} = {
-    imports = [ ../../profiles/home/home-manager.nix ];
-    home.stateVersion = "25.11";
-  };
 
   # Use serial connection so that we can use the terminal correctly
   boot.kernelParams = [

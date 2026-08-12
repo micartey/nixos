@@ -11,5 +11,7 @@
 
     ./dnscontrol.nix
 
+    ../modules/services/docker.nix
+    ../modules/nix.nix
   ];
 }

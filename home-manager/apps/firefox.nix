@@ -3,7 +3,6 @@
   ...
 }:
 
-# @profile default
 {
   programs.firefox = {
     enable = true;
