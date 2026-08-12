@@ -1,3 +1,4 @@
+# @profile default
 {
   virtualisation.docker = {
     enable = true;

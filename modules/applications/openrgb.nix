@@ -1,5 +1,6 @@
 { pkgs-edge, ... }:
 
+# @profile home
 {
   services.hardware.openrgb = {
     enable = true;

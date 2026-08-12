@@ -5,6 +5,7 @@
   ...
 }:
 
+# @profile default
 {
   home.packages = [
     # jetbrains

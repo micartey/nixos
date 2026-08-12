@@ -2,6 +2,7 @@
   ...
 }:
 
+# @profile default
 {
   security.unprivilegedUsernsClone = true;
 

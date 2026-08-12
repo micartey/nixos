@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   programs.nh = {
     enable = true;

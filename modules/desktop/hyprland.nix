@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];

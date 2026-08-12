@@ -2,6 +2,7 @@
   ...
 }:
 
+# @profile default
 {
   # Always report TracerPid as 0 in /proc/<pid>/status
   # Applies patches/hide-tracer-pid.patch to the kernel build

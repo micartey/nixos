@@ -1,5 +1,6 @@
 { inputs, ... }:
 
+# @profile default
 {
   imports = [
     inputs.catppuccin.homeModules.catppuccin

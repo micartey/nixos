@@ -4,6 +4,7 @@
   ...
 }:
 
+# @profile home
 let
   tcpPorts = [
     7000

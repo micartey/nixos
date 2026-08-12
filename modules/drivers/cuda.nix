@@ -3,6 +3,7 @@
   ...
 }:
 
+# @profile home
 {
   # TODO: Remove this
   # nixpkgs.config.cudaSupport = true;

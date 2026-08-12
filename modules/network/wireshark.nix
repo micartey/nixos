@@ -1,5 +1,6 @@
 { pkgs-unstable, ... }:
 
+# @profile default
 {
   programs.wireshark = {
     enable = true;

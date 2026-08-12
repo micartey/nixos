@@ -5,6 +5,7 @@
   ...
 }:
 
+# @profile default
 let
   secrets = import ../../lib/secrets.nix { inherit config lib; };
   user = meta.user.username;

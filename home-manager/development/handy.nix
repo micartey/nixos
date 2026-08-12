@@ -5,6 +5,7 @@
   ...
 }:
 
+# @profile default
 # handy is a tool to transcribe voice to text and type it out.
 # This is very "handy" when interfacing with LLMs and Agents.
 let

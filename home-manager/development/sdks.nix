@@ -5,6 +5,7 @@
   ...
 }:
 
+# @profile default
 {
   programs.bun = {
     package = pkgs-edge.bun;

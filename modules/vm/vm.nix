@@ -1,5 +1,6 @@
 { pkgs, meta, ... }:
 
+# @profile default
 {
   virtualisation = {
     libvirtd = {

@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   # Copy walpapers to location
   home.file = {

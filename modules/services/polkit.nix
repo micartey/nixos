@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# @profile default
 {
   security = {
     polkit.enable = true;

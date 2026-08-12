@@ -19,6 +19,6 @@
   };
 
   console = {
-    useXkbConfig = true;
+    keyMap = "de";
   };
 }

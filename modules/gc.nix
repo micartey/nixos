@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   nix.gc = {
     automatic = true;

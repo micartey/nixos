@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }:
 
+# @profile default
 {
   programs.neovim = {
     enable = true;

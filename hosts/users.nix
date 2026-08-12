@@ -23,7 +23,6 @@
           "plugdev"
           "adbusers"
           "input"
-          "vfio"
         ];
       };
     };

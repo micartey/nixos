@@ -1,15 +1,13 @@
 {
   inputs,
   pkgs,
-  stateVersion,
   meta,
   ...
 }:
 
+# @profile default
 {
   imports = [ inputs.nix-ld.nixosModules.nix-ld ];
-
-  system.stateVersion = stateVersion;
 
   nix.settings = {
     experimental-features = [

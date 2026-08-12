@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   services.earlyoom = {
     enable = true;

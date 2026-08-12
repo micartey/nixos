@@ -1,3 +1,4 @@
+# @profile default
 {
   programs.zsh = {
     enable = true;

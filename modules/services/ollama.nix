@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# @profile home
 {
   services.ollama = {
     package = pkgs.callPackage ../../pkgs/ollama.nix { };

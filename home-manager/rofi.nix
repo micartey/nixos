@@ -1,5 +1,6 @@
 { ... }:
 
+# @profile default
 {
   # quick access
   catppuccin.rofi.enable = false;

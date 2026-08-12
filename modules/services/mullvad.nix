@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# @profile default
 let
   mullvad = pkgs.mullvad-vpn;
 in

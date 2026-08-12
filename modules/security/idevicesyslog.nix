@@ -1,4 +1,6 @@
 { pkgs, pkgs-legacy, ... }:
+
+# @profile default
 {
   services.usbmuxd = {
     enable = true;

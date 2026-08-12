@@ -4,6 +4,7 @@
   ...
 }:
 
+# @profile default
 {
   imports = [ inputs.diutalia.homeModules.default ];
 

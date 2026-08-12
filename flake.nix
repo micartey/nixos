@@ -14,10 +14,13 @@
 
     viro.url = "github:micartey/viro";
 
-    opencode.url = "github:sst/opencode";
+    # nix flake update opencode --override-input opencode "github:anomalyco/opencode?ref=v1.18.15"
+    opencode.url = "github:anomalyco/opencode";
     rime.url = "github:lukasl-dev/rime";
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
 
     nix-ld = {
       url = "github:Mic92/nix-ld";
@@ -58,7 +61,6 @@
       ...
     }@inputs:
     let
-      stateVersion = "25.11"; # DO NOT UPDATE
       system = "x86_64-linux";
 
       pkgs-unstable = import nixpkgs-unstable {
@@ -93,38 +95,38 @@
         timeZone = "Europe/Berlin";
         locale = "de_DE.UTF-8";
       };
+
+      specialArgs = {
+        inherit
+          inputs
+          pkgs-unstable
+          pkgs-legacy
+          pkgs-edge
+          system
+          meta
+          ;
+      };
+
+      mkHost =
+        currentProfile: module:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = specialArgs // {
+            inherit currentProfile;
+          };
+          modules = [ module ];
+        };
     in
     {
       nixosConfigurations = {
-        home = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = {
-            inherit
-              inputs
-              pkgs-unstable
-              pkgs-legacy
-              pkgs-edge
-              stateVersion
-              system
-              meta
-              ;
-          };
+        home = mkHost "home" ./hosts/home;
 
-          modules = [ ./hosts/desktop/home ];
-        };
+        lenovo-yoga-7x-pro = mkHost "lenovo" ./hosts/lenovo-yoga-7x-pro;
 
         homeImg = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {
-            inherit
-              inputs
-              pkgs-unstable
-              pkgs-legacy
-              pkgs-edge
-              stateVersion
-              system
-              meta
-              ;
+          specialArgs = specialArgs // {
+            currentProfile = "home";
           };
           modules = [ ./hosts/img/configuration.nix ];
         };

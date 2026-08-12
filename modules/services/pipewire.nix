@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# @profile default
 {
   networking.firewall.allowedUDPPorts = [
     6001

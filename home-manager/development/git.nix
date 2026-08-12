@@ -1,5 +1,6 @@
 { meta, ... }:
 
+# @profile default
 {
   # fancier git diff
   programs.delta = {

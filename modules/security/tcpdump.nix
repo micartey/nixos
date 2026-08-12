@@ -1,5 +1,6 @@
 { pkgs, ... }:
 
+# @profile default
 {
   users.groups.pcap = { };
 
