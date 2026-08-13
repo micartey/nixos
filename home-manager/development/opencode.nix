@@ -16,6 +16,7 @@ let
   '';
 
   rime = inputs.rime.packages.${system}.default;
+  kicad-mcp = pkgs.callPackage ../../pkgs/kicad-mcp.nix { };
 in
 {
   profiles = [ "default" ];
@@ -137,6 +138,14 @@ in
             "stdio"
           ];
           enabled = true;
+        };
+
+        kicad = {
+          type = "local";
+          command = [ "${kicad-mcp}/bin/kicad-mcp" ];
+          enabled = true;
+          timeout = 60000;
+          environment.KICAD_IPC_CONNECT_TIMEOUT = "30";
         };
 
         android = {
