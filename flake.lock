@@ -116,11 +116,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785879301,
-        "narHash": "sha256-ol7/Gvi9FGnaalJeLdIXPlGa+fXrMleVsXcVaC4wJC8=",
+        "lastModified": 1786643347,
+        "narHash": "sha256-iS14W9DGQiuNjUy0mtg4JAGd8xLw1pyIWTixV5Su4N4=",
         "owner": "micartey",
         "repo": "diutalia",
-        "rev": "2930fe3edbb8011ccb3da324f93bbb862d748593",
+        "rev": "af836e19b6f59f8020add2cccbe4d1add3f99ba0",
         "type": "github"
       },
       "original": {

@@ -61,6 +61,11 @@
           "width": 40
         },
         {
+          "color0To20": "#D32F2F",
+          "color20To40": "#EF5350",
+          "color40To60": "#E65100",
+          "color60To80": "#9EAD00",
+          "color80To100": "#2E7D32",
           "deviceNativePath": "__default__",
           "displayMode": "graphic-clean",
           "hideIfIdle": false,
@@ -72,6 +77,7 @@
         {
           "applyToAllMonitors": false,
           "displayMode": "onhover",
+          "hideWhenBrightnessUnsupported": true,
           "iconColor": "none",
           "id": "Brightness",
           "textColor": "none"
