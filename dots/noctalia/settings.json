@@ -3,7 +3,7 @@
   "bar": {
     "barType": "floating",
     "position": "top",
-    "monitors": ["HDMI-A-1", "HDMI-A-2"],
+    "monitors": ["HDMI-A-1", "HDMI-A-2", "eDP-1"],
     "density": "comfortable",
     "showOutline": false,
     "showCapsule": false,
@@ -55,6 +55,30 @@
             "minimumThreshold": 10
           },
           "id": "plugin:catwalk"
+        },
+        {
+          "id": "Spacer",
+          "width": 40
+        },
+        {
+          "deviceNativePath": "__default__",
+          "displayMode": "graphic-clean",
+          "hideIfIdle": false,
+          "hideIfNotDetected": true,
+          "id": "Battery",
+          "showDiutaliaPerformance": false,
+          "showPowerProfiles": false
+        },
+        {
+          "applyToAllMonitors": false,
+          "displayMode": "onhover",
+          "iconColor": "none",
+          "id": "Brightness",
+          "textColor": "none"
+        },
+        {
+          "iconColor": "none",
+          "id": "NightLight"
         }
       ],
       "center": [
@@ -123,22 +147,6 @@
             "terminalCommand": ""
           },
           "id": "plugin:tailscale"
-        },
-        {
-          "defaultSettings": {
-            "maxEvents": 50,
-            "openInBrowser": true,
-            "refreshInterval": 1800,
-            "showForks": true,
-            "showMyRepoForks": true,
-            "showMyRepoStars": true,
-            "showPRs": true,
-            "showRepoCreations": true,
-            "showStars": true,
-            "token": "",
-            "username": ""
-          },
-          "id": "plugin:github-feed"
         },
         {
           "iconColor": "none",

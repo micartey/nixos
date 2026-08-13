@@ -3,12 +3,12 @@
   ...
 }:
 
-# @profile default
+# @profile lenovo
 {
   # home.packages = [
   #  pkgs.bambu-studio
   # ];
-  #
+
   # xdg.desktopEntries = {
   #   "bambu-studio-fix" = {
   #     name = "BambuStudio (Fix)";

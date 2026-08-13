@@ -47,6 +47,8 @@
       url = "github:cjpais/Handy";
     };
 
+    librepods.url = "github:demenik/librepods";
+
     fff-nvim = {
       url = "github:dmtrKovalenko/fff.nvim";
     };

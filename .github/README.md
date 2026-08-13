@@ -56,12 +56,21 @@
 Files below `modules` and `home-manager` declare where they are loaded with profile markers:
 
 ```nix
+{ pkgs, ... }:
+
 # @profile default
 # @profile home
 # @profile lenovo
+{
+  # ...
+}
 ```
 
-`default` loads on both systems. `home` and `lenovo` load only on matching host. Multiple markers may be used on one file.
+`default` loads on both systems. `home` and `lenovo` load only on matching host. 
+Multiple markers may be used on one file.
+
+To answer the question beforehand: Yes... Yes, these are just comments.
+Nix does not have the concept of annotations.
 
 ## Secrets
 
