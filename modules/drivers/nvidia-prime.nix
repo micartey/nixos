@@ -2,6 +2,7 @@
 
 {
   profiles = [ "lenovo" ];
+
   hardware.graphics.extraPackages = [ pkgs.nvidia-vaapi-driver ];
 
   environment.sessionVariables = {

@@ -1,5 +1,6 @@
 {
   profiles = [ "default" ];
+
   programs.zsh = {
     enable = true;
   };

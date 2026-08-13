@@ -5,6 +5,7 @@
 
 {
   profiles = [ "default" ];
+
   # tex-related
   home.packages = [
     pkgs.texliveFull

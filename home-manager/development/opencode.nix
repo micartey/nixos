@@ -19,6 +19,7 @@ let
 in
 {
   profiles = [ "default" ];
+
   programs.opencode = {
     enable = true;
     package = pkgs-edge.opencode;

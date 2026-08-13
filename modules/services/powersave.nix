@@ -2,6 +2,7 @@
 
 {
   profiles = [ "lenovo" ];
+
   boot.kernelParams = [ "amd_pstate=active" ];
 
   services.tlp.enable = lib.mkForce false;

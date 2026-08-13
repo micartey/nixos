@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   services.usbmuxd = {
     enable = true;
     package = pkgs.usbmuxd2; # Recommended for newer hardware

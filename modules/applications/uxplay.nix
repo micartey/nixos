@@ -32,6 +32,7 @@ let
 in
 {
   profiles = [ "home" ];
+
   environment.systemPackages = [ uxplay-wrapped ];
 
   services.avahi = {

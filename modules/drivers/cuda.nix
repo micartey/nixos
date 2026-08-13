@@ -5,6 +5,7 @@
 
 {
   profiles = [ "home" ];
+
   # TODO: Remove this
   # nixpkgs.config.cudaSupport = true;
   # nixpkgs.config.rocmSupport = false;

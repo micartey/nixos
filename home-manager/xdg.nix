@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   xdg = {
     enable = true;
 

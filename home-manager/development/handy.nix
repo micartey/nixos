@@ -12,6 +12,7 @@ let
 in
 {
   profiles = [ "default" ];
+
   home.packages = [
     inputs.handy.packages.${pkgs.system}.default
 

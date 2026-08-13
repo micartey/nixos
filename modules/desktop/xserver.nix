@@ -1,5 +1,6 @@
 {
   profiles = [ "default" ];
+
   services.xserver = {
     enable = true;
     xkb = {

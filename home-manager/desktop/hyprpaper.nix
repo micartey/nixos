@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   # Copy walpapers to location
   home.file = {
     wallpapers = {

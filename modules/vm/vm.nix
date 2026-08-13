@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   virtualisation = {
     libvirtd = {
       enable = true;

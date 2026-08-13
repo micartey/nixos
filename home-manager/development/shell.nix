@@ -27,6 +27,7 @@ let
 in
 {
   profiles = [ "default" ];
+
   # zsh
   programs.zsh = {
     enable = true;

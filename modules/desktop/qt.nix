@@ -1,5 +1,6 @@
 {
   profiles = [ "default" ];
+
   qt = {
     enable = true;
     platformTheme = "gnome";

@@ -2,6 +2,7 @@
 
 {
   profiles = [ "home" ];
+
   programs.steam = {
     enable = true;
     extest.enable = true;

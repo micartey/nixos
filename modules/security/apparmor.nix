@@ -11,6 +11,7 @@ let
 in
 {
   profiles = [ "default" ];
+
   security.apparmor.enable = true;
 
   #

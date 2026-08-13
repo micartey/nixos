@@ -13,6 +13,7 @@ in
 
 {
   profiles = [ "default" ];
+
   environment.systemPackages = with pkgs; [ wakatime-cli ];
 
   sops = secrets.mkTemplate "wakatime/cfg" {

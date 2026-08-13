@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   services.earlyoom = {
     enable = true;
     enableNotifications = true;

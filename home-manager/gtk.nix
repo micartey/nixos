@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   gtk = {
     enable = true;
     theme = {

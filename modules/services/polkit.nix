@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   security = {
     polkit.enable = true;
   };

@@ -2,6 +2,7 @@
 
 {
   profiles = [ "home" ];
+
   services.hardware.openrgb = {
     enable = true;
     package = pkgs-edge.openrgb;

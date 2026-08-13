@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   networking.firewall.enable = lib.mkDefault true;
 
   environment.systemPackages = [

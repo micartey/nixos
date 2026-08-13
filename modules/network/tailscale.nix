@@ -11,6 +11,7 @@ in
 
 {
   profiles = [ "default" ];
+
   services.tailscale = {
     enable = true;
     extraUpFlags = [

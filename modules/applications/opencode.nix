@@ -12,6 +12,7 @@ in
 
 {
   profiles = [ "default" ];
+
   sops = secrets.mkTemplate "opencode/env" {
     owner = user;
     path = "/run/secrets/rendered/opencode/env";

@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   users.groups.pcap = { };
 
   security.wrappers.tcpdump = {

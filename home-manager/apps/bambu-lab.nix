@@ -5,6 +5,7 @@
 
 {
   profiles = [ "lenovo" ];
+
   # home.packages = [
   #  pkgs.bambu-studio
   # ];

@@ -6,5 +6,6 @@ let
 in
 {
   profiles = [ "default" ];
+
   environment.systemPackages = [ viro ];
 }

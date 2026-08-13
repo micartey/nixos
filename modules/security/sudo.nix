@@ -15,6 +15,7 @@ let
 in
 {
   profiles = [ "home" ];
+
   security.sudo = {
     enable = true;
     extraRules = [

@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   # quick access
   catppuccin.rofi.enable = false;
   programs.rofi = {

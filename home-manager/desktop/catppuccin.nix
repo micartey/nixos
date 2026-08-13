@@ -2,6 +2,7 @@
 
 {
   profiles = [ "default" ];
+
   imports = [
     inputs.catppuccin.homeModules.catppuccin
   ];

@@ -5,6 +5,7 @@ let
 in
 {
   profiles = [ "default" ];
+
   services.mullvad-vpn = {
     enable = true;
     package = mullvad;
