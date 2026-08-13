@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   users.groups.pcap = { };
 
   security.wrappers.tcpdump = {

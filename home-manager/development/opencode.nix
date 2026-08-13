@@ -6,7 +6,6 @@
   ...
 }:
 
-# @profile default
 let
   inherit (pkgs.stdenv.hostPlatform) system;
   inherit (pkgs-unstable) github-mcp-server;
@@ -19,6 +18,7 @@ let
   rime = inputs.rime.packages.${system}.default;
 in
 {
+  profiles = [ "default" ];
   programs.opencode = {
     enable = true;
     package = pkgs-edge.opencode;

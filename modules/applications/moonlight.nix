@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-# @profile lenovo
 {
+  profiles = [ "lenovo" ];
   environment.systemPackages = [ pkgs.moonlight-qt ];
 }

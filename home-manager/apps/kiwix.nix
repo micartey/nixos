@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-# @profile lenovo
 {
+  profiles = [ "lenovo" ];
   home.packages = with pkgs; [
     kiwix
     kiwix-tools

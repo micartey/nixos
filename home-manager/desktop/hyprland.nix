@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile default
 let
   mainMod = "SUPER";
   subMod = "ALT + SHIFT";
@@ -17,6 +16,7 @@ let
   };
 in
 {
+  profiles = [ "default" ];
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";

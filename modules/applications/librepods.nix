@@ -1,7 +1,7 @@
 { inputs, ... }:
 
-# @profile lenovo
 {
+  profiles = [ "lenovo" ];
   environment.systemPackages = [
     inputs.librepods.packages.x86_64-linux.default
   ];

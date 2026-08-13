@@ -3,8 +3,8 @@
   ...
 }:
 
-# @profile lenovo
 {
+  profiles = [ "lenovo" ];
   # home.packages = [
   #  pkgs.bambu-studio
   # ];

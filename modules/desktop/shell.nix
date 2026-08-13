@@ -1,5 +1,5 @@
-# @profile default
 {
+  profiles = [ "default" ];
   programs.zsh = {
     enable = true;
   };

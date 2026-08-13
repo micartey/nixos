@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile lenovo
 let
   cfg = config.hardware.lenovoLegionLinux;
   kernelModule = config.boot.kernelPackages.callPackage ../../pkgs/lenovo-legion-linux.nix { };
@@ -32,14 +31,18 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    boot.extraModulePackages = [ kernelModule ];
-    boot.kernelModules = [ "legion_laptop" ];
+  config = {
+    profiles = [ "lenovo" ];
 
-    boot.extraModprobeConfig = ''
-      options legion_laptop ec_readonly=${if cfg.readOnly then "1" else "0"} force=${
-        if cfg.force then "1" else "0"
-      } enable_platformprofile=${if cfg.enablePlatformProfile then "1" else "0"}
-    '';
+    boot = lib.mkIf cfg.enable {
+      extraModulePackages = [ kernelModule ];
+      kernelModules = [ "legion_laptop" ];
+
+      extraModprobeConfig = ''
+        options legion_laptop ec_readonly=${if cfg.readOnly then "1" else "0"} force=${
+          if cfg.force then "1" else "0"
+        } enable_platformprofile=${if cfg.enablePlatformProfile then "1" else "0"}
+      '';
+    };
   };
 }

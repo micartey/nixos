@@ -1,6 +1,6 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   hardware.graphics.enable = true;
 }

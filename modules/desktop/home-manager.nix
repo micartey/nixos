@@ -1,7 +1,7 @@
 { inputs, pkgs-unstable, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   imports = [ inputs.home-manager.nixosModules.home-manager ];
 
   home-manager = {

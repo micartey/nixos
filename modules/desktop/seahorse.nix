@@ -1,5 +1,5 @@
-# @profile default
 {
+  profiles = [ "default" ];
   programs.seahorse = {
     enable = true;
   };

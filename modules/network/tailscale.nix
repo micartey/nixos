@@ -5,12 +5,12 @@
   ...
 }:
 
-# @profile default
 let
   secrets = import ../../lib/secrets.nix { inherit config lib; };
 in
 
 {
+  profiles = [ "default" ];
   services.tailscale = {
     enable = true;
     extraUpFlags = [

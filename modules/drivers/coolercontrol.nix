@@ -1,7 +1,7 @@
 { ... }:
 
-# @profile lenovo
 {
+  profiles = [ "lenovo" ];
   programs.coolercontrol = {
     enable = true;
   };

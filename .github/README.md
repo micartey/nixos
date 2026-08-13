@@ -53,24 +53,20 @@
 └── justfile
 ```
 
-Files below `modules` and `home-manager` declare where they are loaded with profile markers:
+Files below `modules` and `home-manager` use a typed module descriptor to declare where they load:
 
 ```nix
-{ pkgs, ... }:
-
-# @profile default
-# @profile home
-# @profile lenovo
 {
+  profiles = [ "default" ];
+
   # ...
 }
 ```
 
 `default` loads on both systems. `home` and `lenovo` load only on matching host. 
-Multiple markers may be used on one file.
+Multiple profile values may be used on one file. `profiles` accepts only valid profile names.
 
-To answer the question beforehand: Yes... Yes, these are just comments.
-Nix does not have the concept of annotations.
+`profiles` is an internal typed option. Module functions, `imports`, and custom `options` retain normal behavior.
 
 ## Secrets
 

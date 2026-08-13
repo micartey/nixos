@@ -5,8 +5,8 @@
   ...
 }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   imports = [ inputs.sops-nix.nixosModules.sops ];
 
   environment.systemPackages = with pkgs-unstable; [ sops ];

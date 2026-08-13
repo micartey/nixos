@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-# @profile home
 {
+  profiles = [ "home" ];
   systemd.user.services.disable-autogain = {
     description = "Disable autogain workaround";
 

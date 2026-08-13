@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   environment.systemPackages = with pkgs; [ nautilus ];
 }

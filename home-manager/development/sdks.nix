@@ -5,8 +5,8 @@
   ...
 }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   programs.bun = {
     package = pkgs-edge.bun;
     enable = true;

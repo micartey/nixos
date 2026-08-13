@@ -6,13 +6,13 @@
   ...
 }:
 
-# @profile default
 let
   secrets = import ../../lib/secrets.nix { inherit config lib; };
   user = meta.user.username;
 in
 
 {
+  profiles = [ "default" ];
   environment.systemPackages = with pkgs; [ wakatime-cli ];
 
   sops = secrets.mkTemplate "wakatime/cfg" {

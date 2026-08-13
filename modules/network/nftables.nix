@@ -1,6 +1,6 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   networking.nftables.enable = true;
 }

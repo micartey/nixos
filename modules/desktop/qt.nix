@@ -1,5 +1,5 @@
-# @profile default
 {
+  profiles = [ "default" ];
   qt = {
     enable = true;
     platformTheme = "gnome";

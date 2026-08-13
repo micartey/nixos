@@ -1,6 +1,6 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   services.flatpak.enable = true;
 }

@@ -1,6 +1,6 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   programs.ydotool.enable = true;
 }

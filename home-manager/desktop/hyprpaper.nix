@@ -1,7 +1,7 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   # Copy walpapers to location
   home.file = {
     wallpapers = {

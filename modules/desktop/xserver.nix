@@ -1,5 +1,5 @@
-# @profile default
 {
+  profiles = [ "default" ];
   services.xserver = {
     enable = true;
     xkb = {

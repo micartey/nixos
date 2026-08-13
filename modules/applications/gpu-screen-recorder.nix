@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-# @profile home
 {
+  profiles = [ "home" ];
   programs.gpu-screen-recorder.enable = true;
 
   environment.systemPackages = with pkgs; [

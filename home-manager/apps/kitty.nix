@@ -1,7 +1,7 @@
 { ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   programs.kitty = {
     enable = true;
     font.name = "SpaceMono";

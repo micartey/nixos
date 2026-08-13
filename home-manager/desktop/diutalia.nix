@@ -4,8 +4,8 @@
   ...
 }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   imports = [ inputs.diutalia.homeModules.default ];
 
   programs.diutalia-shell = {

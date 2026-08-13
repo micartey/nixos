@@ -1,7 +1,7 @@
 { pkgs-unstable, ... }:
 
-# @profile home
 {
+  profiles = [ "home" ];
   environment.systemPackages = [ pkgs-unstable.looking-glass-client ];
 }
 

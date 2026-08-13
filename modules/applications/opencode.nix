@@ -5,13 +5,13 @@
   ...
 }:
 
-# @profile default
 let
   secrets = import ../../lib/secrets.nix { inherit config lib; };
   user = meta.user.username;
 in
 
 {
+  profiles = [ "default" ];
   sops = secrets.mkTemplate "opencode/env" {
     owner = user;
     path = "/run/secrets/rendered/opencode/env";

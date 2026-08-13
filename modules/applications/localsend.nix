@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   environment.systemPackages = with pkgs; [ localsend ];
 
   networking.firewall = {

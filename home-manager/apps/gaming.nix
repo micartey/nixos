@@ -1,7 +1,7 @@
 { pkgs, pkgs-unstable, ... }:
 
-# @profile home
 {
+  profiles = [ "home" ];
   home.packages = [
     pkgs.lutris
     pkgs.protonup-qt

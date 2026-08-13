@@ -1,5 +1,5 @@
-# @profile default
 {
+  profiles = [ "default" ];
   virtualisation.docker = {
     enable = true;
 

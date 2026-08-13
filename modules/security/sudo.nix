@@ -1,6 +1,5 @@
 { meta, ... }:
 
-# @profile home
 let
   mkSudoCmd = options: command: {
     inherit command options;
@@ -15,6 +14,7 @@ let
   # ];
 in
 {
+  profiles = [ "home" ];
   security.sudo = {
     enable = true;
     extraRules = [

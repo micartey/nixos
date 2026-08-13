@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile default
 let
   shellAliases = {
     cat = "bat";
@@ -27,6 +26,7 @@ let
   };
 in
 {
+  profiles = [ "default" ];
   # zsh
   programs.zsh = {
     enable = true;

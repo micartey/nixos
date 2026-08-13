@@ -1,7 +1,7 @@
 { lib, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   networking.networkmanager = {
     enable = lib.mkDefault true;
     dns = "systemd-resolved";

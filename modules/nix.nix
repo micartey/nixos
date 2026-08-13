@@ -5,8 +5,8 @@
   ...
 }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   nix.settings = {
     experimental-features = [
       "nix-command"

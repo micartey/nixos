@@ -6,11 +6,11 @@
   ...
 }:
 
-# @profile default
 let
   inherit (config) sops;
 in
 {
+  profiles = [ "default" ];
   security.apparmor.enable = true;
 
   #

@@ -4,7 +4,6 @@
   ...
 }:
 
-# @profile home
 let
   tcpPorts = [
     7000
@@ -32,6 +31,7 @@ let
   '';
 in
 {
+  profiles = [ "home" ];
   environment.systemPackages = [ uxplay-wrapped ];
 
   services.avahi = {

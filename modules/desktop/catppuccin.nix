@@ -1,7 +1,7 @@
 { inputs, ... }:
 
-# @profile default
 {
+  profiles = [ "default" ];
   imports = [ inputs.catppuccin.nixosModules.catppuccin ];
 
   catppuccin = {
