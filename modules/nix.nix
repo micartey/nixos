@@ -7,8 +7,6 @@
 
 # @profile default
 {
-  imports = [ inputs.nix-ld.nixosModules.nix-ld ];
-
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -38,7 +36,6 @@
 
   programs.nix-ld = {
     enable = true;
-    dev.enable = false;
   };
 
   environment.systemPackages = with pkgs; [
