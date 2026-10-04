@@ -16,7 +16,6 @@ let
   '';
 
   rime = inputs.rime.packages.${system}.default;
-  kicad-mcp = pkgs.callPackage ../../pkgs/kicad-mcp.nix { };
 in
 {
   profiles = [ "default" ];

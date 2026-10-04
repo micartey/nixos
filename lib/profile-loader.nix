@@ -47,7 +47,7 @@ let
         if builtins.isFunction module then
           # Profiles must be static metadata. Null values let us read them without
           # evaluating NixOS or Home Manager configuration below this field.
-          module (lib.mapAttrs (name: _: null) (builtins.functionArgs module))
+          module (lib.mapAttrs (_: _: null) (builtins.functionArgs module))
         else
           module;
       profiles =
