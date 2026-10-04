@@ -1,10 +1,6 @@
 { meta, pkgs, ... }:
 
 {
-  imports = [
-    ../../modules
-  ];
-
   hardware.i2c.enable = true;
 
   users.groups.vfio = { };

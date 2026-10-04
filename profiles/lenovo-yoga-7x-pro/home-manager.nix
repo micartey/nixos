@@ -4,8 +4,6 @@ let
   mkLua = lib.generators.mkLuaInline;
 in
 {
-  imports = [ ../../home-manager ];
-
   wayland.windowManager.hyprland.settings = {
     monitor = lib.mkForce [
       {

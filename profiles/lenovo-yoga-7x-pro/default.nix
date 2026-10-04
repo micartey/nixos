@@ -8,7 +8,6 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.lenovo-yoga-7-14ARH7-nvidia
-    ../../modules
   ];
 
   hardware.lenovoLegionLinux.enable = true;

@@ -4,10 +4,6 @@ let
   mkLua = lib.generators.mkLuaInline;
 in
 {
-  imports = [
-    ../../home-manager
-  ];
-
   wayland.windowManager.hyprland.settings = {
     env = [
       {
