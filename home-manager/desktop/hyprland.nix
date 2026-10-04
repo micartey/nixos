@@ -65,12 +65,6 @@ in
         }
         {
           _args = [
-            "NVD_BACKEND"
-            "direct"
-          ];
-        }
-        {
-          _args = [
             "XDG_CURRENT_DESKTOP"
             "Hyprland"
           ];
@@ -503,31 +497,6 @@ in
           ];
         }
 
-        # Toggle Network delay
-        {
-          _args = [
-            "${mainMod} + 1"
-            (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem delay 120ms\")")
-          ];
-        }
-        {
-          _args = [
-            "${mainMod} + 2"
-            (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem delay 10ms 50ms distribution normal loss 20%\")")
-          ];
-        }
-        {
-          _args = [
-            "${mainMod} + 3"
-            (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc add dev enp14s0 root netem loss 100%\")")
-          ];
-        }
-        {
-          _args = [
-            "${mainMod} + 0"
-            (mkLua "hl.dsp.exec_cmd(\"sudo tc qdisc del dev enp14s0 root\")")
-          ];
-        }
       ];
 
       window_rule = [

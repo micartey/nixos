@@ -1,15 +1,12 @@
 {
   inputs,
   pkgs,
-  stateVersion,
   meta,
   ...
 }:
 
 {
   profiles = [ "default" ];
-
-  system.stateVersion = stateVersion;
 
   nix.settings = {
     experimental-features = [
