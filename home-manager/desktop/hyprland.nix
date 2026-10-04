@@ -16,6 +16,8 @@ let
   };
 in
 {
+  profiles = [ "default" ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";

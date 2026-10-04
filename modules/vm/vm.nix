@@ -1,6 +1,8 @@
 { pkgs, meta, ... }:
 
 {
+  profiles = [ "default" ];
+
   virtualisation = {
     libvirtd = {
       enable = true;

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  profiles = [ "default" ];
+
   security = {
     polkit.enable = true;
   };

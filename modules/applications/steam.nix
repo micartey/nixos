@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  profiles = [ "home" ];
+
   programs.steam = {
     enable = true;
 

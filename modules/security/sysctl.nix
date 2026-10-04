@@ -3,6 +3,8 @@
 }:
 
 {
+  profiles = [ "default" ];
+
   security.unprivilegedUsernsClone = true;
 
   boot.kernel.sysctl = {

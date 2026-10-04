@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  profiles = [ "default" ];
+
   # waybar
   programs.waybar = {
     enable = false;

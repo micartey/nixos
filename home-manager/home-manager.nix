@@ -5,6 +5,8 @@
 }:
 
 {
+  profiles = [ "default" ];
+
   programs.home-manager.enable = true;
   home = {
     stateVersion = stateVersion;

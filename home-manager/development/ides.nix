@@ -6,6 +6,8 @@
 }:
 
 {
+  profiles = [ "default" ];
+
   home.packages = [
     # jetbrains
     pkgs-unstable.jetbrains.idea

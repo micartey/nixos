@@ -7,7 +7,7 @@
 }:
 
 {
-  imports = [ inputs.nix-ld.nixosModules.nix-ld ];
+  profiles = [ "default" ];
 
   system.stateVersion = stateVersion;
 
@@ -40,7 +40,6 @@
 
   programs.nix-ld = {
     enable = true;
-    dev.enable = false;
   };
 
   environment.systemPackages = with pkgs; [

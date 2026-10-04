@@ -7,8 +7,8 @@
 let
   version = "4.0.0-alpha";
   jar = fetchurl {
-    url = "https://github.com/Col-E/Recaf/releases/download/${version}/recaf-4x-alpha-linux-86x64.jar";
-    hash = "sha256-XJcPOr0lnCc+cDk88ipcr6toCdrSuC6rO1mLMdJOxmo=";
+    url = "https://github.com/Col-E/Recaf/releases/download/${version}/recaf-4x-alpha-linux-86-x64.jar";
+    hash = "sha256-zVf6+dbu1MP+gFRSngjHQwizwsBRJTlnYjrlLR3kVBA=";
   };
 
   javaWithFx = pkgs.zulu25.override { enableJavaFX = true; };

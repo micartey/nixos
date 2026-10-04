@@ -10,6 +10,8 @@ let
 
     fernunivpn = "openconnect --protocol=anyconnect -u $(cat ~/.fernuni-hagen/matrikelnummer.txt) vpn.fernuni-hagen.de";
 
+    reconnect = "nmcli networking off && nmcli networking on";
+
     s = "nix-shell --run zsh -p";
 
     "?" = "opencode run";
@@ -41,6 +43,8 @@ let
   };
 in
 {
+  profiles = [ "default" ];
+
   # zsh
   programs.zsh = {
     enable = true;
@@ -53,9 +57,7 @@ in
     autosuggestion.enable = true;
 
     initContent = ''
-      hyprland_marker="/tmp/hyprland-started-$UID"
-      if [ "$(tty)" = "/dev/tty1" ] && [ ! -e "$hyprland_marker" ]; then
-        : > "$hyprland_marker"
+      if [ "$(tty)" = "/dev/tty1" ] && mkdir "/run/user/$UID/hyprland-started" 2>/dev/null; then
         exec Hyprland &> /tmp/hyprland.log
       fi
 

@@ -5,5 +5,7 @@ let
   viro = inputs.viro.packages.${system}.default;
 in
 {
+  profiles = [ "default" ];
+
   environment.systemPackages = [ viro ];
 }

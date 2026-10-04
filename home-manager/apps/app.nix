@@ -5,6 +5,8 @@
 }:
 
 {
+  profiles = [ "default" ];
+
   # gpg key manager
   programs.gpg.enable = true;
 

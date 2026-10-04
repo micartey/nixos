@@ -1,6 +1,8 @@
 { config, ... }:
 
 {
+  profiles = [ "default" ];
+
   xdg = {
     enable = true;
 

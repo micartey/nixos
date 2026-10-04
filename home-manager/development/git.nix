@@ -1,6 +1,8 @@
 { meta, ... }:
 
 {
+  profiles = [ "default" ];
+
   # fancier git diff
   programs.delta = {
     enable = true;

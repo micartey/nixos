@@ -1,4 +1,6 @@
 {
+  profiles = [ "default" ];
+
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

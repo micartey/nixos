@@ -1,4 +1,10 @@
 { pkgs, ... }:
+
 {
-  environment.systemPackages = with pkgs; [ nautilus ];
+  profiles = [ "default" ];
+
+  environment.systemPackages = with pkgs; [
+    nautilus
+    ffmpegthumbnailer
+  ];
 }

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  profiles = [ "default" ];
+
   catppuccin.mpv.enable = false; # This needs to be disabled for mpvconf to be written
   programs.mpv.enable = true;
 

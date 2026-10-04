@@ -1,4 +1,6 @@
 {
+  profiles = [ "default" ];
+
   virtualisation.docker = {
     enable = true;
 

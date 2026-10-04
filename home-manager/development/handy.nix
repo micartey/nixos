@@ -11,6 +11,8 @@ let
   mkLua = lib.generators.mkLuaInline;
 in
 {
+  profiles = [ "default" ];
+
   home.packages = [
     inputs.handy.packages.${pkgs.system}.default
 

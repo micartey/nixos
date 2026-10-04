@@ -15,29 +15,69 @@
 
 ```
 .
+├── bin
+│   └── helper scripts for installation, VMs and diagnostics
 ├── dots
-│   └── dotfiles, e.g. mpv, oh-my-posh, ...
+│   └── dotfiles, e.g. Firefox, MPV, Oh My Posh and wallpapers
 ├── home-manager
 │   ├── apps
-│   │   └── some applications
+│   │   └── application configuration and user packages
 │   ├── desktop
-│   │   └── desktop related things
-│   ├── develpment
-│   │   └── sdks, ideas and everything related to development
-│   └── shared config for both desktop and headless hosts
+│   │   └── Hyprland and desktop environment configuration
+│   ├── development
+│   │   └── editors, SDKs, shell and development tools
+│   └── automatically loaded Home Manager modules
 ├── hosts
-│   ├── desktops
-│   │   ├── home
-│   │   │   └── NixOS config for my home desktop host
-│   │   └── shared config for all desktop hosts
+│   ├── home
+│   │   └── machine identity, boot and hardware configuration for home desktop
+│   ├── lenovo-yoga-7x-pro
+│   │   └── machine identity, boot and hardware configuration for laptop
 │   ├── img
-│   │   └── NixOS config for iso file generation
-│   └── shared config for both desktop and server hosts
+│   │   └── NixOS configuration for ISO generation
+│   └── shared host and graphical configuration
+├── lib
+│   └── shared helpers, including profile-aware module loading
 ├── modules
-│   └── NixOS modules for various services and apps
+│   └── automatically loaded NixOS modules for services, apps and drivers
+├── patches
+│   └── local source patches
+├── pkgs
+│   └── custom package definitions
+├── profiles
+│   ├── home
+│   │   └── home-only NixOS and Home Manager settings
+│   └── lenovo-yoga-7x-pro
+│       └── laptop-only NixOS and Home Manager settings
 ├── secrets
-│   └── sops secret files
+├── flake.nix
+└── justfile
 ```
+
+Files below `modules` and `home-manager` use a typed module descriptor to declare where they load:
+
+```nix
+{
+  profiles = [ "default" ];
+
+  # ...
+}
+```
+
+`default` loads on both systems. `home` and `lenovo` load only on matching host. 
+Multiple profile values may be used on one file. `profiles` accepts only valid profile names.
+
+`profiles` is an internal typed option. Module functions, `imports`, and custom `options` retain normal behavior.
+
+## Secrets
+
+To edit secrets, please run:
+
+```bash
+export EDITOR=vim
+sops secrets/secrets.yaml
+```
+
+If this is your first setup, please read the README in secrets first!
 
 ## Create a Live-ISO
 
