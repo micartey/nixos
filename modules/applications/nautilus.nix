@@ -3,5 +3,8 @@
 {
   profiles = [ "default" ];
 
-  environment.systemPackages = with pkgs; [ nautilus ];
+  environment.systemPackages = with pkgs; [
+    nautilus
+    ffmpegthumbnailer
+  ];
 }
