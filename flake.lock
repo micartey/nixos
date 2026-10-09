@@ -116,11 +116,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791225806,
-        "narHash": "sha256-bIZ1PI8bqRbKQsIhQkeXh1cQDSRe2bvxY836MJsFs5s=",
+        "lastModified": 1791487260,
+        "narHash": "sha256-kkxRsRtl30zVy09+QcQxkOLh7fSPuw+fjgX62/qtpAA=",
         "owner": "micartey",
         "repo": "diutalia",
-        "rev": "fb065858dc8aac929f4e51f95c8c397cbd8446f4",
+        "rev": "b0cb685aeef4d0c8fe9871ada12e0211bf4a41e2",
         "type": "github"
       },
       "original": {
@@ -623,11 +623,11 @@
     },
     "nixpkgs-edge": {
       "locked": {
-        "lastModified": 1784007870,
-        "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
+        "lastModified": 1791260994,
+        "narHash": "sha256-Miqqk/ammqnTUxaoCyvtwoPeLbI1ksFyLxi/CazZpWY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
+        "rev": "151fa4e8ddfdd8dd25d945ad94ed54a13de9f6e4",
         "type": "github"
       },
       "original": {

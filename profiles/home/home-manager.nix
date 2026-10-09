@@ -40,6 +40,25 @@ in
         ];
       }
     ];
+
+    window_rule = [
+      # Vesktop (Discord)
+      {
+        match.initial_class = "vesktop";
+        float = true;
+      }
+      {
+        match.initial_class = "vesktop";
+        size = [
+          2549
+          1123
+        ];
+      }
+      {
+        match.initial_class = "vesktop";
+        center = true;
+      }
+    ];
   };
 
   programs.zsh.shellAliases = {
