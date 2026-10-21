@@ -177,6 +177,9 @@
     background-image: none !important;
     box-shadow: none !important;
 }
+#PersonalToolbar {
+    border-bottom: none !important;
+}
 #nav-bar {
     margin-left: 3px;
 }
@@ -206,6 +209,9 @@ toolbox {
 /*  Removes annoying border  */
 #navigator-toolbox {
     border: none !important;
+}
+#navigator-toolbox::after {
+    border-bottom: none !important;
 }
 
 /* Fades window while not in focus */

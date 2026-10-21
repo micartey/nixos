@@ -80,11 +80,13 @@ in
     '';
 
     settings = {
-      plugin = [
-        "opencode-wakatime@1.1.0"
-        "@slkiser/opencode-quota@latest"
-        "@mumme-it/opencode-caveman@0.2.0"
+      plugins = [
+        "opencode-wakatime@1.4.0"
+        "@slkiser/opencode-quota@5.0.3"
+        "@mumme-it/opencode-caveman@1.0.3"
       ];
+
+      experimental.quotaToast.tuiSidebarPanel.formatStyle = "allWindows";
 
       # lsp = true;
 
@@ -227,8 +229,7 @@ in
 
     tui = {
       plugin = [
-        "opencode-wakatime@1.1.0"
-        "@slkiser/opencode-quota@latest"
+        "@slkiser/opencode-quota@5.0.3"
         # "@thelioo/opencode-balancer@latest"
       ];
     };

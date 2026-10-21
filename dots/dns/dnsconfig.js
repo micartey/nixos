@@ -16,6 +16,7 @@ D(
 
   // kvms
   A("node.sirius", "80.75.218.8"),
+  A("vpn.sirius", "100.105.80.77"),
   A("homepod", "100.72.132.37"),
 
   // kvm server
@@ -43,8 +44,8 @@ D(
   CNAME("cardinal", "node.sirius.micartey.dev."),
 
   // git
-  CNAME("gitlab", "node.sirius.micartey.dev."),
-  CNAME("registry", "node.sirius.micartey.dev."),
+  CNAME("gitlab", "vpn.sirius.micartey.dev."),
+  CNAME("registry", "vpn.sirius.micartey.dev."),
   CNAME("pages", "node.sirius.micartey.dev."),
 
   TXT("@", "v=spf1 include:_spf.mx.cloudflare.net ~all"),
