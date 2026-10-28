@@ -68,6 +68,16 @@ Multiple profile values may be used on one file. `profiles` accepts only valid p
 
 `profiles` is an internal typed option. Module functions, `imports`, and custom `options` retain normal behavior.
 
+## Lenovo NVIDIA GPU offload
+
+The Lenovo Yoga profile uses NVIDIA PRIME offload. The integrated AMD GPU handles normal applications. Launch an application on the NVIDIA GPU with `nvidia-offload`:
+
+```bash
+nvidia-offload blender
+```
+
+The imported `nixos-hardware` profile provides this command through `hardware.nvidia.prime.offload.enableOffloadCmd = true`. The Lenovo profile also enables fine-grained NVIDIA power management, which allows the discrete GPU to enter a low-power state when no application uses it.
+
 ## Secrets
 
 To edit secrets, please run:

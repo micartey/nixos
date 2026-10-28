@@ -8,7 +8,7 @@ lenovo-switch:
     sudo nixos-rebuild switch --flake .#lenovo-yoga-7x-pro
 
 host-switch host:
-    sudo nixos-rebuild switch --flake .#{{host}}
+    sudo nixos-rebuild switch --flake .#{{ host }}
 
 bluetooth-start:
     rfkill unblock bluetooth
@@ -110,11 +110,16 @@ iso-upload:
     nix run nixpkgs#gdrive3 files upload nixos-$(date +%d.%m.%Y).iso
 
 # Since 26.05 I have issues with my USB hub and keyboard. Running this will restart the usb controller instead of needing to reboot
+
 # Finds mouse controller from sysfs or dead-controller message in kernel log. Pass PCI controller to override.
 fix-usb-controller controller="":
-    sudo ./bin/reset-usb-controller.sh {{controller}}
+    sudo ./bin/reset-usb-controller.sh {{ controller }}
 
 # Runtime check: TracerPid stays 0 while a process is actively straced.
+
 # Only meaningful after rebuild+reboot with the patch applied.
 verify-tracer-pid-hidden:
     ./bin/tracer-pid-test.sh
+
+size:
+    nh os info

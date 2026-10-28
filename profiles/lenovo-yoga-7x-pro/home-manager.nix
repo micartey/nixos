@@ -35,27 +35,6 @@ in
     ];
 
     workspace_rule = lib.mkForce [ ];
-
-    env = [
-      {
-        _args = [
-          "LIBVA_DRIVER_NAME"
-          "nvidia"
-        ];
-      }
-      {
-        _args = [
-          "__GLX_VENDOR_LIBRARY_NAME"
-          "nvidia"
-        ];
-      }
-      {
-        _args = [
-          "NVD_BACKEND"
-          "direct"
-        ];
-      }
-    ];
   };
 
   home.packages = with pkgs; [

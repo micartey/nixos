@@ -11,6 +11,7 @@
   ];
 
   hardware.lenovoLegionLinux.enable = true;
+  hardware.nvidia.powerManagement.finegrained = true;
   hardware.bluetooth.powerOnBoot = lib.mkForce false;
   services.upower.enable = true;
 
