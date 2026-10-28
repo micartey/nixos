@@ -19,10 +19,6 @@
   };
 
   boot = {
-    kernelModules = [
-      "nct6775"
-      "coretemp"
-    ];
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
